@@ -1,0 +1,42 @@
+import React from "react";
+import { connect } from "react-redux";
+
+import { getLanesAsync, clearLanes } from "../../redux/lane/lane.actions";
+import { selectLanesByBoardId } from "../../redux/lane/lane.selectors";
+import { LaneListContainer } from "./lane-list.styles";
+import Lane from "../lane/lane.component";
+import AddLane from "../add-lane/add-lane.component";
+import { selectToken } from "../../redux/user/user.selectors";
+
+class LaneList extends React.Component {
+  componentDidMount() {
+    const { getLanes, boardId, token } = this.props;
+    getLanes(boardId, token);
+  }
+
+  render() {
+    const { lanes, boardId } = this.props;
+    return (
+      <div>
+        <LaneListContainer style={{ "padding-bottom": "9px" }}>
+          {lanes.map((lane) => (
+            <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
+          ))}
+        </LaneListContainer>
+        <AddLane boardId={boardId} />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  lanes: selectLanesByBoardId(ownProps.boardId)(state),
+  token: selectToken(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getLanes: (boardId, token) => dispatch(getLanesAsync(boardId, token)),
+  clearLanes: () => dispatch(clearLanes()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LaneList);

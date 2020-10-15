@@ -1,0 +1,5 @@
+node_modules
+build
+npm-debug.log
+production.env
+.DS_Store
