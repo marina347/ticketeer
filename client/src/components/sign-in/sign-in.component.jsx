@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 
 import { getTokenAsync } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import EnvVariables from "../../env-variables";
 
 class SignIn extends React.Component {
   signInSuccess = (response) => {
@@ -47,7 +48,7 @@ class SignIn extends React.Component {
           </p>
           <br></br>
           <GoogleLogin
-            clientId="196937089384-j3mndf89mc21ki77h8uqfvppat68blk1.apps.googleusercontent.com"
+            clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
             buttonText="Login"
             onSuccess={this.signInSuccess}
             onFailure={this.signInFailure}

@@ -9,6 +9,7 @@ import {
   selectCurrentUser,
   selectToken,
 } from "../../redux/user/user.selectors";
+import EnvVariables from '../../env-variables';
 
 class SignOut extends React.Component {
   signOut = (response) => {
@@ -27,7 +28,7 @@ class SignOut extends React.Component {
       <div>
         {/*
         <GoogleLogout
-          clientId="196937089384-j3mndf89mc21ki77h8uqfvppat68blk1.apps.googleusercontent.com"
+          clientId={EnvVariables.GOOGLE_AUDIENCE}
           buttonText="Logout"
           onLogoutSuccess={() => removeToken(token, history)}
           isSignedIn={true}
