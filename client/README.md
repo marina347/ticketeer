@@ -73,6 +73,6 @@ Create local.env and put env variables inside.
 Example of local.env:
 
 ```bash
-SERVER_PATH=http://host.docker.internal:3001
-GOOGLE_AUDIENCE=audience_secret.apps.googleusercontent.com
+REACT_APP_SERVER_PATH=http://host.docker.internal:3001
+REACT_APP_GOOGLE_AUDIENCE=audience_secret.apps.googleusercontent.com
 ```
