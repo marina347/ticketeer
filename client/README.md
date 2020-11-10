@@ -66,3 +66,13 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Local setup
+
+Create local.env and put env variables inside.
+Example of local.env:
+
+```bash
+REACT_APP_SERVER_PATH=http://host.docker.internal:3001
+REACT_APP_GOOGLE_AUDIENCE=audience_secret.apps.googleusercontent.com
+```

@@ -1,4 +1,5 @@
 import UserTypes from "./user.types";
+import EnvVariables from "../../env-variables";
 
 export const signInStart = () => ({
   type: UserTypes.SIGN_IN_START,
@@ -86,6 +87,7 @@ export const signInStartAsync = (user, history) => {
 export const getTokenAsync = (user, history, tokenId) => {
   return async (dispatch) => {
     dispatch(getTokenStart());
+    console.log( `${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`);
     try {
       const requestOptions = {
         method: "POST",
@@ -95,9 +97,10 @@ export const getTokenAsync = (user, history, tokenId) => {
         body: JSON.stringify({ googleToken: tokenId }),
       };
       const response = await fetch(
-        `http://localhost:3001/users/googleAuth`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`,
         requestOptions
       );
+      
       const jsonResponse = await response.json();
       dispatch(getTokenSuccess(jsonResponse.token));
       dispatch(signInStartAsync(user, history));
@@ -120,7 +123,7 @@ export const removeTokenAsync = (token, history) => {
         body: JSON.stringify({ token }),
       };
       const response = await fetch(
-        `http://localhost:3001/users/logout`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/users/logout`,
         requestOptions
       );
       if (response.status !== 200) {

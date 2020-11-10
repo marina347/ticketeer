@@ -1,4 +1,5 @@
 import TicketTypes from "./ticket.types";
+import EnvVariables from "../../env-variables";
 
 export const getTicketsStart = () => ({
   type: TicketTypes.GET_TICKETS_START,
@@ -53,7 +54,7 @@ export const getTicketsAsync = (boardId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/tickets/${boardId}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/tickets/${boardId}`,
         requestOptions
       );
       const tickets = await response.json();
@@ -83,7 +84,7 @@ export const updateTicketAsync = (ticket, token) => {
         }),
       };
       const response = await fetch(
-        `http://localhost:3001/tickets/${ticket._id}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/tickets/${ticket._id}`,
         requestOptions
       );
       const responseJson = await response.json();
@@ -113,7 +114,7 @@ export const addTicketAsync = (ticket, token) => {
         }),
       };
       const response = await fetch(
-        "http://localhost:3001/tickets",
+        `${EnvVariables.REACT_APP_SERVER_PATH}/tickets`,
         requestOptions
       );
       const responseJson = await response.json();

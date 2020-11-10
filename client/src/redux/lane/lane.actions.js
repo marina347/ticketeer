@@ -1,4 +1,5 @@
 import LanesTypes from "./lane.types";
+import EnvVariables from "../../env-variables";
 
 export const getLanesStart = () => ({
   type: LanesTypes.GET_LANES_START,
@@ -57,7 +58,7 @@ export const getLanesAsync = (boardId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/lanes/${boardId}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/lanes/${boardId}`,
         requestOptions
       );
 
@@ -82,7 +83,7 @@ export const addLaneAsync = (name, boardId, token) => {
         body: JSON.stringify({ name: name, boardId: boardId }),
       };
       const response = await fetch(
-        `http://localhost:3001/lanes`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/lanes`,
         requestOptions
       );
       const jsonResponse = await response.json();
@@ -105,7 +106,7 @@ export const deleteLaneAsync = (laneId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/lanes/${laneId}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/lanes/${laneId}`,
         requestOptions
       );
       const jsonResponse = await response.json();

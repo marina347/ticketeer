@@ -1,4 +1,5 @@
 import BoardTypes from "./board.types";
+import EnvVariables from "../../env-variables";
 
 export const getBoards = (boards) => ({
   type: BoardTypes.GET_BOARDS,
@@ -109,7 +110,7 @@ export const getBoardsAsync = (token) => {
         },
       };
       const response = await fetch(
-        "http://localhost:3001/boards",
+        `${EnvVariables.REACT_APP_SERVER_PATH}/boards`,
         requestOptions
       );
       const responseJson = await response.json();
@@ -133,7 +134,7 @@ export const addBoardAsync = (boardItem, token) => {
         body: JSON.stringify({ ...boardItem }),
       };
       const response = await fetch(
-        "http://localhost:3001/boards",
+        `${EnvVariables.REACT_APP_SERVER_PATH}/boards`,
         requestOptions
       );
       const board = await response.json();
@@ -155,7 +156,7 @@ export const generateHashedBoardId = (boardId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/boards/make-invite/${boardId}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/boards/make-invite/${boardId}`,
         requestOptions
       );
       const jsonResponse = await response.json();
@@ -179,7 +180,7 @@ export const joinBoardAsync = (hashedBoardId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/boards/join-board/${hashedBoardId}`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/boards/join-board/${hashedBoardId}`,
         requestOptions
       );
       if (response.status !== 200) {
@@ -205,7 +206,7 @@ export const fetchBoardMembersAsync = (boardId, token) => {
         },
       };
       const response = await fetch(
-        `http://localhost:3001/boards/${boardId}/members`,
+        `${EnvVariables.REACT_APP_SERVER_PATH}/boards/${boardId}/members`,
         requestOptions
       );
       if (response.status !== 200) {

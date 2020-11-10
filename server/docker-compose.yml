@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+    app:
+        build: .
+        env_file:
+          - local.env
+        ports:
+            - 3001:3001
+        volumes:
+            - ./:/app/
+
+    db:
+      image: docker.io/bitnami/mongodb:4.4-debian-10
+      ports:
+          - 27017:27017
+      volumes:
+        - /root/mongodb-data:/bitnami/mongodb
+
