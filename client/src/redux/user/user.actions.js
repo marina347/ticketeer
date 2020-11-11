@@ -70,7 +70,8 @@ export const signInStartAsync = (user, history) => {
     try {
       dispatch(
         signInSuccess({
-          id: user.googleId,
+          _id: user._id,
+          id: user.sub,
           name: user.name,
           email: user.email,
         })
@@ -87,7 +88,7 @@ export const signInStartAsync = (user, history) => {
 export const getTokenAsync = (user, history, tokenId) => {
   return async (dispatch) => {
     dispatch(getTokenStart());
-    console.log( `${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`);
+    console.log(`${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`);
     try {
       const requestOptions = {
         method: "POST",
@@ -103,7 +104,7 @@ export const getTokenAsync = (user, history, tokenId) => {
       
       const jsonResponse = await response.json();
       dispatch(getTokenSuccess(jsonResponse.token));
-      dispatch(signInStartAsync(user, history));
+      dispatch(signInStartAsync(jsonResponse.user, history));
     } catch (error) {
       dispatch(getTokenFailure(error));
     }

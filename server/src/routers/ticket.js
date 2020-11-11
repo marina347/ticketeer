@@ -6,6 +6,7 @@ const auth = require("../middleware/auth");
 const Board = require("../models/board");
 const fkHelper = require("../utils/FKHelper");
 const User = require("../models/user");
+const Lane = require("../models/lane");
 
 const router = new express.Router();
 
@@ -16,8 +17,11 @@ router.post("/tickets", auth, async (req, res) => {
     if (!user) {
       return res.status(404).send();
     }
+    const lane = await Lane.findById(ticket.laneId);
     ticket.assigners = [{ assigner: user._id }];
     await ticket.save();
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
     res.send({ ticket });
   } catch (e) {
     res.status(500).send();
@@ -61,6 +65,9 @@ router.delete("/tickets/:id", auth, async (req, res) => {
     if (!ticket) {
       return res.status(404).send();
     }
+    const lane = await Lane.findById(ticket.laneId);
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("geTickets", req.user._id);
     res.send(ticket);
   } catch (error) {
     res.status(500).send(error);
@@ -93,6 +100,9 @@ router.patch("/tickets/:id", auth, async (req, res) => {
 
     propertiesToChange.forEach((prop) => (ticket[prop] = req.body[prop]));
     await ticket.save();
+    const lane = await Lane.findById(ticket.laneId);
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
     res.send({ ticket });
   } catch (error) {
     res.status(500).send(error);
