@@ -22,6 +22,10 @@ class TicketList extends React.Component {
     );
   }
 
+  componentWillUnmount(){
+    socket.off("getTickets");
+  }
+
   handleGetTickets = (initiatorOfRequestId) => {
     const { getTickets, boardId, token, userId } = this.props;
     if (userId != initiatorOfRequestId) {

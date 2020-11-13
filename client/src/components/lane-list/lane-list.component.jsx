@@ -20,6 +20,10 @@ class LaneList extends React.Component {
     });
   }
 
+  componentWillUnmount(){
+    socket.off("getLanes");
+  }
+
   handleGetLanes = (initiatorOfRequestId) => {
     const { getLanes, boardId, token, userId } = this.props;
     if (userId != initiatorOfRequestId) {
