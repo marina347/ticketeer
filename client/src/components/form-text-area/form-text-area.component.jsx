@@ -30,4 +30,4 @@ const FormTextArea = ({
   );
 };
 
-export default FormTextArea;
+export default React.memo(FormTextArea);

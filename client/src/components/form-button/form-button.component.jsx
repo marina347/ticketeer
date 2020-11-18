@@ -7,4 +7,4 @@ const FormButton = ({ children, isIconStyle, ...otherProps }) => (
   </FormButtonContainer>
 );
 
-export default FormButton;
+export default React.memo(FormButton);
