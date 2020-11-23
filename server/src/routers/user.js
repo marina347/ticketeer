@@ -2,7 +2,7 @@ const express = require("express");
 
 const User = require("../models/user");
 const auth = require("../middleware/auth");
-const verifyGoogleToken = require("../utils/googleAuth");
+//const verifyGoogleToken = require("../utils/googleAuth");
 
 const router = new express.Router();
 

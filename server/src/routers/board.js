@@ -21,12 +21,15 @@ router.get("/boards/make-invite/:boardId", auth, async (req, res) => {
 
 router.get("/boards/join-board/:boardId", auth, async (req, res) => {
   try {
-    var bytes = crypto.AES.decrypt(req.params.boardId, config.CRYPTO_KEY);
-    var originalBoardId = decodeURIComponent(bytes.toString(crypto.enc.Utf8));
+    var originalBoardId = crypto.AES.decrypt(
+      req.params.boardId,
+      config.CRYPTO_KEY
+    ).toString(crypto.enc.Utf8);
+
     const board = await Board.findById(originalBoardId);
 
     if (!board) {
-      res.status(404).send();
+      return res.status(404).send();
     }
 
     const alreadyExists = board.members.find((user) => {
@@ -52,8 +55,7 @@ router.get("/boards/join-board/:boardId", auth, async (req, res) => {
 router.get("/boards", auth, async (req, res) => {
   try {
     const boards = await Board.find({ "members.member": req.user._id });
-
-    if (!boards) {
+    if (!boards || boards.length === 0) {
       return res.status(404).send();
     }
 
@@ -69,7 +71,6 @@ router.post("/boards", auth, async (req, res) => {
     creator: req.user._id,
   });
   board.members = board.members.concat({ member: req.user._id });
-
   try {
     await board.save();
     res.send(board);
