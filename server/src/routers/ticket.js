@@ -7,23 +7,23 @@ const Board = require("../models/board");
 const fkHelper = require("../utils/FKHelper");
 const User = require("../models/user");
 const Lane = require("../models/lane");
+const config = require("../../config");
 
 const router = new express.Router();
 
 router.post("/tickets", auth, async (req, res) => {
   try {
     const ticket = new Ticket({ ...req.body, createDate: new Date() });
-    const user = await User.findOne({ sub: req.body.creator });
-    if (!user) {
-      return res.status(404).send();
-    }
     const lane = await Lane.findById(ticket.laneId);
-    ticket.assigners = [{ assigner: user._id }];
+    ticket.assigners = [{ assigner: req.user._id }];
     await ticket.save();
-    const io = require("../utils/io").getIO();
-    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+    if (!config.SOCKETS_DISABLED) {
+      const io = require("../utils/io").getIO();
+      io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+    }
     res.send({ ticket });
   } catch (e) {
+    console.log(e);
     res.status(500).send();
   }
 });
@@ -66,8 +66,10 @@ router.delete("/tickets/:id", auth, async (req, res) => {
       return res.status(404).send();
     }
     const lane = await Lane.findById(ticket.laneId);
-    const io = require("../utils/io").getIO();
-    io.to(lane.boardId.toString()).emit("geTickets", req.user._id);
+    if (!config.SOCKETS_DISABLED) {
+      const io = require("../utils/io").getIO();
+      io.to(lane.boardId.toString()).emit("geTickets", req.user._id);
+    }
     res.send(ticket);
   } catch (error) {
     res.status(500).send(error);
@@ -99,10 +101,12 @@ router.patch("/tickets/:id", auth, async (req, res) => {
     }
 
     propertiesToChange.forEach((prop) => (ticket[prop] = req.body[prop]));
-    await ticket.save();
     const lane = await Lane.findById(ticket.laneId);
-    const io = require("../utils/io").getIO();
-    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+    await ticket.save();
+    if (!config.SOCKETS_DISABLED) {
+      const io = require("../utils/io").getIO();
+      io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+    }
     res.send({ ticket });
   } catch (error) {
     res.status(500).send(error);

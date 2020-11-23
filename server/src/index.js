@@ -4,10 +4,10 @@ const app = require("./app");
 
 const port = config.PORT;
 
-//const server = http.createServer(app);
+const server = http.createServer(app);
 
-//require("./utils/io")(server);
+require("./utils/io")(server);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log("Server is running");
 });

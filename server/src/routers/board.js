@@ -55,7 +55,7 @@ router.get("/boards/join-board/:boardId", auth, async (req, res) => {
 router.get("/boards", auth, async (req, res) => {
   try {
     const boards = await Board.find({ "members.member": req.user._id });
-    if (!boards || boards.length === 0) {
+    if (!boards) {
       return res.status(404).send();
     }
 

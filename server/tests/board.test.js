@@ -1,16 +1,16 @@
 const app = require("../src/app");
 const request = require("supertest");
 const crypto = require("crypto-js");
-const User = require("../src/models/user");
 const {
   userOne,
   setupDatabase,
   boardOne,
   boardTwo,
   userThree,
-  boardIdWhichIsNotInDb,
+  idWhichIsNotInDb,
 } = require("./common-data/data");
 const Board = require("../src/models/board");
+const config = require("../config");
 
 beforeEach(setupDatabase);
 
@@ -44,13 +44,6 @@ test("Should get boards of user", async () => {
     .set("Authorization", `Bearer ${userOne.tokens[0].token}`)
     .expect(200);
   expect(response.body.boards).not.toBeNull();
-});
-
-test("Should get no boards of user", async () => {
-  const response = await request(app)
-    .get("/boards")
-    .set("Authorization", `Bearer ${userThree.tokens[0].token}`)
-    .expect(404);
 });
 
 test("Should get boards of unauthorized user", async () => {
@@ -155,20 +148,18 @@ test("Should encode board id", async () => {
   var decodedBoardId = decodeURIComponent(response.body.hashedBoardId);
   var originalBoardId = crypto.AES.decrypt(
     decodedBoardId,
-    "my_crypto_key"
+    config.CRYPTO_KEY
   ).toString(crypto.enc.Utf8);
   expect(boardOne._id.toString()).toEqual(originalBoardId);
 });
 
 test("Should encode board id unathorized", async () => {
-  const response = await request(app)
-    .get(`/boards/make-invite/${boardOne._id}`)
-    .expect(401);
+  await request(app).get(`/boards/make-invite/${boardOne._id}`).expect(401);
 });
 
 test("Should decode encoded board id", async () => {
   const hashedBoardId = encodeURIComponent(
-    crypto.AES.encrypt(boardOne._id.toString(), "my_crypto_key").toString()
+    crypto.AES.encrypt(boardOne._id.toString(), config.CRYPTO_KEY).toString()
   );
   await request(app)
     .get(`/boards/join-board/${hashedBoardId}`)
@@ -181,7 +172,7 @@ test("Should decode encoded board id", async () => {
 
 test("Should decode encoded board id with unvalid path param", async () => {
   const hashedBoardId = encodeURIComponent(
-    crypto.AES.encrypt("testBoard", "my_crypto_key").toString()
+    crypto.AES.encrypt("testBoard", config.CRYPTO_KEY).toString()
   );
   await request(app)
     .get(`/boards/join-board/${hashedBoardId}`)
@@ -191,7 +182,7 @@ test("Should decode encoded board id with unvalid path param", async () => {
 
 test("Should decode encoded board id unauthorized", async () => {
   const hashedBoardId = encodeURIComponent(
-    crypto.AES.encrypt(boardOne._id.toString(), "my_crypto_key").toString()
+    crypto.AES.encrypt(boardOne._id.toString(), config.CRYPTO_KEY).toString()
   );
   await request(app).get(`/boards/join-board/${hashedBoardId}`).expect(401);
 });
@@ -199,8 +190,8 @@ test("Should decode encoded board id unauthorized", async () => {
 test("Should decode encoded non existing board id", async () => {
   const hashedBoardId = encodeURIComponent(
     crypto.AES.encrypt(
-      boardIdWhichIsNotInDb.toString(),
-      "my_crypto_key"
+      idWhichIsNotInDb.toString(),
+      config.CRYPTO_KEY
     ).toString()
   );
   await request(app)
@@ -211,7 +202,7 @@ test("Should decode encoded non existing board id", async () => {
 
 test("Should decode encoded existing board id two times", async () => {
   const hashedBoardId = encodeURIComponent(
-    crypto.AES.encrypt(boardOne._id.toString(), "my_crypto_key").toString()
+    crypto.AES.encrypt(boardOne._id.toString(), config.CRYPTO_KEY).toString()
   );
   await request(app)
     .get(`/boards/join-board/${hashedBoardId}`)
