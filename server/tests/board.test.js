@@ -13,6 +13,9 @@ const Board = require("../src/models/board");
 const config = require("../config");
 
 beforeEach(setupDatabase);
+beforeAll(async () => {
+  jest.setTimeout(30000);
+});
 
 test("Should create board for user", async () => {
   const response = await request(app)
