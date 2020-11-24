@@ -17,10 +17,10 @@ router.post("/lanes", auth, async (req, res) => {
       lane.boardId
     );
     await lane.save();
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
-    }
+
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
+
     res.send({ lane });
   } catch (error) {
     res.status(500).send(error);
@@ -60,10 +60,9 @@ router.delete("/lanes/:id", auth, async (req, res) => {
       lane.boardId
     );
 
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
-    }
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
+
     return res.send({ lane });
   } catch (error) {
     res.status(500).send(error);
@@ -97,10 +96,10 @@ router.patch("/lanes/:id", auth, async (req, res) => {
     );
     propertiesToChange.forEach((prop) => (lane[prop] = req.body[prop]));
     await lane.save();
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
-    }
+
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getLanes", req.user._id);
+
     res.send(lane);
   } catch (error) {
     res.status(500).send();

@@ -17,13 +17,11 @@ router.post("/tickets", auth, async (req, res) => {
     const lane = await Lane.findById(ticket.laneId);
     ticket.assigners = [{ assigner: req.user._id }];
     await ticket.save();
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
-    }
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+
     res.send({ ticket });
   } catch (e) {
-    console.log(e);
     res.status(500).send();
   }
 });
@@ -66,10 +64,10 @@ router.delete("/tickets/:id", auth, async (req, res) => {
       return res.status(404).send();
     }
     const lane = await Lane.findById(ticket.laneId);
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("geTickets", req.user._id);
-    }
+
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("geTickets", req.user._id);
+
     res.send(ticket);
   } catch (error) {
     res.status(500).send(error);
@@ -103,10 +101,10 @@ router.patch("/tickets/:id", auth, async (req, res) => {
     propertiesToChange.forEach((prop) => (ticket[prop] = req.body[prop]));
     const lane = await Lane.findById(ticket.laneId);
     await ticket.save();
-    if (!config.SOCKETS_DISABLED) {
-      const io = require("../utils/io").getIO();
-      io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
-    }
+
+    const io = require("../utils/io").getIO();
+    io.to(lane.boardId.toString()).emit("getTickets", req.user._id);
+
     res.send({ ticket });
   } catch (error) {
     res.status(500).send(error);

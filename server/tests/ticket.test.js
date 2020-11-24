@@ -11,6 +11,12 @@ const {
   ticketOne,
 } = require("./common-data/data");
 
+const { startServer, closeConnections } = require("./common-data/socket");
+
+beforeAll(startServer);
+
+afterAll(closeConnections);
+
 beforeEach(setupDatabase);
 
 test("Should add ticket to lane", async () => {

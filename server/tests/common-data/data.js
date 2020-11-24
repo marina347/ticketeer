@@ -10,6 +10,10 @@ const userOneId = new mongoose.Types.ObjectId();
 const userTwoId = new mongoose.Types.ObjectId();
 const userThreeId = new mongoose.Types.ObjectId();
 const idWhichIsNotInDb = new mongoose.Types.ObjectId();
+const tokenOfUserThatIsNotInDb = jwt.sign(
+  { _id: new mongoose.Types.ObjectId() },
+  config.JWT_SECRET
+);
 
 const userOne = {
   _id: userOneId,
@@ -135,5 +139,6 @@ module.exports = {
   ticketTwo,
   ticketThree,
   idWhichIsNotInDb,
+  tokenOfUserThatIsNotInDb,
   setupDatabase,
 };
