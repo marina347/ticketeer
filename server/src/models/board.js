@@ -31,7 +31,6 @@ const boardSchema = new mongoose.Schema({
       member: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        unique: true,
         ref: "User",
         validate: {
           async validator(value) {
