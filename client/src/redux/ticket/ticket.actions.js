@@ -108,9 +108,7 @@ export const addTicketAsync = (ticket, token) => {
         body: JSON.stringify({
           name: ticket.name,
           laneId: ticket.laneId,
-          assigners: ticket.assigners,
           tags: ticket.tags,
-          creator: ticket.creator,
         }),
       };
       const response = await fetch(

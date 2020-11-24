@@ -38,7 +38,7 @@ class Lane extends React.Component {
           <h2 className="nice-font lane-header">{name}</h2>
         </div>
         <TicketList boardId={boardId} laneId={_id} />
-        <AddTicket boardId={boardId} _id={_id} />
+        <AddTicket _id={_id} />
         <FormButton isIconStyle={true} onClick={() => deleteLane(_id, token)}>
           X
         </FormButton>
