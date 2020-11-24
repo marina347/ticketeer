@@ -12,8 +12,8 @@ class LoginTicket {
   getPayload() {
     return {
       sub: "11112333",
-      email: "marnica@gmail.com",
-      name: "Marnica",
+      email: "test@gmail.com",
+      name: "Marina",
     };
   }
 }
