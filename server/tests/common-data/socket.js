@@ -5,13 +5,12 @@ const app = require("../../src/app");
 const port = config.PORT;
 let server;
 
-const startServer = (done) => {
+const startServer = async () => {
   server = http.createServer(app);
   require("../../src/utils/io")(server);
   server.listen(port, () => {
     console.log("Server is running");
   });
-  done();
 };
 
 const closeConnections = async () => {
