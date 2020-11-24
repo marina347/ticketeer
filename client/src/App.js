@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import Header from "./components/header/header.component";
+import { Header } from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boudary.component";
 import PrivateRoute from "./components/private-route/private-route.component";
 import NotFound from "./components/not-found/not-found.component";

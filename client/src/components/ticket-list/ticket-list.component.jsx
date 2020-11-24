@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import { selectTicketsByLanes } from "../../redux/ticket/ticket.selectors";
 import { getTicketsAsync } from "../../redux/ticket/ticket.actions";
 import Ticket from "../ticket/ticket.component";
-import { selectToken } from "../../redux/user/user.selectors";
+import {
+  selectCurrentUserId,
+  selectToken,
+} from "../../redux/user/user.selectors";
+import { socket } from "../header/header.component";
 
 class TicketList extends React.Component {
   onDragStart = (event, id) => {
@@ -13,7 +17,22 @@ class TicketList extends React.Component {
   componentDidMount() {
     const { getTickets, boardId, token } = this.props;
     getTickets(boardId, token);
+    socket.on("getTickets", (initiatorOfRequestId) =>
+      this.handleGetTickets(initiatorOfRequestId)
+    );
   }
+
+  componentWillUnmount(){
+    socket.off("getTickets");
+  }
+
+  handleGetTickets = (initiatorOfRequestId) => {
+    const { getTickets, boardId, token, userId } = this.props;
+    if (userId != initiatorOfRequestId) {
+      getTickets(boardId, token);
+    }
+  };
+
   render() {
     const { tickets } = this.props;
     return tickets.map((ticket) => (
@@ -30,6 +49,7 @@ class TicketList extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   tickets: selectTicketsByLanes(ownProps.laneId)(state),
   token: selectToken(state),
+  userId: selectCurrentUserId(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
