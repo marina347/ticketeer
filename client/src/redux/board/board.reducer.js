@@ -8,8 +8,6 @@ const INITIAL_STATE = {
 
 const boards = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case BoardTypes.GET_BOARDS:
-      return { ...state, boardItems: action.boards };
     case BoardTypes.ADD_BOARD_START:
     case BoardTypes.GET_BOARDS_START:
     case BoardTypes.GENERATE_HASHED_BOARD_ID_START:
@@ -63,22 +61,9 @@ const boards = (state = INITIAL_STATE, action) => {
     case BoardTypes.JOIN_BOARD_FAILURE:
     case BoardTypes.FETCH_BOARD_MEMBERS_FAILURE:
       return { ...state, isLoading: false, error: action.error };
-    case BoardTypes.MOVE_TICKET:
-      return state.map((board) => helper(board, board.tasks, action));
     default:
       return state;
   }
-};
-
-const helper = (board, tickets, action) => {
-  return {
-    ...board,
-    tasks: tickets.map((ticket) =>
-      ticket.id === action.ticketId
-        ? { ...ticket, type: action.ticketType }
-        : ticket
-    ),
-  };
 };
 
 export default boards;
