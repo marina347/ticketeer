@@ -133,7 +133,7 @@ export const addBoardAsync = (boardItem, token) => {
   };
 };
 
-export const generateHashedBoardId = (boardId, token) => {
+export const generateHashedBoardIdAsync = (boardId, token) => {
   return async (dispatch) => {
     dispatch(generateHashedBoardIdStart());
     try {

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import FormButton from "../form-button/form-button.component";
-import { generateHashedBoardId } from "../../redux/board/board.actions";
+import { generateHashedBoardIdAsync } from "../../redux/board/board.actions";
 import { selectBoardLink } from "../../redux/board/board.selectors";
 import { selectToken } from "../../redux/user/user.selectors";
 import { InviteContainer } from "./invite-member.styles";
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   generateLink: (boardId, token) =>
-    dispatch(generateHashedBoardId(boardId, token)),
+    dispatch(generateHashedBoardIdAsync(boardId, token)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InviteMember);
