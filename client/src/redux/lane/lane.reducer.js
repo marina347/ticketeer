@@ -39,8 +39,6 @@ const lanes = (state = INITIAL_STATE, action) => {
     case LanesTypes.GET_LANES_FAILURE:
     case LanesTypes.DELETE_LANE_FAILURE:
       return { ...state, isLoading: false, error: action.error };
-    case LanesTypes.CLEAR_LANES:
-      return INITIAL_STATE;
     default:
       return state;
   }
