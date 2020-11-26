@@ -11,11 +11,6 @@ const mockLanes = [
   { _id: "1", boardId: "1", name: "Lane 1" },
   { _id: "2", boardId: "1", name: "Lane 2" },
 ];
-const mockBoardsWithLaneThree = [
-  { _id: "1", boardId: "1", name: "Lane 1" },
-  { _id: "2", boardId: "1", name: "Lane 2" },
-  { _id: "3", boardId: "1", name: "Lane 3" },
-];
 
 const stateWithLanes = {
   isLoading: false,
