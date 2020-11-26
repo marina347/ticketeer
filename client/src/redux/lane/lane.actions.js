@@ -15,10 +15,6 @@ export const getLanesFailure = (error) => ({
   error,
 });
 
-export const clearLanes = () => ({
-  type: LanesTypes.CLEAR_LANES,
-});
-
 export const addLaneStart = () => ({
   type: LanesTypes.ADD_LANE_START,
 });

@@ -1,11 +1,6 @@
 import BoardTypes from "./board.types";
 import EnvVariables from "../../env-variables";
 
-export const getBoards = (boards) => ({
-  type: BoardTypes.GET_BOARDS,
-  boards,
-});
-
 export const getBoardsStart = () => ({
   type: BoardTypes.GET_BOARDS_START,
 });
@@ -90,13 +85,6 @@ export const fetchBoardMembersSuccess = (boardId, members) => ({
 export const fetchBoardMembersFailure = (error) => ({
   type: BoardTypes.FETCH_BOARD_MEMBERS_FAILURE,
   error,
-});
-
-export const moveTicket = (boardId, ticketId, ticketType) => ({
-  type: BoardTypes.MOVE_TICKET,
-  boardId,
-  ticketId,
-  ticketType,
 });
 
 export const getBoardsAsync = (token) => {

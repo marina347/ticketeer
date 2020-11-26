@@ -26,15 +26,18 @@ const lanes = (state = INITIAL_STATE, action) => {
         error: null,
         isLoading: false,
       };
-      case LanesTypes.DELETE_LANE_SUCCESS:
-        return {
-          ...state,
-          laneItems: state.laneItems.filter(laneItem => laneItem._id !== action.lane._id),
-          error:null,
-          isLoading:false
-        }
+    case LanesTypes.DELETE_LANE_SUCCESS:
+      return {
+        ...state,
+        laneItems: state.laneItems.filter(
+          (laneItem) => laneItem._id !== action.lane._id
+        ),
+        error: null,
+        isLoading: false,
+      };
     case LanesTypes.ADD_LANE_FAILURE:
     case LanesTypes.GET_LANES_FAILURE:
+    case LanesTypes.DELETE_LANE_FAILURE:
       return { ...state, isLoading: false, error: action.error };
     case LanesTypes.CLEAR_LANES:
       return INITIAL_STATE;
