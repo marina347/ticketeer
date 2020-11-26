@@ -36,7 +36,7 @@ class LaneList extends React.Component {
     const { lanes, boardId } = this.props;
     return (
       <div>
-        <LaneListContainer style={{ "padding-bottom": "9px" }}>
+        <LaneListContainer style={{ paddingBottom: "9px" }}>
           {lanes.map((lane) => (
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}

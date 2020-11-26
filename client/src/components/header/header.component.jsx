@@ -31,7 +31,7 @@ class HeaderComponent extends React.Component {
         <HeaderContainer>
           <SignOut />
           <FormButton
-            style={{ "margin-right": "10px" }}
+            style={{ marginRight: "10px" }}
             onClick={() => history.push("/home")}
           >
             Home

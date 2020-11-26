@@ -12,8 +12,8 @@ const BoardPage = ({ board, isLoading }) => {
       <h1
         style={{
           margin: "30px",
-          "margin-left": "100px",
-          "font-family": "Nunito",
+          marginLeft: "100px",
+          fontFamily: "Nunito",
         }}
       >
         {board ? board.name : ""}
