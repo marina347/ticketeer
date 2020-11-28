@@ -4,11 +4,10 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import { BoardItemContainer } from "./board-item.styles";
 import { selectBoard } from "../../redux/board/board.selectors";
-import { selectToken } from "../../redux/user/user.selectors";
 
 const MAX_LENGTH = 28;
 
-const BoardItem = ({ history, match, _id, board }) => {
+export const BoardItem = ({ history, match, _id, board }) => {
   return (
     <Tooltip
       title={
@@ -23,7 +22,7 @@ const BoardItem = ({ history, match, _id, board }) => {
       <BoardItemContainer
         onClick={() => history.push(`${match.url}/boards/${_id}`)}
       >
-        <p>
+        <p id="board_name_text">
           {board.name.length > 20
             ? `${board.name.substring(0, MAX_LENGTH)}...`
             : board.name}
@@ -35,7 +34,6 @@ const BoardItem = ({ history, match, _id, board }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   board: selectBoard(ownProps._id)(state) || null,
-  token: selectToken,
 });
 
 export default connect(mapStateToProps)(BoardItem);

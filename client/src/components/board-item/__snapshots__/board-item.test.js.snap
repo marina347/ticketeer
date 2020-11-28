@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoardItem component Should render BoardItem component 1`] = `
+<WithStyles(ForwardRef(Tooltip))
+  placement="top"
+  title={
+    <div
+      style={
+        Object {
+          "fontSize": "16px",
+        }
+      }
+    >
+      <p>
+        Board1
+      </p>
+      <br />
+      <p />
+    </div>
+  }
+>
+  <BoardItemContainer
+    onClick={[Function]}
+  >
+    <p
+      id="board_name_text"
+    >
+      Board1
+    </p>
+  </BoardItemContainer>
+</WithStyles(ForwardRef(Tooltip))>
+`;

@@ -26,3 +26,5 @@ export const BoardItemContainer = styled.div`
     padding: 30px;
   }
 `;
+
+BoardItemContainer.displayName = "BoardItemContainer";
