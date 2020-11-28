@@ -8,28 +8,32 @@ import { AddLaneContainer } from "../add-lane/add-lane.styles";
 import { addLaneAsync } from "../../redux/lane/lane.actions";
 import { selectToken } from "../../redux/user/user.selectors";
 
-class AddLane extends React.Component {
-  state = {
-    laneName: "",
-  };
-
+export class AddLane extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      laneName: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit(event) {
     const { boardId, addLane, token } = this.props;
     event.preventDefault();
     addLane(this.state.laneName, boardId, token);
     this.setState({ laneName: "" });
-  };
+  }
 
   render() {
     return (
       <AddLaneContainer>
-        <form onSubmit={this.handleSubmit}>
+        <form id="add_lane_form" onSubmit={this.handleSubmit}>
           <FormInput
+            id="add_lane_input"
             label="Add lane"
             type="text"
             name="laneName"
