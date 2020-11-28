@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTextArea component Should render FormTextArea component 1`] = `
+<div>
+  <FormTextAreaLabel>
+    label
+  </FormTextAreaLabel>
+  <br />
+  <FormTextAreaItem
+    additionalStylesApplied={true}
+    onChange={[MockFunction]}
+    placeholder="Board item"
+    value="text"
+  />
+</div>
+`;

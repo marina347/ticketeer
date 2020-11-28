@@ -21,7 +21,7 @@ describe("FormInput component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("Should call handleChange merhod when input changes", () => {
+  it("Should call handleChange method when input changes", () => {
     wrapper.find("FormInputItem").simulate("change");
     expect(mockHandleChange).toHaveBeenCalled();
   });

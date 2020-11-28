@@ -19,10 +19,15 @@ export const FormTextAreaAdditionalStyles = css`
 
 export const FormTextAreaItem = styled.textarea`
   ${FormTextAreaStyles}
-  ${props => (props.additionalStylesApplied ? FormTextAreaAdditionalStyles : '')};
+  ${(props) =>
+    props.additionalStylesApplied ? FormTextAreaAdditionalStyles : ""};
 `;
+
+FormTextAreaItem.displayName = "FormTextAreaItem";
 
 export const FormTextAreaLabel = styled.label`
   ${FormTextAreaStyles}
   font-size: 20px;
 `;
+
+FormTextAreaLabel.displayName = "FormTextAreaLabel";
