@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTicket component Should render AddTicket component 1`] = `
+<AddTicket
+  addTicket={[MockFunction]}
+  currentUser={
+    Object {
+      "id": "1",
+    }
+  }
+>
+  <AddTicketItemContainer>
+    <div
+      className="sc-eCssSg eKEGaK"
+    >
+      <form
+        id="add_ticket_form"
+        onSubmit={[Function]}
+      >
+        <FormTextArea
+          cols={20}
+          id="add_ticket_input"
+          label="Add ticket"
+          name="ticketName"
+          onChange={[Function]}
+          rows={2}
+          value=""
+        >
+          <div>
+            <FormTextAreaLabel>
+              <label
+                className="sc-gsTCUz bFJjBo"
+              >
+                Add ticket
+              </label>
+            </FormTextAreaLabel>
+            <br />
+            <FormTextAreaItem
+              cols={20}
+              name="ticketName"
+              onChange={[Function]}
+              placeholder=""
+              rows={2}
+              value=""
+            >
+              <textarea
+                className="sc-bdfBwQ cOopSE"
+                cols={20}
+                name="ticketName"
+                onChange={[Function]}
+                placeholder=""
+                rows={2}
+                value=""
+              />
+            </FormTextAreaItem>
+          </div>
+        </FormTextArea>
+        <FormButton
+          type="submit"
+        >
+          <FormButtonContainer
+            type="submit"
+          >
+            <button
+              className="sc-dlfnbm eMRlWG"
+              type="submit"
+            >
+              ADD
+            </button>
+          </FormButtonContainer>
+        </FormButton>
+      </form>
+    </div>
+  </AddTicketItemContainer>
+</AddTicket>
+`;

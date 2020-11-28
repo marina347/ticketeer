@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 
 import { AddLane } from "./add-lane.component";
 
-describe("AddBoard component", () => {
+describe("AddLane component", () => {
   let wrapper;
   let mockProps;
   let addLane;

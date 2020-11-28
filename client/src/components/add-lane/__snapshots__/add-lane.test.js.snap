@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddBoard component Should render AddLane component 1`] = `
+exports[`AddLane component Should render AddLane component 1`] = `
 <AddLaneContainer>
   <form
     id="add_lane_form"
