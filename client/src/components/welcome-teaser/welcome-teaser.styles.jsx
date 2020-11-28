@@ -4,3 +4,5 @@ export const WelcomeTeaserContainer = styled.div`
   text-align: center;
   margin: 5px;
 `;
+
+WelcomeTeaserContainer.displayName = "WelcomeTeaserContainer"
