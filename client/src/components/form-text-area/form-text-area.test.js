@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
-import FormTextArea from "./form-text-area.component";
 import "jest-styled-components";
+import FormTextArea from "./form-text-area.component";
 
 describe("FormTextArea component", () => {
   let wrapper;

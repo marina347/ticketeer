@@ -34,3 +34,5 @@ ${(props) =>
   props.isIconStyle ? FormButtonIconStyles : FormButtonNonIconStyles};
   }
 `;
+
+FormButtonContainer.displayName = "FormButtonContainer";
