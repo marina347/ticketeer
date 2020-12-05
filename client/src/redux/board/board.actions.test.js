@@ -163,3 +163,31 @@ describe("FETCH BOARD MEMBERS", () => {
     );
   });
 });
+
+describe("JOIN BOARD ACTIONS", () => {
+  it("Should create the joinBoardStart action", () => {
+    expect(boardActions.joinBoardStart().type).toEqual(
+      BoardTypes.JOIN_BOARD_START
+    );
+  });
+
+  it("Should create the joinBoardSuccess action", () => {
+    const action = boardActions.joinBoardSuccess(mockBoard);
+    expect(action.type).toEqual(BoardTypes.JOIN_BOARD_SUCCESS);
+    expect(action.board).toEqual(mockBoard);
+  });
+
+  it("Should create the joinBoardFailure action", () => {
+    const action = boardActions.joinBoardFailure("Error");
+    expect(action.type).toEqual(BoardTypes.JOIN_BOARD_FAILURE);
+    expect(action.error).toEqual("Error");
+  });
+
+  it("Should create joinBoardAsync action", () => {
+    const mockActionCreator = boardActions.joinBoardAsync();
+    const mockDispatch = jest.fn();
+    mockActionCreator(mockDispatch);
+
+    expect(mockDispatch).toHaveBeenCalledWith(boardActions.joinBoardStart());
+  });
+});

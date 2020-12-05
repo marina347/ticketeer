@@ -28,35 +28,17 @@ describe("SIGN IN", () => {
     name: "Ann",
     email: "ann@gmail.com",
   };
-  it("Should set isLoading to true if is signInStart action", () => {
-    expect(
-      user(initialState, { type: UserTypes.SIGN_IN_START }).isLoading
-    ).toBe(true);
-  });
 
-  it("Should set isLoading to false and set user to currentUser if is signInSuccess action", () => {
+  it("Should set isLoading to false and set user to currentUser if is signIn action", () => {
     expect(
       user(initialState, {
-        type: UserTypes.SIGN_IN_SUCCESS,
+        type: UserTypes.SIGN_IN,
         currentUser: mockUser,
       })
     ).toEqual({
       ...initialState,
       isLoading: false,
       currentUser: mockUser,
-    });
-  });
-
-  it("Should set isLoading to false and set error object if is signInFailure action", () => {
-    expect(
-      user(initialState, {
-        type: UserTypes.SIGN_IN_FAILURE,
-        error: "Error",
-      })
-    ).toEqual({
-      ...initialState,
-      isLoading: false,
-      error: "Error",
     });
   });
 });

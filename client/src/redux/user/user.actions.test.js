@@ -8,29 +8,11 @@ const mockUser = {
   sub: "243243254",
 };
 
-describe("SIGN IN ACTIONS", () => {
-  it("Should create the signInStart action", () => {
-    expect(userActions.signInStart().type).toEqual(UserTypes.SIGN_IN_START);
-  });
-
-  it("Should create the signInSuccess action", () => {
-    const action = userActions.signInSuccess(mockUser);
-    expect(action.type).toEqual(UserTypes.SIGN_IN_SUCCESS);
+describe("SIGN IN ACTION", () => {
+  it("Should create the signIn action", () => {
+    const action = userActions.signIn(mockUser);
+    expect(action.type).toEqual(UserTypes.SIGN_IN);
     expect(action.currentUser).toEqual(mockUser);
-  });
-
-  it("Should create the signInFailure action", () => {
-    const action = userActions.signInFailure("Error");
-    expect(action.type).toEqual(UserTypes.SIGN_IN_FAILURE);
-    expect(action.error).toEqual("Error");
-  });
-
-  it("Should create signInStartAsync action", () => {
-    const mockActionCreator = userActions.signInStartAsync();
-    const mockDispatch = jest.fn();
-    mockActionCreator(mockDispatch);
-
-    expect(mockDispatch).toHaveBeenCalledWith(userActions.signInStart());
   });
 });
 

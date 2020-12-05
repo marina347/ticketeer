@@ -7,68 +7,49 @@ import { createStructuredSelector } from "reselect";
 import { getTokenAsync } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import EnvVariables from "../../env-variables";
+import {
+  SignInContainer,
+  SignInMessage,
+  SignInWelcomeMessage,
+} from "./sign-in.styles";
 
-class SignIn extends React.Component {
-  signInSuccess = (response) => {
-    const { getToken, history } = this.props;
+const SignIn = ({ getToken, history, currentUser }) => {
+  const signInSuccess = (response) => {
     if (response !== null) {
-      getToken(response.profileObj, history, response.tokenId);
+      getToken(history, response.tokenId);
     }
   };
 
-  signInFailure = (error) => {
+  const signInFailure = (error) => {
     console.log(error);
   };
 
-  render() {
-    if (!this.props.currentUser) {
-      return (
-        <div
-          style={{
-            "margin-top": "20%",
-            "text-align": "center",
-          }}
-          className="nice-font"
-        >
-          <p
-            style={{
-              "font-weight": "bold",
-              "font-size": "48px",
-            }}
-          >
-            Welcome to Ticketeer!
-          </p>
-          <p
-            style={{
-              "font-size": "18px",
-              "margin-top": "20px",
-            }}
-          >
-            LOGIN WITH YOUR GOOGLE ACCOUNT
-          </p>
-          <br></br>
-          <GoogleLogin
-            clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
-            buttonText="Login"
-            onSuccess={this.signInSuccess}
-            onFailure={this.signInFailure}
-            cookiePolicy={"single_host_origin"}
-            isSignedIn={true}
-          />
-        </div>
-      );
-    }
-    return <Redirect to="/home" />;
+  if (!currentUser) {
+    return (
+      <SignInContainer className="nice-font">
+        <SignInWelcomeMessage>Welcome to Ticketeer!</SignInWelcomeMessage>
+        <SignInMessage>LOGIN WITH YOUR GOOGLE ACCOUNT</SignInMessage>
+        <GoogleLogin
+          clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
+          buttonText="Login"
+          onSuccess={signInSuccess}
+          onFailure={signInFailure}
+          cookiePolicy={"single_host_origin"}
+          isSignedIn={true}
+        />
+      </SignInContainer>
+    );
   }
-}
+  return <Redirect to="/home" />;
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getToken: (user, history, token) =>
-    dispatch(getTokenAsync(user, history, token)),
+  getToken: (history, googleToken) =>
+    dispatch(getTokenAsync(history, googleToken)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));
