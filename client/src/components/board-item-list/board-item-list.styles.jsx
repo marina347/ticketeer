@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BoardItemContainer } from "../board-item/board-item.styles";
 
 export const BoardItemListContainer = styled.div`
   width: 85vw;
@@ -14,3 +15,5 @@ export const BoardItemListContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 `;
+
+BoardItemContainer.displayName = "BoardItemListContainer";
