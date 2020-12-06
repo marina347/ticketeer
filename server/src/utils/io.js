@@ -1,4 +1,3 @@
-const { addUser, removeUser, getUsersFromBoard } = require("../utils/user");
 const jwt = require("jsonwebtoken");
 const config = require("./../../config");
 
@@ -25,15 +24,12 @@ module.exports = function (server) {
     }
   }).on("connection", (socket) => {
     socket.on("join", ({ boardId, userId }) => {
-      const user = addUser({ id: socket.id, boardId, userId });
-
+      console.log("User " + userId + " connected");
       socket.join(boardId);
-      console.log("User connected", user);
     });
 
     socket.on("disconnect", () => {
-      const user = removeUser(socket.id);
-      console.log("User disconnected", user);
+      console.log("User disconnected");
     });
   });
   ioInstance = io;
