@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const config = require("./../../config");
+const User = require("../models/user");
 
 let ioInstance;
 
@@ -11,8 +12,15 @@ module.exports = function (server) {
       jwt.verify(
         socket.handshake.query.token,
         config.JWT_SECRET,
-        function (err, decoded) {
+        async function (err, decoded) {
           if (err) {
+            return next(new Error("Authentication error"));
+          }
+          const user = await User.findOne({
+            _id: decoded._id,
+            "tokens.token": socket.handshake.query.token,
+          });
+          if (!user) {
             return next(new Error("Authentication error"));
           }
           socket.decoded = decoded;
