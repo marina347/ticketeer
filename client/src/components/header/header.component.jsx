@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import socketIOClient from "socket.io-client";
 import { createStructuredSelector } from "reselect";
 import {
   selectCurrentUser,
@@ -12,17 +11,14 @@ import FormButton from "../form-button/form-button.component";
 import SignOut from "../sign-out/sign-out.component";
 
 import { HeaderContainer } from "./header.styles";
-import envVariables from "../../env-variables";
-
-let socket;
+import { closeSocket, createSocket } from "../../utils/client-socket";
 
 class HeaderComponent extends React.Component {
-  constructor(props) {
-    super();
-    socket = socketIOClient(envVariables.REACT_APP_SERVER_PATH, {
-      transports: ["websocket", "polling", "flashsocket"],
-      query: { token: props.token },
-    });
+  componentDidMount() {
+    createSocket(this.props.token);
+  }
+  componentWillUnmount() {
+    closeSocket();
   }
   render() {
     const { history, currentUser } = this.props;
@@ -48,4 +44,4 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const Header = connect(mapStateToProps)(withRouter(HeaderComponent));
-export { Header, socket };
+export { Header };
