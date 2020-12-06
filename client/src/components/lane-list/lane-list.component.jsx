@@ -7,12 +7,14 @@ import { LaneListContainer } from "./lane-list.styles";
 import Lane from "../lane/lane.component";
 import AddLane from "../add-lane/add-lane.component";
 import { selectToken } from "../../redux/user/user.selectors";
-import { socket } from "../header/header.component";
+import { getSocket } from "../../utils/client-socket";
 import { selectCurrentUserId } from "../../redux/user/user.selectors";
 
+let socket;
 class LaneList extends React.Component {
   componentDidMount() {
     const { getLanes, boardId, token, userId } = this.props;
+    socket = getSocket();
     socket.emit("join", { boardId, userId });
     getLanes(boardId, token);
     socket.on("getLanes", (initiatorOfRequestId) => {
@@ -20,7 +22,7 @@ class LaneList extends React.Component {
     });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     socket.off("getLanes");
   }
 

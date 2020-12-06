@@ -31,8 +31,9 @@ module.exports = function (server) {
       next(new Error("Authentication error"));
     }
   }).on("connection", (socket) => {
+    console.log("User connected");
     socket.on("join", ({ boardId, userId }) => {
-      console.log("User " + userId + " connected");
+      console.log("User " + userId + " joined room " + boardId);
       socket.join(boardId);
     });
 
