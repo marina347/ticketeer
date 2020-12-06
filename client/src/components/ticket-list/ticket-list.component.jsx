@@ -8,7 +8,9 @@ import {
   selectCurrentUserId,
   selectToken,
 } from "../../redux/user/user.selectors";
-import { socket } from "../header/header.component";
+import { getSocket } from "../../utils/client-socket";
+
+let socket;
 
 class TicketList extends React.Component {
   onDragStart = (event, id) => {
@@ -17,12 +19,13 @@ class TicketList extends React.Component {
   componentDidMount() {
     const { getTickets, boardId, token } = this.props;
     getTickets(boardId, token);
+    socket = getSocket();
     socket.on("getTickets", (initiatorOfRequestId) =>
       this.handleGetTickets(initiatorOfRequestId)
     );
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     socket.off("getTickets");
   }
 

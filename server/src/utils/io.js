@@ -1,6 +1,6 @@
-const { addUser, removeUser, getUsersFromBoard } = require("../utils/user");
 const jwt = require("jsonwebtoken");
 const config = require("./../../config");
+const User = require("../models/user");
 
 let ioInstance;
 
@@ -12,8 +12,15 @@ module.exports = function (server) {
       jwt.verify(
         socket.handshake.query.token,
         config.JWT_SECRET,
-        function (err, decoded) {
+        async function (err, decoded) {
           if (err) {
+            return next(new Error("Authentication error"));
+          }
+          const user = await User.findOne({
+            _id: decoded._id,
+            "tokens.token": socket.handshake.query.token,
+          });
+          if (!user) {
             return next(new Error("Authentication error"));
           }
           socket.decoded = decoded;
@@ -24,16 +31,14 @@ module.exports = function (server) {
       next(new Error("Authentication error"));
     }
   }).on("connection", (socket) => {
+    console.log("User connected");
     socket.on("join", ({ boardId, userId }) => {
-      const user = addUser({ id: socket.id, boardId, userId });
-
+      console.log("User " + userId + " joined room " + boardId);
       socket.join(boardId);
-      console.log("User connected", user);
     });
 
     socket.on("disconnect", () => {
-      const user = removeUser(socket.id);
-      console.log("User disconnected", user);
+      console.log("User disconnected");
     });
   });
   ioInstance = io;

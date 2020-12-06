@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 
 import {
@@ -34,7 +34,7 @@ const JoinBoard = ({
       joinBoard(match.params.hashedBoardId, token);
     }
   }, []);
-  return <div>YOU HAVE SUCESSFULLY JOINED BOARD!</div>;
+  return <Redirect to="/home" />;
 };
 
 const mapStateToProps = createStructuredSelector({

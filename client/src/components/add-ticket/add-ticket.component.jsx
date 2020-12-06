@@ -11,7 +11,7 @@ import {
   selectCurrentUser,
 } from "../../redux/user/user.selectors";
 
-export const AddTicket = ({ addTicket, _id, boardId, token, currentUser }) => {
+export const AddTicket = ({ addTicket, _id, token }) => {
   const [ticketName, setTicketName] = useState("");
 
   const handleChange = (event) => {
@@ -25,9 +25,6 @@ export const AddTicket = ({ addTicket, _id, boardId, token, currentUser }) => {
       {
         name: ticketName,
         laneId: _id,
-        assigners: [],
-        creator: currentUser.id,
-        boardId: boardId,
       },
       token
     );
