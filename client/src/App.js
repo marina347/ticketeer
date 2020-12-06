@@ -1,10 +1,9 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import { Header } from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boudary.component";
-import PrivateRoute from "./components/private-route/private-route.component";
 import NotFound from "./components/not-found/not-found.component";
 import Spinner from "./components/spinner/spinner.component";
 
@@ -18,6 +17,7 @@ class App extends React.Component {
         <Header />
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
+            <Redirect from="/" to="/home" />
             <Switch>
               <Route path="/home" component={HomePage} />
               <Route exact path="/login" component={SignInPage} />
