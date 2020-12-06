@@ -6,7 +6,7 @@ import { BoardItemListContainer } from "./board-item-list.styles";
 import Spinner from "../spinner/spinner.component";
 import { getBoardsAsync } from "../../redux/board/board.actions";
 
-class BoardItemList extends React.Component {
+export class BoardItemList extends React.Component {
   componentDidMount() {
     const { getBoards, token } = this.props;
     getBoards(token);
@@ -16,18 +16,16 @@ class BoardItemList extends React.Component {
     const { history, match, boards, isLoading } = this.props;
     if (!isLoading) {
       return (
-        <div>
-          <BoardItemListContainer>
-            {boards.map((board) => (
-              <BoardItem
-                key={board._id}
-                _id={board._id}
-                history={history}
-                match={match}
-              />
-            ))}
-          </BoardItemListContainer>
-        </div>
+        <BoardItemListContainer>
+          {boards.map((board) => (
+            <BoardItem
+              key={board._id}
+              _id={board._id}
+              history={history}
+              match={match}
+            />
+          ))}
+        </BoardItemListContainer>
       );
     } else return <Spinner></Spinner>;
   }

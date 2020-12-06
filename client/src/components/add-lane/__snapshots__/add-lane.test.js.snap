@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddLane component Should render AddLane component 1`] = `
+<AddLaneContainer>
+  <form
+    id="add_lane_form"
+    onSubmit={[Function]}
+  >
+    <FormInput
+      handleChange={[Function]}
+      id="add_lane_input"
+      label="Add lane"
+      name="laneName"
+      placeholder="Lane name"
+      type="text"
+      value=""
+    />
+    <FormButton
+      type="submit"
+    >
+      ADD
+    </FormButton>
+  </form>
+</AddLaneContainer>
+`;

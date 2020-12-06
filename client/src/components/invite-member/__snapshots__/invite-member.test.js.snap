@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InviteMember component Should render InviteMember component 1`] = `
+<InviteContainer>
+  <p>
+    Create link for joining this board!
+  </p>
+  <div
+    id="board-link"
+  />
+  <FormButton
+    id="board-link-button"
+    onClick={[Function]}
+  >
+    CREATE
+  </FormButton>
+</InviteContainer>
+`;

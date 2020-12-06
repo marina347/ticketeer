@@ -16,7 +16,11 @@ export const FormInputItem = styled.input`
   padding: 19px 14px;
 `;
 
+FormInputItem.displayName = "FormInputItem";
+
 export const FormInputLabel = styled.label`
   ${FormInputStyles}
   font-size: 20px;
 `;
+
+FormInputLabel.displayName = "FormInputLabel";

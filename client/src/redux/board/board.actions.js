@@ -1,11 +1,6 @@
 import BoardTypes from "./board.types";
 import EnvVariables from "../../env-variables";
 
-export const getBoards = (boards) => ({
-  type: BoardTypes.GET_BOARDS,
-  boards,
-});
-
 export const getBoardsStart = () => ({
   type: BoardTypes.GET_BOARDS_START,
 });
@@ -92,13 +87,6 @@ export const fetchBoardMembersFailure = (error) => ({
   error,
 });
 
-export const moveTicket = (boardId, ticketId, ticketType) => ({
-  type: BoardTypes.MOVE_TICKET,
-  boardId,
-  ticketId,
-  ticketType,
-});
-
 export const getBoardsAsync = (token) => {
   return async (dispatch) => {
     dispatch(getBoardsStart());
@@ -145,7 +133,7 @@ export const addBoardAsync = (boardItem, token) => {
   };
 };
 
-export const generateHashedBoardId = (boardId, token) => {
+export const generateHashedBoardIdAsync = (boardId, token) => {
   return async (dispatch) => {
     dispatch(generateHashedBoardIdStart());
     try {

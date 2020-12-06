@@ -10,17 +10,14 @@ const INITIAL_STATE = {
 
 const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UserTypes.SIGN_IN_START:
     case UserTypes.SIGN_OUT_START:
     case UserTypes.GET_TOKEN_START:
     case UserTypes.REMOVE_TOKEN_START:
       return { ...state, isLoading: true };
-    case UserTypes.SIGN_IN_SUCCESS:
+    case UserTypes.SIGN_IN:
       return {
         ...state,
         currentUser: action.currentUser,
-        error: null,
-        isLoading: false,
       };
     case UserTypes.SIGN_OUT_SUCCESS:
       return {
@@ -53,7 +50,6 @@ const user = (state = INITIAL_STATE, action) => {
         landingPage: "",
       };
     case UserTypes.SIGN_OUT_FAILURE:
-    case UserTypes.SIGN_IN_FAILURE:
     case UserTypes.GET_TOKEN_FAILURE:
     case UserTypes.REMOVE_TOKEN_FAILURE:
       return {

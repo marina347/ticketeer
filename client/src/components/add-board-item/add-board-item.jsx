@@ -12,18 +12,23 @@ import {
   selectCurrentUserId,
 } from "../../redux/user/user.selectors";
 
-class AddBoard extends React.Component {
-  state = {
-    boardName: "",
-    boardDescription: "",
-  };
+export class AddBoard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      boardName: "",
+      boardDescription: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-  handleChange = (event) => {
+  handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  };
+  }
 
-  handleSubmit = (event) => {
+  handleSubmit(event) {
     const { addBoard, token } = this.props;
     event.preventDefault();
     addBoard(
@@ -31,13 +36,14 @@ class AddBoard extends React.Component {
       token
     );
     this.setState({ boardName: "", boardDescription: "" });
-  };
+  }
 
   render() {
     return (
       <AddBoardItemContainer>
-        <form onSubmit={this.handleSubmit}>
+        <form id="add_board_form" onSubmit={this.handleSubmit}>
           <FormInput
+            id="add_board_input"
             label="Add board"
             type="text"
             name="boardName"
@@ -46,6 +52,7 @@ class AddBoard extends React.Component {
             handleChange={this.handleChange}
           />
           <FormTextArea
+            id="add_board_description"
             name="boardDescription"
             placeholder="Board description"
             cols={20}

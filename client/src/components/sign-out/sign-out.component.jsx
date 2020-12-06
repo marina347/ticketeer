@@ -1,49 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { removeTokenAsync } from "../../redux/user/user.actions";
 import FormButton from "../form-button/form-button.component";
-import {
-  selectCurrentUser,
-  selectToken,
-} from "../../redux/user/user.selectors";
-import EnvVariables from '../../env-variables';
+import { selectToken } from "../../redux/user/user.selectors";
 
-class SignOut extends React.Component {
-  signOut = (response) => {
-    const { removeToken, token, history } = this.props;
+const SignOut = ({ removeToken, token }) => {
+  let [, setState] = useState();
+
+  const signOut = (response) => {
     if (window.gapi.auth2) {
       const auth2 = window.gapi.auth2.getAuthInstance();
       if (auth2 != null) {
         auth2.signOut().then(auth2.disconnect().then(removeToken(token)));
       }
     }
-    this.forceUpdate();
+    setState({});
   };
 
-  render() {
-    return (
-      <div>
-        {/*
-        <GoogleLogout
-          clientId={EnvVariables.GOOGLE_AUDIENCE}
-          buttonText="Logout"
-          onLogoutSuccess={() => removeToken(token, history)}
-          isSignedIn={true}
-        ></GoogleLogout>{" "}
-       */}
-        <FormButton type="submit" onClick={this.signOut}>
-          SIGN OUT
-        </FormButton>
-      </div>
-    );
-  }
-}
+  return (
+    <FormButton type="submit" onClick={signOut}>
+      SIGN OUT
+    </FormButton>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
   token: selectToken,
 });
 

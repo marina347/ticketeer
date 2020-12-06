@@ -11,7 +11,7 @@ import {
   selectCurrentUser,
 } from "../../redux/user/user.selectors";
 
-const AddTicket = ({ addTicket, _id, token }) => {
+export const AddTicket = ({ addTicket, _id, token }) => {
   const [ticketName, setTicketName] = useState("");
 
   const handleChange = (event) => {
@@ -33,8 +33,9 @@ const AddTicket = ({ addTicket, _id, token }) => {
 
   return (
     <AddTicketItemContainer>
-      <form onSubmit={handleSubmit}>
+      <form id="add_ticket_form" onSubmit={handleSubmit}>
         <FormTextArea
+          id="add_ticket_input"
           name="ticketName"
           label="Add ticket"
           cols={20}

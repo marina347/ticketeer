@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getLanesAsync, clearLanes } from "../../redux/lane/lane.actions";
+import { getLanesAsync } from "../../redux/lane/lane.actions";
 import { selectLanesByBoardId } from "../../redux/lane/lane.selectors";
 import { LaneListContainer } from "./lane-list.styles";
 import Lane from "../lane/lane.component";
@@ -38,7 +38,7 @@ class LaneList extends React.Component {
     const { lanes, boardId } = this.props;
     return (
       <div>
-        <LaneListContainer style={{ "padding-bottom": "9px" }}>
+        <LaneListContainer style={{ paddingBottom: "9px" }}>
           {lanes.map((lane) => (
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}
@@ -57,7 +57,6 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getLanes: (boardId, token) => dispatch(getLanesAsync(boardId, token)),
-  clearLanes: () => dispatch(clearLanes()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LaneList);

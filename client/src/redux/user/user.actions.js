@@ -1,18 +1,9 @@
 import UserTypes from "./user.types";
 import EnvVariables from "../../env-variables";
 
-export const signInStart = () => ({
-  type: UserTypes.SIGN_IN_START,
-});
-
-export const signInSuccess = (currentUser) => ({
-  type: UserTypes.SIGN_IN_SUCCESS,
+export const signIn = (currentUser) => ({
+  type: UserTypes.SIGN_IN,
   currentUser,
-});
-
-export const signInFailure = (error) => ({
-  type: UserTypes.SIGN_IN_FAILURE,
-  error,
 });
 
 export const signOutStart = () => ({
@@ -64,31 +55,9 @@ export const unsetLandingPage = () => ({
   type: UserTypes.UNSET_LANDING_PAGE,
 });
 
-export const signInStartAsync = (user, history) => {
-  return async (dispatch) => {
-    dispatch(signInStart());
-    try {
-      dispatch(
-        signInSuccess({
-          _id: user._id,
-          id: user.sub,
-          name: user.name,
-          email: user.email,
-        })
-      );
-      try {
-        history.push("/home");
-      } catch (error) {}
-    } catch (error) {
-      dispatch(signInFailure(error));
-    }
-  };
-};
-
-export const getTokenAsync = (user, history, tokenId) => {
+export const getTokenAsync = (history, tokenId) => {
   return async (dispatch) => {
     dispatch(getTokenStart());
-    console.log(`${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`);
     try {
       const requestOptions = {
         method: "POST",
@@ -101,10 +70,19 @@ export const getTokenAsync = (user, history, tokenId) => {
         `${EnvVariables.REACT_APP_SERVER_PATH}/users/googleAuth`,
         requestOptions
       );
-      
+
       const jsonResponse = await response.json();
       dispatch(getTokenSuccess(jsonResponse.token));
-      dispatch(signInStartAsync(jsonResponse.user, history));
+      const user = jsonResponse.user;
+      dispatch(
+        signIn({
+          _id: user._id,
+          id: user.sub,
+          name: user.name,
+          email: user.email,
+        })
+      );
+      history.push("/home");
     } catch (error) {
       dispatch(getTokenFailure(error));
     }
