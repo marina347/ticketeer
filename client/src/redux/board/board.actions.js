@@ -164,7 +164,7 @@ export const generateHashedBoardId = (boardId, token) => {
         generateHashedBoardIdSuccess(boardId, jsonResponse.hashedBoardId)
       );
     } catch (e) {
-      dispatch(generateHashedBoardIdFailure());
+      dispatch(generateHashedBoardIdFailure(e));
     }
   };
 };
@@ -184,13 +184,14 @@ export const joinBoardAsync = (hashedBoardId, token) => {
         requestOptions
       );
       if (response.status !== 200) {
-        dispatch(joinBoardFailure());
+        console.log(response);
+        dispatch(joinBoardFailure(response.statusText));
         return;
       }
       const jsonResponse = await response.json();
       dispatch(joinBoardSuccess(jsonResponse.board));
     } catch (e) {
-      dispatch(joinBoardFailure());
+      dispatch(joinBoardFailure(e));
     }
   };
 };
@@ -210,13 +211,13 @@ export const fetchBoardMembersAsync = (boardId, token) => {
         requestOptions
       );
       if (response.status !== 200) {
-        dispatch(fetchBoardMembersFailure());
+        dispatch(fetchBoardMembersFailure(response.statusText));
         return;
       }
       const jsonResponse = await response.json();
       dispatch(fetchBoardMembersSuccess(boardId, jsonResponse.members));
     } catch (e) {
-      dispatch(fetchBoardMembersFailure());
+      dispatch(fetchBoardMembersFailure(e));
     }
   };
 };
