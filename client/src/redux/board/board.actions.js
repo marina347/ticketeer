@@ -184,7 +184,6 @@ export const joinBoardAsync = (hashedBoardId, token) => {
         requestOptions
       );
       if (response.status !== 200) {
-        console.log(response);
         dispatch(joinBoardFailure(response.statusText));
         return;
       }
