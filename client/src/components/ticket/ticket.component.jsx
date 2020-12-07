@@ -53,7 +53,7 @@ class Ticket extends React.Component {
         >
           <TicketPreview id={_id} />
           <br></br>
-          <FormButton style={{ "font-size": "18px" }} onClick={this.closeModal}>
+          <FormButton style={{ fontSize: "18px" }} onClick={this.closeModal}>
             close
           </FormButton>
         </Modal>

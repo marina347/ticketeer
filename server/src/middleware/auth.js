@@ -12,7 +12,7 @@ const auth = async (req, res, next) => {
       "tokens.token": token,
     });
     if (!user) {
-      throw new Error({ error: "Please authenticate" });
+      throw new Error("Please authenticate");
     }
     req.user = user;
     req.token = token;

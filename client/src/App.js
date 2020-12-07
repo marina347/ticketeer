@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./App.css";
 import { Header } from "./components/header/header.component";
@@ -25,6 +27,7 @@ class App extends React.Component {
             </Switch>
           </Suspense>
         </ErrorBoundary>
+        <ToastContainer position="bottom-center" hideProgressBar />
       </div>
     );
   }

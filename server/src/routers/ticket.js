@@ -14,6 +14,9 @@ const router = new express.Router();
 router.post("/tickets", auth, async (req, res) => {
   try {
     const ticket = new Ticket({ ...req.body, createDate: new Date() });
+    if (!req.body.name && req.body.name === "") {
+      return res.status(400).send("Name is required!");
+    }
     const lane = await Lane.findById(ticket.laneId);
     ticket.assigners = [{ assigner: req.user._id }];
     await ticket.save();
@@ -88,7 +91,7 @@ router.patch("/tickets/:id", auth, async (req, res) => {
   );
 
   if (!isValidProp) {
-    return res.status(400).send({ error: "Not valid prop" });
+    return res.status(400).send("Not valid prop");
   }
 
   try {

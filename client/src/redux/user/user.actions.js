@@ -1,5 +1,9 @@
 import UserTypes from "./user.types";
 import EnvVariables from "../../env-variables";
+import { toast } from "react-toastify";
+import React from "react";
+import CloseButton from "../../components/close-button/close-button.component";
+import { removeError } from "../common";
 
 export const signIn = (currentUser) => ({
   type: UserTypes.SIGN_IN,
@@ -84,7 +88,11 @@ export const getTokenAsync = (history, tokenId) => {
       );
       history.push("/home");
     } catch (error) {
-      dispatch(getTokenFailure(error));
+      dispatch(getTokenFailure(error.message));
+      toast.error(error.message, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -105,13 +113,14 @@ export const removeTokenAsync = (token, history) => {
         `${EnvVariables.REACT_APP_SERVER_PATH}/users/logout`,
         requestOptions
       );
-      if (response.status !== 200) {
-        return dispatch(removeTokenFailure());
-      }
       dispatch(removeTokenSuccess());
       history.push("/login");
     } catch (error) {
-      dispatch(removeTokenFailure(error));
+      dispatch(removeTokenFailure(error.message));
+      toast.error(error.message, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };

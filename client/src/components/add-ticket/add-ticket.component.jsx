@@ -42,6 +42,7 @@ export const AddTicket = ({ addTicket, _id, token }) => {
           rows={2}
           value={ticketName}
           onChange={handleChange}
+          required
         />
         <FormButton type="submit">ADD</FormButton>
       </form>

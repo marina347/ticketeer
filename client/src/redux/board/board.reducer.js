@@ -1,4 +1,5 @@
 import BoardTypes from "./board.types";
+import { REMOVE_ERROR } from "../common";
 
 const INITIAL_STATE = {
   boardItems: [],
@@ -55,6 +56,8 @@ const boards = (state = INITIAL_STATE, action) => {
     case BoardTypes.JOIN_BOARD_FAILURE:
     case BoardTypes.FETCH_BOARD_MEMBERS_FAILURE:
       return { ...state, isLoading: false, error: action.error };
+    case REMOVE_ERROR:
+      return { ...state, isLoading: false, error: null };
     default:
       return state;
   }
