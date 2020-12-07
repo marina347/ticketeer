@@ -20,6 +20,7 @@ class App extends React.Component {
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
             <Switch>
+              <Redirect exact from="/" to="/home" />
               <Route path="/home" component={HomePage} />
               <Route exact path="/login" component={SignInPage} />
               <Route component={NotFound} />
