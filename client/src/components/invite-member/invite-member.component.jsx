@@ -9,7 +9,7 @@ import { InviteContainer } from "./invite-member.styles";
 import EnvVariables from "../../env-variables";
 
 export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
-  const boardUrl = `${EnvVariables.REACT_APP_SERVER_PATH}/home/boards/join-board/${boardLink}`;
+  const boardUrl = `${EnvVariables.REACT_APP_CLIENT_PATH}/home/boards/join-board/${boardLink}`;
 
   return (
     <InviteContainer>

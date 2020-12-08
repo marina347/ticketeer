@@ -11,6 +11,9 @@ const router = new express.Router();
 router.post("/lanes", auth, async (req, res) => {
   try {
     const lane = new Lane(req.body);
+    if (!req.body.name && req.body.name === "") {
+      return res.status(400).send("Name is required!");
+    }
     await fkHelper.isUserMemberOfBoard(
       mongoose.model("Board"),
       req.user._id,

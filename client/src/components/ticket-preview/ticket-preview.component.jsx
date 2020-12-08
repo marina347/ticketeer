@@ -127,7 +127,7 @@ class TicketPreview extends React.Component {
         Tags:
         <div className="tag-list-container">
           {ticketItem.tags.map((item, ind) => (
-            <p class="tag-list-item" key={ind}>
+            <p className="tag-list-item" key={ind}>
               {item.tag}
             </p>
           ))}

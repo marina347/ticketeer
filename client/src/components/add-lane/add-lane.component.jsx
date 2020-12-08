@@ -40,6 +40,7 @@ export class AddLane extends React.Component {
             placeholder="Lane name"
             value={this.state.laneName}
             handleChange={this.handleChange}
+            required
           />
           <FormButton type="submit">ADD</FormButton>
         </form>

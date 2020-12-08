@@ -11,6 +11,7 @@ const FormTextArea = ({
   placeholder,
   additionalStylesApplied,
   textAreaItemClassName,
+  required,
 }) => {
   return (
     <div>
@@ -25,6 +26,7 @@ const FormTextArea = ({
         value={value}
         placeholder={placeholder ? placeholder : ""}
         additionalStylesApplied={additionalStylesApplied}
+        required={required ? true : false}
       ></FormTextAreaItem>
     </div>
   );

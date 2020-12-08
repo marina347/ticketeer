@@ -47,6 +47,7 @@ export class AddBoard extends React.Component {
             label="Add board"
             type="text"
             name="boardName"
+            required
             placeholder="Board name"
             value={this.state.boardName}
             handleChange={this.handleChange}
