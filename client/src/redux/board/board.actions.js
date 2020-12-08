@@ -1,10 +1,11 @@
-import BoardTypes from "./board.types";
-import EnvVariables from "../../env-variables";
 import { toast } from "react-toastify";
 import React from "react";
 
+import BoardTypes from "./board.types";
+import EnvVariables from "../../env-variables";
 import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const getBoardsStart = () => ({
   type: BoardTypes.GET_BOARDS_START,
@@ -134,7 +135,7 @@ export const addBoardAsync = (boardItem, token) => {
       dispatch(addBoardSuccess(board));
     } catch (error) {
       dispatch(addBoardFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.ADD_BOARD_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });
@@ -162,7 +163,7 @@ export const generateHashedBoardIdAsync = (boardId, token) => {
       );
     } catch (error) {
       dispatch(generateHashedBoardIdFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.GENERATE_INVITATION_LINK_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });
@@ -188,7 +189,7 @@ export const joinBoardAsync = (hashedBoardId, token) => {
       dispatch(joinBoardSuccess(jsonResponse.board));
     } catch (error) {
       dispatch(joinBoardFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.JOIN_BOARD_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });

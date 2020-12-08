@@ -1,9 +1,11 @@
-import LanesTypes from "./lane.types";
-import EnvVariables from "../../env-variables";
 import { toast } from "react-toastify";
 import React from "react";
+
+import LanesTypes from "./lane.types";
+import EnvVariables from "../../env-variables";
 import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const getLanesStart = () => ({
   type: LanesTypes.GET_LANES_START,
@@ -90,7 +92,7 @@ export const addLaneAsync = (name, boardId, token) => {
       dispatch(addLaneSuccess(jsonResponse.lane));
     } catch (error) {
       dispatch(addLaneFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.ADD_LANE_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });
@@ -117,7 +119,7 @@ export const deleteLaneAsync = (laneId, token) => {
       dispatch(deleteLaneSuccess(jsonResponse.lane));
     } catch (error) {
       dispatch(deleteLaneError(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.DELETE_LANE_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });

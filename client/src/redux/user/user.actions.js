@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import React from "react";
 import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const signIn = (currentUser) => ({
   type: UserTypes.SIGN_IN,
@@ -89,7 +90,7 @@ export const getTokenAsync = (history, tokenId) => {
       history.push("/home");
     } catch (error) {
       dispatch(getTokenFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.SIGN_IN_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });
@@ -117,7 +118,7 @@ export const removeTokenAsync = (token, history) => {
       history.push("/login");
     } catch (error) {
       dispatch(removeTokenFailure(error.message));
-      toast.error(error.message, {
+      toast.error(ErrorMessages.SIGN_OUT_ERROR_MESSAGE, {
         autoClose: false,
         closeButton: <CloseButton action={() => dispatch(removeError())} />,
       });
