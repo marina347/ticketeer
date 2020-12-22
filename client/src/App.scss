@@ -1,0 +1,11 @@
+.app {
+  margin: 1.3rem;
+  padding: 1.5rem;
+  background-image: linear-gradient(
+    to bottom,
+    (var(--color-primary-light)),
+    (var(--color-primary-dark))
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+}
