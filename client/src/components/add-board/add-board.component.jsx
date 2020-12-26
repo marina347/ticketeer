@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./add-board.styles.scss";
 import { ReactComponent as PlusIcon } from "../../assets/svg/plus.svg";
-import AddBoardItem from "../add-board-item/add-board-item";
+import AddBoardItem from "../add-board-item/add-board-item-form.component";
 import Popup from "../popup/popup.component";
 
 const AddBoardPopup = Popup(AddBoardItem);
