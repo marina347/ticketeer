@@ -25,6 +25,15 @@ class App extends React.Component {
             </Switch>
           </Suspense>
         </ErrorBoundary>
+        <div
+          style={{
+            height: "9rem",
+            backgroundColor: "#c8c8a2",
+            padding: "2rem",
+          }}
+        >
+          FOOTER
+        </div>
       </div>
     );
   }
