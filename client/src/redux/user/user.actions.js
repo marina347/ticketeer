@@ -80,6 +80,7 @@ export const getTokenAsync = (history, tokenId) => {
           id: user.sub,
           name: user.name,
           email: user.email,
+          picture: user.picture,
         })
       );
       history.push("/home");

@@ -11,8 +11,8 @@ const verifyGoogleToken = async (googleToken) => {
   });
   const payload = ticket.getPayload();
 
-  const { name, email, sub } = payload;
-  const userObject = { name, email, sub };
+  const { name, email, sub, picture } = payload;
+  const userObject = { name, email, sub, picture };
   return userObject;
 };
 
