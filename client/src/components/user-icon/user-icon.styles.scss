@@ -1,0 +1,22 @@
+.image-user {
+  background-color: white;
+  position: relative;
+  border-radius: 50%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+
+  &--img,
+  &--svg {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+
+  &--svg {
+    fill: var(--color-primary-dark);
+  }
+}

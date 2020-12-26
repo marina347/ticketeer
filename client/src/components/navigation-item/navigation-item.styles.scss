@@ -1,0 +1,25 @@
+.navigation {
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: #000000;
+  flex: 0 0 20%;
+
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+  &__item {
+    &:link,
+    &:visited {
+      border-radius: 3px;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 1.5rem;
+      color: black;
+      transition: all 0.2s ease-out;
+    }
+    &:hover {
+      background-color: white;
+    }
+  }
+}
