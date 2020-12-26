@@ -7,4 +7,7 @@
   align-items: center;
   height: auto;
   backface-visibility: hidden;
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
 }

@@ -3,7 +3,7 @@ import "./form-button.styles.scss";
 
 const FormButton = ({ children, isIconStyle, className, ...otherProps }) => (
   <button className={className} isIconStyle={isIconStyle} {...otherProps}>
-    {children}
+    <span>{children}</span>
   </button>
 );
 

@@ -3,6 +3,7 @@ import React from "react";
 import Member from "../member/member.component";
 import Spinner from "../spinner/spinner.component";
 import "./member-list.styles.css";
+import UserIconSmall from "../user-icon/user-icon-small/user-icon-small.component";
 
 class MemberList extends React.Component {
   componentDidMount() {

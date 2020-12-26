@@ -1,0 +1,17 @@
+.add-board-container {
+  margin-bottom: 5rem;
+}
+
+.add-board-item {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0.9;
+  &__icon {
+    fill: var(--color-primary-dark);
+  }
+}

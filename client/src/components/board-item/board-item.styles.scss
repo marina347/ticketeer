@@ -1,25 +1,42 @@
-.board-item-container {
-  font-size: 2.2rem;
-  background-color: var(--color-grey-light-4);
-  padding: 4rem;
+.board-item {
+  font-size: 2.5rem;
+  background-color: var(--color-grey-light-1);
+  padding: 3rem;
 
   // flex: 1 0 30%;
   flex: 0 0 48%;
 
   margin-bottom: 2rem;
-  margin-right: 2rem;
-  //border: 1px solid grey;
+
+
   transition: all 0.25s ease-out;
   overflow: hidden;
   backface-visibility: hidden;
   border-radius: 10px;
   box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.15);
   opacity: 0.8;
-  //clip-path: polygon(100% 0, 100% 64%, 63% 100%, 0 100%, 0 0);
   cursor: pointer;
   color: var(--color-grey-dark-1);
+
   &:hover {
     transform: scale(1.02);
     font-size: 2.3rem;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  &__description {
+    font-size: 1.4rem;
   }
 }

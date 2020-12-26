@@ -6,7 +6,7 @@ import {
   selectCurrentUser,
   selectToken,
 } from "../../redux/user/user.selectors";
-import { ReactComponent as TicketeerLogo } from "../../assets/svg/two-tickets-logo.svg";
+import { ReactComponent as TicketeerLogo } from "../../assets/svg/ticket.svg";
 
 import "./header.styles.scss";
 import { closeSocket, createSocket } from "../../utils/client-socket";
