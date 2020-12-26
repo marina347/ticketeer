@@ -1,7 +1,7 @@
 import React from "react";
 import "./popup.styles.scss";
 
-const Popup = (WrapperComponent) => {
+const Popup = (Content) => {
   const PopupWithContent = ({ popupOpened, onPopupClose, ...otherProps }) => {
     return popupOpened ? (
       <div class="popup">
@@ -9,7 +9,7 @@ const Popup = (WrapperComponent) => {
           <button onClick={onPopupClose} class="popup__close">
             &times;
           </button>
-          <PopupWithContent {...otherProps} />
+          <Content {...otherProps} />
         </div>
       </div>
     ) : null;
