@@ -13,7 +13,7 @@ const UserIconSmall = ({ url, name, email }) => {
   if (url && url !== "") {
     return (
       <div>
-        <div class="user-icon" onClick={openView}>
+        <div className="user-icon" onClick={openView}>
           <img
             className="user-icon--small"
             src={url}

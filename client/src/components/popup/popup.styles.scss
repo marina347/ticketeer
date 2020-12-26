@@ -1,0 +1,53 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(#000, 0.8);
+  z-index: 9999;
+  transition: all 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: fixed;
+
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(#000, 0.3);
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0 2rem 4rem rgba(#000, 0.2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    transition: all 0.5s 0.2s;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    color: var(--color-grey-dark-1);
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    line-height: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+}

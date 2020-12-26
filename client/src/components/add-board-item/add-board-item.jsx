@@ -39,36 +39,32 @@ export class AddBoard extends React.Component {
   }
 
   render() {
-    const { modalOpened } = this.props;
-    if (modalOpened) {
-      return (
-        <AddBoardItemContainer>
-          <form id="add_board_form" onSubmit={this.handleSubmit}>
-            <FormInput
-              id="add_board_input"
-              label="Add board"
-              type="text"
-              name="boardName"
-              placeholder="Board name"
-              value={this.state.boardName}
-              handleChange={this.handleChange}
-            />
-            <FormTextArea
-              id="add_board_description"
-              name="boardDescription"
-              placeholder="Board description"
-              cols={20}
-              rows={3}
-              value={this.state.boardDescription}
-              onChange={this.handleChange}
-              additionalStylesApplied={true}
-            />
-            <FormButton type="submit">ADD</FormButton>
-          </form>
-        </AddBoardItemContainer>
-      );
-    }
-    return null;
+    return (
+      <AddBoardItemContainer>
+        <form id="add_board_form" onSubmit={this.handleSubmit}>
+          <FormInput
+            id="add_board_input"
+            label="Add board"
+            type="text"
+            name="boardName"
+            placeholder="Board name"
+            value={this.state.boardName}
+            handleChange={this.handleChange}
+          />
+          <FormTextArea
+            id="add_board_description"
+            name="boardDescription"
+            placeholder="Board description"
+            cols={20}
+            rows={3}
+            value={this.state.boardDescription}
+            onChange={this.handleChange}
+            additionalStylesApplied={true}
+          />
+          <FormButton type="submit">ADD</FormButton>
+        </form>
+      </AddBoardItemContainer>
+    );
   }
 }
 
