@@ -3,13 +3,14 @@ import { withRouter, Redirect } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { ReactComponent as TicketeerLogo } from "../../assets/two-tickets-logo.svg";
 
 import "./sign-in.styles.scss";
 
 import { getTokenAsync } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import EnvVariables from "../../env-variables";
+import FormButton from "../form-button/form-button.component";
+import PrimaryHeading from "../primary-heading/primary-heading.component";
 
 const SignIn = ({ getToken, history, currentUser }) => {
   const signInSuccess = (response) => {
@@ -25,16 +26,11 @@ const SignIn = ({ getToken, history, currentUser }) => {
   if (!currentUser) {
     return (
       <div className="sign-in-container">
-        <div className="logo-container">
-          <TicketeerLogo className="logo" />
-        </div>
         <div className="sign-in-container__text">
-          <h1 className="primary-heading">
-            <span className="primary-heading__main">TICKETEER</span>
-            <span className="primary-heading__sub">
-              LOGIN WITH YOUR GOOGLE ACCOUNT
-            </span>
-          </h1>
+          <PrimaryHeading
+            mainText={"Ticketeer"}
+            subText={"Login with your google accout"}
+          />
           <GoogleLogin
             clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
             buttonText="Login"
@@ -43,13 +39,13 @@ const SignIn = ({ getToken, history, currentUser }) => {
             cookiePolicy={"single_host_origin"}
             isSignedIn={true}
             render={(renderProps) => (
-              <button
-                className="btn"
+              <FormButton
+                className="btn btn-main"
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >
                 GOOGLE LOGIN
-              </button>
+              </FormButton>
             )}
           />
         </div>
