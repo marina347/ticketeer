@@ -1,0 +1,10 @@
+.board-item-list-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  backface-visibility: hidden;
+}

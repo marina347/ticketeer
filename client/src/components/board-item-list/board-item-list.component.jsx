@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 
 import BoardItem from "../board-item/board-item.component";
-import { BoardItemListContainer } from "./board-item-list.styles";
 import Spinner from "../spinner/spinner.component";
 import { getBoardsAsync } from "../../redux/board/board.actions";
+import "./board-item-list.styles.scss";
 
 export class BoardItemList extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ export class BoardItemList extends React.Component {
     const { history, match, boards, isLoading } = this.props;
     if (!isLoading) {
       return (
-        <BoardItemListContainer>
+        <div className="board-item-list-container">
           {boards.map((board) => (
             <BoardItem
               key={board._id}
@@ -25,7 +25,7 @@ export class BoardItemList extends React.Component {
               match={match}
             />
           ))}
-        </BoardItemListContainer>
+        </div>
       );
     } else return <Spinner></Spinner>;
   }

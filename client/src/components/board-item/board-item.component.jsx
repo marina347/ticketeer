@@ -4,6 +4,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import { BoardItemContainer } from "./board-item.styles";
 import { selectBoard } from "../../redux/board/board.selectors";
+import "./board-item.styles.scss";
 
 const MAX_LENGTH = 28;
 
@@ -19,7 +20,8 @@ export const BoardItem = ({ history, match, _id, board }) => {
       }
       placement="top"
     >
-      <BoardItemContainer
+      <div
+        className="board-item-container"
         onClick={() => history.push(`${match.url}/boards/${_id}`)}
       >
         <p id="board_name_text">
@@ -27,7 +29,7 @@ export const BoardItem = ({ history, match, _id, board }) => {
             ? `${board.name.substring(0, MAX_LENGTH)}...`
             : board.name}
         </p>
-      </BoardItemContainer>
+      </div>
     </Tooltip>
   );
 };

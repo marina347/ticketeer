@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {createStructuredSelector} from "reselect";
+import { createStructuredSelector } from "reselect";
 
 import WelcomeTeaser from "../../components/welcome-teaser/welcome-teaser.component";
 import BoardItemList from "../../components/board-item-list/board-item-list.container";
@@ -18,7 +18,7 @@ const BoardsOverviewPage = ({ name }) => {
   );
 };
 
-export const mapStateToProps = createStructuredSelector ({
+export const mapStateToProps = createStructuredSelector({
   name: selectUserNameAndSurname,
 });
 
