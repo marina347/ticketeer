@@ -1,11 +1,12 @@
 import React from "react";
-import { WelcomeTeaserContainer } from "./welcome-teaser.styles";
+import SecondaryHeading from "../secondary-heading/secondary-heading.component";
+import "./welcome-teaser.styles.scss";
 
 const WelcomeTeaser = ({ displayName }) => {
   return (
-    <WelcomeTeaserContainer>
-      <h1>Hello {displayName}! </h1>
-    </WelcomeTeaserContainer>
+    <div class="welcome-teaser-container">
+      <SecondaryHeading text={`Hello ${displayName}!`} />;
+    </div>
   );
 };
 
