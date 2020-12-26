@@ -1,5 +1,5 @@
 import React from "react";
-import { FormTextAreaLabel, FormTextAreaItem } from "./form-text-area.styles";
+import "./form-text-area.styles.scss";
 
 const FormTextArea = ({
   label,
@@ -13,11 +13,11 @@ const FormTextArea = ({
   textAreaItemClassName,
 }) => {
   return (
-    <div>
-      {label ? <FormTextAreaLabel>{label}</FormTextAreaLabel> : null}
+    <div class="text-area">
+      {label ? <label class="text-area__label">{label}</label> : null}
       <br />
-      <FormTextAreaItem
-        className={textAreaItemClassName}
+      <textarea
+        className="text-area__input"
         name={name}
         rows={rows}
         cols={cols}
@@ -25,7 +25,7 @@ const FormTextArea = ({
         value={value}
         placeholder={placeholder ? placeholder : ""}
         additionalStylesApplied={additionalStylesApplied}
-      ></FormTextAreaItem>
+      ></textarea>
     </div>
   );
 };

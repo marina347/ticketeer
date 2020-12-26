@@ -1,12 +1,17 @@
 import React from "react";
-import { FormInputItem, FormInputLabel } from "./form-input.styles";
+import "../form-input/form-input.styles.scss";
 
-const FormInput = ({ handleChange, label, containerClassName, ...otherProps }) => {
+const FormInput = ({
+  handleChange,
+  label,
+  containerClassName,
+  ...otherProps
+}) => {
   return (
-    <div className={containerClassName}>
-      {label ? <FormInputLabel>{label}</FormInputLabel> : null}
+    <div className="input-container">
+      {label ? <label className="label">{label}</label> : null}
       <br />
-      <FormInputItem onChange={handleChange} {...otherProps}></FormInputItem>
+      <input className="input" onChange={handleChange} {...otherProps}></input>
     </div>
   );
 };
