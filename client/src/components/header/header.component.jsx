@@ -6,12 +6,11 @@ import {
   selectCurrentUser,
   selectToken,
 } from "../../redux/user/user.selectors";
+import { ReactComponent as TicketeerLogo } from "../../assets/svg/two-tickets-logo.svg";
 
-import FormButton from "../form-button/form-button.component";
-import SignOut from "../sign-out/sign-out.component";
-
-import { HeaderContainer } from "./header.styles";
+import "./header.styles.scss";
 import { closeSocket, createSocket } from "../../utils/client-socket";
+import SideMenu from "../side-menu/side-menu.component";
 
 class HeaderComponent extends React.Component {
   componentDidMount() {
@@ -24,17 +23,22 @@ class HeaderComponent extends React.Component {
     const { history, currentUser } = this.props;
     if (currentUser) {
       return (
-        <HeaderContainer>
-          <SignOut />
-          <FormButton
-            style={{ marginRight: "10px" }}
-            onClick={() => history.push("/home")}
-          >
-            Home
-          </FormButton>
-        </HeaderContainer>
+        <div className="header-container">
+          <div className="logo-container">
+            <TicketeerLogo className="logo" />
+          </div>
+
+          <SideMenu currentUser={currentUser} history={history} />
+        </div>
       );
-    } else return null;
+    } else
+      return (
+        <div className="header-container">
+          <div className="logo-container">
+            <TicketeerLogo className="logo" />
+          </div>
+        </div>
+      );
   }
 }
 
