@@ -1,10 +1,10 @@
 import React from "react";
-import { FormButtonContainer } from "./form-button.styles";
+import "./form-button.styles.scss";
 
-const FormButton = ({ children, isIconStyle, ...otherProps }) => (
-  <FormButtonContainer isIconStyle={isIconStyle} {...otherProps}>
+const FormButton = ({ children, isIconStyle, className, ...otherProps }) => (
+  <button className={className} isIconStyle={isIconStyle} {...otherProps}>
     {children}
-  </FormButtonContainer>
+  </button>
 );
 
 export default FormButton;
