@@ -1,6 +1,6 @@
 import React from "react";
 import FormButton from "../form-button/form-button.component";
-import UserImage from "../user-icon/user-icon.component";
+import UserIconSmall from "../user-icon/user-icon-small/user-icon-small.component";
 import "./side-menu.styles.scss";
 
 const SideMenu = ({ currentUser, history }) => {
@@ -12,7 +12,7 @@ const SideMenu = ({ currentUser, history }) => {
       >
         <span>HOME</span>
       </FormButton>
-      <UserImage
+      <UserIconSmall
         url={currentUser.picture}
         name={currentUser.name}
         email={currentUser.email}

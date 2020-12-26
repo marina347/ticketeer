@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./user-icon.styles.scss";
-import { ReactComponent as UserDefaultImage } from "../../assets/svg/user.svg";
-import UserView from "../user-view/user-view.component";
+import "../user-icon.styles.scss";
+import { ReactComponent as UserDefaultImage } from "../../../assets/svg/user.svg";
+import UserView from "../../user-view/user-view.component";
 
-const UserImage = ({ url, name, email }) => {
+const UserIconSmall = ({ url, name, email }) => {
   const [viewOpened, setView] = useState(false);
 
   const openView = () => {
@@ -13,9 +13,9 @@ const UserImage = ({ url, name, email }) => {
   if (url && url !== "") {
     return (
       <div>
-        <div class="image-user" onClick={openView}>
+        <div class="user-icon" onClick={openView}>
           <img
-            className="image-user--img"
+            className="user-icon--small"
             src={url}
             alt={`Photo of: ${name}`}
           />
@@ -30,10 +30,10 @@ const UserImage = ({ url, name, email }) => {
     );
   }
   return (
-    <div class="image-user" onClick={openView}>
-      <UserDefaultImage className="image-user--svg" />
+    <div class="user-icon" onClick={openView}>
+      <UserDefaultImage className="user-icon--big" />
     </div>
   );
 };
 
-export default UserImage;
+export default UserIconSmall;

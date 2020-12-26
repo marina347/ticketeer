@@ -1,4 +1,4 @@
-.image-user {
+.user-icon {
   background-color: white;
   position: relative;
   border-radius: 50%;
@@ -10,13 +10,14 @@
   outline: none;
   cursor: pointer;
 
-  &--img,
-  &--svg {
+  &--small {
     height: 4.2rem;
     width: 4.2rem;
+    fill: var(--color-primary-dark);
   }
-
-  &--svg {
+  &--big {
+    height: 7.2rem;
+    width: 7.2rem;
     fill: var(--color-primary-dark);
   }
 }
