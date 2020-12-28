@@ -1,6 +1,7 @@
 .board-page {
   display: flex;
   flex-direction: column;
+  margin-bottom: auto;
   &__details {
     display: flex;
     justify-content: space-between;

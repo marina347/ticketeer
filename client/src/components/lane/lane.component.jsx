@@ -32,16 +32,20 @@ class Lane extends React.Component {
         onDrop={(event) => {
           this.onDrop(event, dropClassName);
         }}
-        className="drag-container lane-container"
+        className="lane-container"
       >
-        <div className="title-button-group">
-          <h2 className="nice-font lane-header">{name}</h2>
+        <div className="lane-container__group">
+          <h2 className="lane-header">{name}</h2>
+          <button
+            className="lane-close"
+            isIconStyle={true}
+            onClick={() => deleteLane(_id, token)}
+          >
+            &times;
+          </button>
         </div>
         <TicketList boardId={boardId} laneId={_id} />
         <AddTicket _id={_id} />
-        <FormButton isIconStyle={true} onClick={() => deleteLane(_id, token)}>
-          X
-        </FormButton>
       </div>
     );
   }

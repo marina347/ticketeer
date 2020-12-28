@@ -17,27 +17,25 @@ const HomePage = ({ history, match, landingPage }) => {
   }
 
   return (
-    <div>
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route
-            exact
-            path={`${match.path}/boards/join-board/:hashedBoardId`}
-            component={JoinBoard}
-          />
-          <PrivateRoute
-            exact
-            path={`${match.path}/boards/:boardId`}
-            component={BoardPage}
-          />
-          <PrivateRoute
-            exact
-            path={`${match.path}`}
-            component={BoardsOverviewPage}
-          />
-        </Switch>
-      </Suspense>
-    </div>
+    <Suspense fallback={<Spinner />}>
+      <Switch>
+        <Route
+          exact
+          path={`${match.path}/boards/join-board/:hashedBoardId`}
+          component={JoinBoard}
+        />
+        <PrivateRoute
+          exact
+          path={`${match.path}/boards/:boardId`}
+          component={BoardPage}
+        />
+        <PrivateRoute
+          exact
+          path={`${match.path}`}
+          component={BoardsOverviewPage}
+        />
+      </Switch>
+    </Suspense>
   );
 };
 

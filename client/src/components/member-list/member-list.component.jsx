@@ -2,8 +2,7 @@ import React from "react";
 
 import Member from "../member/member.component";
 import Spinner from "../spinner/spinner.component";
-import "./member-list.styles.css";
-import UserIconSmall from "../user-icon/user-icon-small/user-icon-small.component";
+import "./member-list.styles.scss";
 
 class MemberList extends React.Component {
   componentDidMount() {
@@ -14,11 +13,13 @@ class MemberList extends React.Component {
     const { board, isLoading } = this.props;
     if (!isLoading) {
       return (
-        <div className="member-list-container nice-font">
-          <h2>Members:</h2>
-          {board.members.map((member) => (
-            <Member key={member._id} {...member}></Member>
-          ))}
+        <div className="member-list-container">
+          <h2 className="member-list-container__heading">Members:</h2>
+          <div className="member-list-container__list">
+            {board.members.map((member) => (
+              <Member key={member._id} {...member}></Member>
+            ))}
+          </div>
         </div>
       );
     }

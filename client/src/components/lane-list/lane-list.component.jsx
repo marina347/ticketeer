@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 
 import { getLanesAsync } from "../../redux/lane/lane.actions";
 import { selectLanesByBoardId } from "../../redux/lane/lane.selectors";
-import { LaneListContainer } from "./lane-list.styles";
 import Lane from "../lane/lane.component";
 import AddLane from "../add-lane/add-lane.component";
 import { selectToken } from "../../redux/user/user.selectors";
 import { getSocket } from "../../utils/client-socket";
 import { selectCurrentUserId } from "../../redux/user/user.selectors";
+import "./lane-list.styles.scss";
 
 let socket;
 class LaneList extends React.Component {
@@ -37,12 +37,12 @@ class LaneList extends React.Component {
   render() {
     const { lanes, boardId } = this.props;
     return (
-      <div>
-        <LaneListContainer style={{ paddingBottom: "9px" }}>
+      <div class="lanes">
+        <div class="lanes__list">
           {lanes.map((lane) => (
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}
-        </LaneListContainer>
+        </div>
         <AddLane boardId={boardId} />
       </div>
     );

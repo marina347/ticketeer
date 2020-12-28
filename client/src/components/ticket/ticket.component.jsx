@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import TicketPreview from "../../components/ticket-preview/ticket-preview.component";
 import { TicketContainer } from "./ticket.styles";
 import FormButton from "../form-button/form-button.component";
+import "./ticket.styles.scss";
 
 const customStyles = {
   content: {
@@ -33,10 +34,10 @@ class Ticket extends React.Component {
   };
 
   render() {
-    const { name, className, onDragStart, _id } = this.props;
+    const { name, onDragStart, _id, className } = this.props;
 
     return (
-      <TicketContainer
+      <div
         className={className}
         onDragStart={onDragStart}
         draggable
@@ -57,7 +58,7 @@ class Ticket extends React.Component {
             close
           </FormButton>
         </Modal>
-      </TicketContainer>
+      </div>
     );
   }
 }

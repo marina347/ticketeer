@@ -1,12 +1,17 @@
 .app {
-  background-image: linear-gradient(to top right, rgba(#c26dbc,0.97), rgba(#3cacae,0.97)),
+  background-image: linear-gradient(
+      to top right,
+      rgba(#c26dbc, 0.97),
+      rgba(#3cacae, 0.97)
+    ),
     url("https://owsl.ca/media/news/meeting.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+ 
 }
 
 /*

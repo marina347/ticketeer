@@ -41,7 +41,7 @@ class TicketList extends React.Component {
     return tickets.map((ticket) => (
       <Ticket
         onDragStart={(event) => this.onDragStart(event, ticket._id)}
-        className="draggable lane-item"
+        className="draggable lane-item ticket"
         key={ticket._id}
         {...ticket}
       ></Ticket>

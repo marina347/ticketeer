@@ -14,7 +14,9 @@ const BoardPage = ({ board, isLoading }) => {
         <p className="board-page-name">{board ? board.name : ""}</p>
         <MemberList boardId={board._id} />
       </div>
-      <p className="board-page-description">{board.description}</p>
+      {board.description != "" ? (
+        <p className="board-page-description">{board.description}</p>
+      ) : null}
       <LaneList boardId={board._id} />
       <InviteMember boardId={board._id} />
     </div>
