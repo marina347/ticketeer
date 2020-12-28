@@ -25,10 +25,8 @@
     background-color: var(--color-grey-light-2);
     box-shadow: 0 2rem 4rem rgba(#000, 0.2);
     border-radius: 3px;
-    display: table;
-    overflow: hidden;
-    transition: all 0.5s 0.2s;
-    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.5s;
+    transform: translate(-50%, -50%);
   }
 
   &__close {

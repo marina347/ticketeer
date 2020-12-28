@@ -21,6 +21,7 @@ const UserIconSmall = ({ url, name, email }) => {
           />
         </div>
         <UserView
+          onViewClose={openView}
           opened={viewOpened}
           name={name}
           url={url}
