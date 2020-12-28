@@ -1,13 +1,24 @@
 .app {
-  margin: 1.3rem;
-  background-image: linear-gradient(
-    to bottom,
-    (var(--color-primary-light)),
-    (var(--color-primary-dark))
-  );
+  background-image: linear-gradient(to top right, rgba(#c26dbc,0.97), rgba(#3cacae,0.97)),
+    url("https://owsl.ca/media/news/meeting.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
+
+/*
+Cream modal
+#EFF1DB
+
+Rose Quartz
+#FFD4DB
+
+Lilac
+#D3B5E5  -1.
+
+Baby Blue -2.
+#BBE7FE
+*/

@@ -27,8 +27,9 @@ class App extends React.Component {
         </ErrorBoundary>
         <div
           style={{
-            height: "9rem",
-            backgroundColor: "#c8c8a2",
+            width: "100%",
+            alignSelf: "center",
+            backgroundColor: "#EFF1DB",
             padding: "2rem",
           }}
         >
