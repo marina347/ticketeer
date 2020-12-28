@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import FormTextArea from "../form-text-area/form-text-area.component";
+import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
 import FormButton from "../form-button/form-button.component";
 import { AddTicketItemContainer } from "./add-ticket.styles";
 import { addTicketAsync } from "../../redux/ticket/ticket.actions";

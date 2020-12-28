@@ -1,5 +1,5 @@
 import React from "react";
-import FormTextArea from "../form-text-area/form-text-area.component";
+import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
 
 class EditableInput extends React.Component {
   state = {

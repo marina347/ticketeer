@@ -9,7 +9,7 @@ const Popup = (Content) => {
           <button onClick={onPopupClose} class="popup__close">
             &times;
           </button>
-          <Content {...otherProps} />
+          <Content closePopup={onPopupClose} {...otherProps} />
         </div>
       </div>
     ) : null;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import FormButton from "../form-button/form-button.component";
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../form-inputs/form-input/form-input.component";
 import { AddLaneContainer } from "../add-lane/add-lane.styles";
 import { addLaneAsync } from "../../redux/lane/lane.actions";
 import { selectToken } from "../../redux/user/user.selectors";

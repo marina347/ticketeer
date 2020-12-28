@@ -11,7 +11,7 @@ import {
 } from "../../redux/ticket/ticket.selectors";
 import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
 import { selectMembersOfBoard } from "../../redux/board/board.selectors";
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../form-inputs/form-input/form-input.component";
 import FormButton from "../form-button/form-button.component";
 
 class TicketPreview extends React.Component {

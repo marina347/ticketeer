@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../form-inputs/form-input/form-input.component";
 import FormButton from "../form-button/form-button.component";
-import FormTextArea from "../form-text-area/form-text-area.component";
+import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
 import { addBoardAsync } from "../../redux/board/board.actions";
 import "./add-board-item-form.styles.scss";
 import {
@@ -29,13 +29,14 @@ export class AddBoardItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const { addBoard, token } = this.props;
+    const { addBoard, token, closePopup } = this.props;
     event.preventDefault();
     addBoard(
       { name: this.state.boardName, description: this.state.boardDescription },
       token
     );
     this.setState({ boardName: "", boardDescription: "" });
+    closePopup();
   }
 
   render() {
@@ -45,9 +46,10 @@ export class AddBoardItemForm extends React.Component {
         onSubmit={this.handleSubmit}
         class="add-board-item-form"
       >
+        <h3 className="add-board-item-form__heading">ADD NEW BOARD</h3>
         <FormInput
           id="add_board_input"
-          label="Add board"
+          label="Board name"
           type="text"
           name="boardName"
           placeholder="Board name"
@@ -58,13 +60,16 @@ export class AddBoardItemForm extends React.Component {
           id="add_board_description"
           name="boardDescription"
           placeholder="Board description"
+          label="Board description"
           cols={20}
           rows={3}
           value={this.state.boardDescription}
           onChange={this.handleChange}
           additionalStylesApplied={true}
         />
-        <FormButton type="submit">ADD</FormButton>
+        <FormButton className="btn btn-main u-animation-none" type="submit">
+          ADD
+        </FormButton>
       </form>
     );
   }
