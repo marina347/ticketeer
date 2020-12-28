@@ -5,21 +5,17 @@ import { selectBoard } from "../../redux/board/board.selectors";
 import LaneList from "../../components/lane-list/lane-list.component";
 import MemberList from "../../components/member-list/member-list.container";
 import InviteMember from "../../components/invite-member/invite-member.component";
+import "./board.styles.scss";
 
 const BoardPage = ({ board, isLoading }) => {
   return (
-    <div className="nice-font">
-      <h1
-        style={{
-          margin: "30px",
-          marginLeft: "100px",
-          fontFamily: "Nunito",
-        }}
-      >
-        {board ? board.name : ""}
-      </h1>
+    <div className="board-page">
+      <div className="board-page__details">
+        <p className="board-page-name">{board ? board.name : ""}</p>
+        <MemberList boardId={board._id} />
+      </div>
+      <p className="board-page-description">{board.description}</p>
       <LaneList boardId={board._id} />
-      <MemberList boardId={board._id} />
       <InviteMember boardId={board._id} />
     </div>
   );
