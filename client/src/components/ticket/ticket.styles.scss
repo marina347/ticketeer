@@ -1,9 +1,9 @@
 .ticket {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: bold;
   background-color: rgba(#3cacae, 0.9);
   flex-direction: column;
-  padding: 3rem;
+  padding: 1rem;
   margin: 1rem;
   cursor: pointer;
   backface-visibility: hidden;
@@ -15,6 +15,7 @@
   flex: 0 0 18%;
   overflow: hidden;
   margin-bottom: auto;
+  width: 26rem;
 
   &:hover {
     transform: scale(1.05);

@@ -24,7 +24,7 @@ class HeaderComponent extends React.Component {
     if (currentUser) {
       return (
         <div className="header-container">
-          <div className="logo-container">
+          <div className="logo-container" onClick={() => history.push("/home")}>
             <TicketeerLogo className="logo" />
           </div>
 
