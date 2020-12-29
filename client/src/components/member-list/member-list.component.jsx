@@ -2,7 +2,10 @@ import React from "react";
 
 import Member from "../member/member.component";
 import Spinner from "../spinner/spinner.component";
+import LightTooltip from "../light-tooltip/light-tooltip.component";
 import "./member-list.styles.scss";
+
+const lastIndexOfMemberToBeDisplayed = 4;
 
 class MemberList extends React.Component {
   componentDidMount() {
@@ -16,9 +19,25 @@ class MemberList extends React.Component {
         <div className="member-list-container">
           <h2 className="member-list-container__heading">Members:</h2>
           <div className="member-list-container__list">
-            {board.members.map((member) => (
-              <Member key={member._id} {...member}></Member>
-            ))}
+            {board.members.map((member, index) => {
+              if (index <= lastIndexOfMemberToBeDisplayed) {
+                return <Member key={member._id} {...member}></Member>;
+              }
+            })}
+
+            {/* can be separated component - TODO - lazy ATM */}
+            {board.members.length > 5 && (
+              <LightTooltip
+                title={`+ ${
+                  board.members.length - lastIndexOfMemberToBeDisplayed - 1
+                } other members`}
+                placement="bottom"
+              >
+                <div className="member-list-container__list--dots">
+                  <span>...</span>
+                </div>
+              </LightTooltip>
+            )}
           </div>
         </div>
       );

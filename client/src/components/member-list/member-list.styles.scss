@@ -3,7 +3,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 0 0 10%;
+  align-self: center;
+
+  &__heading {
+    align-self: flex-end;
+  }
+  
   &__list {
+    align-self: flex-end;
     display: flex;
+
+    &--dots {
+      border-radius: 50%;
+      border: 1px solid grey;
+      width: 3.6rem;
+      height: 3.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      color: black;
+      margin-left: -1rem;
+      z-index: 1;
+
+      cursor: pointer;
+      span {
+        font-size: 2.3rem;
+        margin-top: -1.2rem;
+      }
+    }
   }
 }
