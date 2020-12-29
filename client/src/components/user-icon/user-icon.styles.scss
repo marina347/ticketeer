@@ -10,14 +10,24 @@
   outline: none;
   cursor: pointer;
 
+  &--extra-small,
+  &--small,
+  &--big {
+    fill: var(--color-grey-dark-1);
+  }
+
+  &--extra-small {
+    height: 3.6rem;
+    width: 3.6rem;
+  }
+
   &--small {
     height: 4.2rem;
     width: 4.2rem;
-    fill: var(--color-primary-dark);
   }
+
   &--big {
     height: 7.2rem;
     width: 7.2rem;
-    fill: var(--color-primary-dark);
   }
 }

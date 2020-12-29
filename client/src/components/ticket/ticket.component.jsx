@@ -2,7 +2,6 @@ import React from "react";
 import Modal from "react-modal";
 
 import TicketPreview from "../../components/ticket-preview/ticket-preview.component";
-import { TicketContainer } from "./ticket.styles";
 import FormButton from "../form-button/form-button.component";
 import "./ticket.styles.scss";
 
@@ -43,7 +42,7 @@ class Ticket extends React.Component {
         draggable
         onClick={this.openModal}
       >
-        <p>{name}</p>
+        <p>{name.substring(0, 20)}...</p>
 
         <Modal
           isOpen={this.state.modalIsOpen}

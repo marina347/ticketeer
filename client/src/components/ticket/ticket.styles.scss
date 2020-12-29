@@ -3,7 +3,7 @@
   font-weight: bold;
   background-color: rgba(#3cacae, 0.9);
   flex-direction: column;
-  padding: 4rem;
+  padding: 3rem;
   margin: 1rem;
   cursor: pointer;
   backface-visibility: hidden;
@@ -12,6 +12,9 @@
   color: gainsboro;
   border-radius: 3px;
   -moz-osx-font-smoothing: grayscale;
+  flex: 0 0 18%;
+  overflow: hidden;
+  margin-bottom: auto;
 
   &:hover {
     transform: scale(1.05);
