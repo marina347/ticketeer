@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { selectBoard } from "../../redux/board/board.selectors";
 import LaneList from "../../components/lane-list/lane-list.component";
-import InviteMember from "../../components/invite-member/invite-member.component";
 import BoardDetails from "../../components/board-details/board-details.component";
 import "./board.styles.scss";
 
@@ -12,7 +11,6 @@ const BoardPage = ({ board }) => {
     <div className="board-page">
       <BoardDetails board={board} />
       <LaneList boardId={board._id} />
-      <InviteMember boardId={board._id} />
     </div>
   );
 };

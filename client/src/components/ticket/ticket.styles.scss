@@ -12,10 +12,11 @@
   color: gainsboro;
   border-radius: 3px;
   -moz-osx-font-smoothing: grayscale;
-  flex: 0 0 18%;
+  //flex: 0 0 18%;
   overflow: hidden;
   margin-bottom: auto;
   width: 26rem;
+  height: 10rem;
 
   &:hover {
     transform: scale(1.05);

@@ -4,11 +4,15 @@ import { connect } from "react-redux";
 import { getLanesAsync } from "../../redux/lane/lane.actions";
 import { selectLanesByBoardId } from "../../redux/lane/lane.selectors";
 import Lane from "../lane/lane.component";
-import AddLane from "../add-lane/add-lane.component";
 import { selectToken } from "../../redux/user/user.selectors";
 import { getSocket } from "../../utils/client-socket";
 import { selectCurrentUserId } from "../../redux/user/user.selectors";
 import "./lane-list.styles.scss";
+import AddItem from "../add-item/add-item.component";
+import Popup from "../popup/popup.component";
+import { AddLane } from "../add-lane/add-lane.component";
+
+const AddLaneItem = AddItem(Popup(AddLane));
 
 let socket;
 class LaneList extends React.Component {
@@ -43,7 +47,7 @@ class LaneList extends React.Component {
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}
         </div>
-        <AddLane boardId={boardId} />
+        <AddLaneItem boardId={boardId} />
       </div>
     );
   }

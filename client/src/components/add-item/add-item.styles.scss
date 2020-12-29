@@ -1,8 +1,8 @@
-.add-board-container {
-  margin-bottom: 5rem;
+.add-item-container {
+  margin-top: 2rem;
 }
 
-.add-board-item {
+.add-item {
   cursor: pointer;
   background-color: white;
   border-radius: 50%;
@@ -12,7 +12,13 @@
   padding: 2rem;
   opacity: 0.9;
   margin-bottom: 3rem;
+  transition: all 0.2s;
   &__icon {
     fill: var(--color-primary-dark);
+  }
+
+  &:hover {
+    transform: translateY(-0.7rem);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(#000, 0.15);
   }
 }

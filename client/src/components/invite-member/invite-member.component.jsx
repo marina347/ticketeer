@@ -1,27 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import FormButton from "../form-button/form-button.component";
 import { generateHashedBoardIdAsync } from "../../redux/board/board.actions";
 import { selectBoardLink } from "../../redux/board/board.selectors";
 import { selectToken } from "../../redux/user/user.selectors";
-import { InviteContainer } from "./invite-member.styles";
 import EnvVariables from "../../env-variables";
+import { ReactComponent as ShareIcon } from "../../assets/svg/share.svg";
+import "./invite-member.styles.scss";
+import Popup from "../popup/popup.component";
+
+const BoardLink = ({ boardLink, boardUrl }) => {
+  return (
+    <div>
+      <p>Create link for joining this board!</p>
+      <div id="board-link">{boardLink !== "" ? boardUrl : boardLink}</div>
+    </div>
+  );
+};
+const BoardLinkPopup = Popup(BoardLink);
 
 export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
   const boardUrl = `${EnvVariables.REACT_APP_SERVER_PATH}/home/boards/join-board/${boardLink}`;
-
+  const [popupOpened, setPopup] = useState(false);
+  const handleClick = () => {
+    setPopup(!popupOpened);
+  };
   return (
-    <InviteContainer>
-      <p>Create link for joining this board!</p>
-      <div id="board-link">{boardLink !== "" ? boardUrl : boardLink}</div>
-      <FormButton
-        id="board-link-button"
-        onClick={() => generateLink(boardId, token)}
-      >
-        CREATE
-      </FormButton>
-    </InviteContainer>
+    <div>
+      <div className="icon-cont" onClick={handleClick}>
+        <ShareIcon
+          className="icon"
+          onClick={() => generateLink(boardId, token)}
+        />
+      </div>
+      <BoardLinkPopup
+        popupOpened={popupOpened}
+        onPopupClose={handleClick}
+        boardUrl={boardUrl}
+        boardLink={boardLink}
+      />
+    </div>
   );
 };
 

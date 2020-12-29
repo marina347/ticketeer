@@ -2,11 +2,16 @@
   display: flex;
   flex-direction: column;
   margin-bottom: auto;
+  &__group {
+    display: flex;
+    align-items: center;
+  }
   &__row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
+    padding-bottom: 00.5rem;
     margin: 0 2rem;
     color: white;
   }
@@ -15,12 +20,12 @@
     font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 0.7rem;
+    margin-right: 1rem;
   }
 
   &__description {
     font-size: 1.5rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
     margin-left: 2rem;
     color: white;
   }
