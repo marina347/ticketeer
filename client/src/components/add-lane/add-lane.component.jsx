@@ -4,9 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import FormButton from "../form-button/form-button.component";
 import FormInput from "../form-inputs/form-input/form-input.component";
-import { AddLaneContainer } from "../add-lane/add-lane.styles";
 import { addLaneAsync } from "../../redux/lane/lane.actions";
 import { selectToken } from "../../redux/user/user.selectors";
+
 
 export class AddLane extends React.Component {
   constructor(props) {
@@ -22,28 +22,37 @@ export class AddLane extends React.Component {
   };
 
   handleSubmit(event) {
-    const { boardId, addLane, token } = this.props;
+    const { boardId, addLane, token, closePopup } = this.props;
     event.preventDefault();
     addLane(this.state.laneName, boardId, token);
     this.setState({ laneName: "" });
+    closePopup();
   }
 
   render() {
     return (
-      <AddLaneContainer>
-        <form id="add_lane_form" onSubmit={this.handleSubmit}>
-          <FormInput
-            id="add_lane_input"
-            label="Add lane"
-            type="text"
-            name="laneName"
-            placeholder="Lane name"
-            value={this.state.laneName}
-            handleChange={this.handleChange}
-          />
-          <FormButton type="submit">ADD</FormButton>
-        </form>
-      </AddLaneContainer>
+      <form
+        id="add-lane-form"
+        className="add-form"
+        onSubmit={this.handleSubmit}
+      >
+        <h3 className="add-form__heading">ADD NEW LANE</h3>
+        <FormInput
+          id="add_lane_input"
+          label="Lane name"
+          type="text"
+          name="laneName"
+          placeholder="Lane name"
+          value={this.state.laneName}
+          handleChange={this.handleChange}
+        />
+        <FormButton
+          className="btn btn-main u-animation-none u-margin-top-medium"
+          type="submit"
+        >
+          ADD
+        </FormButton>
+      </form>
     );
   }
 }

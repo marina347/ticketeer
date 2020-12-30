@@ -4,7 +4,6 @@ import { createStructuredSelector } from "reselect";
 
 import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
 import FormButton from "../form-button/form-button.component";
-import { AddTicketItemContainer } from "./add-ticket.styles";
 import { addTicketAsync } from "../../redux/ticket/ticket.actions";
 import {
   selectToken,
@@ -32,20 +31,18 @@ export const AddTicket = ({ addTicket, _id, token }) => {
   };
 
   return (
-    <AddTicketItemContainer>
-      <form id="add_ticket_form" onSubmit={handleSubmit}>
-        <FormTextArea
-          id="add_ticket_input"
-          name="ticketName"
-          label="Add ticket"
-          cols={20}
-          rows={2}
-          value={ticketName}
-          onChange={handleChange}
-        />
-        <FormButton type="submit">ADD</FormButton>
-      </form>
-    </AddTicketItemContainer>
+    <form id="add_ticket_form" onSubmit={handleSubmit}>
+      <FormTextArea
+        id="add_ticket_input"
+        name="ticketName"
+        label="Add ticket"
+        cols={20}
+        rows={2}
+        value={ticketName}
+        onChange={handleChange}
+      />
+      <FormButton type="submit">ADD</FormButton>
+    </form>
   );
 };
 

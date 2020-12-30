@@ -6,7 +6,7 @@ import FormInput from "../form-inputs/form-input/form-input.component";
 import FormButton from "../form-button/form-button.component";
 import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
 import { addBoardAsync } from "../../redux/board/board.actions";
-import "./add-board-item-form.styles.scss";
+
 import {
   selectToken,
   selectCurrentUserId,
@@ -44,9 +44,9 @@ export class AddBoardItemForm extends React.Component {
       <form
         id="add_board_form"
         onSubmit={this.handleSubmit}
-        class="add-board-item-form"
+        class="add-form"
       >
-        <h3 className="add-board-item-form__heading">ADD NEW BOARD</h3>
+        <h3 className="add-form__heading">ADD NEW BOARD</h3>
         <FormInput
           id="add_board_input"
           label="Board name"

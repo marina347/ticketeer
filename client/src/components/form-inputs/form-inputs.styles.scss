@@ -1,22 +1,20 @@
 .form-input-container {
-  margin: 2.5rem auto;
-  width: 100%;
+  margin: 1rem;
+  width: 70%;
   &__input {
     font-size: 1.6rem;
     font-family: inherit;
     color: inherit;
     padding: 2rem 2rem;
     border-radius: 2px;
-    background-image: linear-gradient(
-      to top right,
-      rgba(#c26dbc, 0.5),
-      rgba(#3cacae, 0.5)
-    );
+    background-color: rgba(white, 0.8);
+    backdrop-filter: grayscale(20%);
     border: none;
     border-bottom: 3px solid transparent;
     width: 100%;
     display: block;
     transition: all 0.3s;
+    box-shadow: 0 0.5rem 1rem rgba(#000, 0.1);
 
     &:focus {
       outline: none;
