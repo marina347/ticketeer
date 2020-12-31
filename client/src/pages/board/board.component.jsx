@@ -9,8 +9,10 @@ import "./board.styles.scss";
 const BoardPage = ({ board }) => {
   return (
     <div className="board-page">
-      <BoardDetails board={board} />
-      <LaneList boardId={board._id} />
+      <div className="board-page__group">
+        <BoardDetails board={board} />
+        <LaneList boardId={board._id} />
+      </div>
     </div>
   );
 };

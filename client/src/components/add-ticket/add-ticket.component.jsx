@@ -9,6 +9,7 @@ import {
   selectToken,
   selectCurrentUser,
 } from "../../redux/user/user.selectors";
+import "./add-ticket.styles.scss";
 
 export const AddTicket = ({ addTicket, _id, token }) => {
   const [ticketName, setTicketName] = useState("");
@@ -31,17 +32,23 @@ export const AddTicket = ({ addTicket, _id, token }) => {
   };
 
   return (
-    <form id="add_ticket_form" onSubmit={handleSubmit}>
+    <form id="add_ticket_form" className="add-ticket" onSubmit={handleSubmit}>
       <FormTextArea
         id="add_ticket_input"
         name="ticketName"
-        label="Add ticket"
-        cols={20}
-        rows={2}
+        label="Ticket name"
+        placeholder="Ticket name"
+        cols={50}
+        rows={3}
         value={ticketName}
         onChange={handleChange}
       />
-      <FormButton type="submit">ADD</FormButton>
+      <FormButton
+        className="btn btn-main btn--small u-animation-none"
+        type="submit"
+      >
+        ADD
+      </FormButton>
     </form>
   );
 };

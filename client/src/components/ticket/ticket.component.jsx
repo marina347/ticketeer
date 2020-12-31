@@ -42,7 +42,7 @@ class Ticket extends React.Component {
         draggable
         onClick={this.openModal}
       >
-        <p>{name.substring(0, 20)}...</p>
+        <p>{name}</p>
 
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -53,9 +53,7 @@ class Ticket extends React.Component {
         >
           <TicketPreview id={_id} />
           <br></br>
-          <FormButton style={{ "font-size": "18px" }} onClick={this.closeModal}>
-            close
-          </FormButton>
+          <FormButton onClick={this.closeModal}>close</FormButton>
         </Modal>
       </div>
     );

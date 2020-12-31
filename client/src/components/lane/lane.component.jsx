@@ -8,7 +8,6 @@ import AddTicket from "../add-ticket/add-ticket.component";
 import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
 import { selectTicketItems } from "../../redux/ticket/ticket.selectors";
 import { selectToken } from "../../redux/user/user.selectors";
-import FormButton from "../form-button/form-button.component";
 import { deleteLaneAsync } from "../../redux/lane/lane.actions";
 
 class Lane extends React.Component {
@@ -44,8 +43,12 @@ class Lane extends React.Component {
             &times;
           </button>
         </div>
-        <TicketList boardId={boardId} laneId={_id} />
-        <AddTicket _id={_id} />
+        <div class="ticket-list-content">
+          <div class="ticket-list">
+            <TicketList boardId={boardId} laneId={_id} />
+          </div>
+          <AddTicket _id={_id} />
+        </div>
       </div>
     );
   }

@@ -1,15 +1,15 @@
 .lane-container {
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: transparent;
   padding: 0 2.5rem;
   margin-left: 3rem;
   position: relative;
   border: 2px solid grey;
   box-shadow: 0 1rem 1rem rgba(#000, 0.2);
-  flex: 0 0 20%;
+  flex: 0 0 17%;
   display: flex;
   flex-direction: column;
-  backdrop-filter: grayscale(40%);
+  backdrop-filter: hue-rotate(340deg) grayscale(10%);
 }
 
 .lane-header {
@@ -23,15 +23,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .lane-close {
   margin-top: 1rem;
   padding-left: 1rem;
-  color: var(--color-grey-dark-1);
+
   font-size: 3rem;
   background-color: transparent;
   border: none;
   outline: none;
+  color: white;
   cursor: pointer;
+}
+
+.ticket-list-content {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  flex: 1;
+}
+
+.ticket-list {
+  margin-bottom: auto;
 }

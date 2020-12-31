@@ -3,11 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2.5rem;
+  flex: 1;
   &__list {
     display: flex;
     justify-content: flex-start;
-    overflow: scroll;
-    overflow-y: hidden;
+    overflow-x: scroll;
+    //overflow-y:hidden
     align-self: flex-start;
+    width: 100vw;
+    flex: 1;
   }
 }
