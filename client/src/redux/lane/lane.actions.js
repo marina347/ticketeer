@@ -1,5 +1,11 @@
+import { toast } from "react-toastify";
+import React from "react";
+
 import LanesTypes from "./lane.types";
 import EnvVariables from "../../env-variables";
+import CloseButton from "../../components/close-button/close-button.component";
+import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const getLanesStart = () => ({
   type: LanesTypes.GET_LANES_START,
@@ -61,7 +67,7 @@ export const getLanesAsync = (boardId, token) => {
       const responseJson = await response.json();
       dispatch(getLanesSuccess(responseJson.lanes));
     } catch (error) {
-      dispatch(getLanesFailure(error));
+      dispatch(getLanesFailure(error.message));
     }
   };
 };
@@ -85,7 +91,11 @@ export const addLaneAsync = (name, boardId, token) => {
       const jsonResponse = await response.json();
       dispatch(addLaneSuccess(jsonResponse.lane));
     } catch (error) {
-      dispatch(addLaneFailure(error));
+      dispatch(addLaneFailure(error.message));
+      toast.error(ErrorMessages.ADD_LANE_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -108,7 +118,11 @@ export const deleteLaneAsync = (laneId, token) => {
       const jsonResponse = await response.json();
       dispatch(deleteLaneSuccess(jsonResponse.lane));
     } catch (error) {
-      dispatch(deleteLaneError(error));
+      dispatch(deleteLaneError(error.message));
+      toast.error(ErrorMessages.DELETE_LANE_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };

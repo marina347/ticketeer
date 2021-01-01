@@ -41,7 +41,7 @@ router.get("/boards/join-board/:boardId", auth, async (req, res) => {
     });
 
     if (alreadyExists) {
-      return res.status(400).send({ error: "You have already joined!" });
+      return res.status(400).send("You have already joined!");
     }
 
     board.members = board.members.concat({ member: req.user._id });
@@ -70,6 +70,9 @@ router.post("/boards", auth, async (req, res) => {
     ...req.body,
     creator: req.user._id,
   });
+  if (!req.body.name && req.body.name === "") {
+    return res.status(400).send("Name is required!");
+  }
   board.members = board.members.concat({ member: req.user._id });
   try {
     await board.save();
@@ -86,7 +89,7 @@ router.patch("/boards/:id", auth, async (req, res) => {
     allowedPropsToChange.includes(prop)
   );
   if (!isValidProp) {
-    return res.status(400).send({ error: "Not valid prop" });
+    return res.status(400).send("Not valid prop");
   }
   try {
     const board = await Board.findOne({

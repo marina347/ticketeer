@@ -14,6 +14,11 @@ export const selectBoardsAreLoading = createSelector(
   (boards) => boards.isLoading
 );
 
+export const selectBoardsError = createSelector(
+  [selectBoards],
+  (boards) => boards.error
+);
+
 export const selectBoard = (boardId) => {
   return createSelector([selectBoardsItems], (boards) =>
     boards.find((board) => board._id === boardId)

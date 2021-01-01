@@ -5,7 +5,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ReactComponent as ClipBoardIcon } from "../../assets/svg/clipboard.svg";
 
 const BoardLink = ({ boardLink }) => {
-  const boardUrl = `${EnvVariables.REACT_APP_SERVER_PATH}/home/boards/join-board/${boardLink}`;
+  const boardUrl = `${EnvVariables.REACT_APP_CLIENT_PATH}/home/boards/join-board/${boardLink}`;
   const [copy, setCopy] = useState(false);
   return (
     <div className="board-link">
@@ -20,7 +20,9 @@ const BoardLink = ({ boardLink }) => {
       <CopyToClipboard text={boardUrl} onCopy={() => setCopy(true)}>
         <ClipBoardIcon className="board-link__clipboard"></ClipBoardIcon>
       </CopyToClipboard>
-      {copy ? <span className="board-link__info">Link copied to clipboard.</span> : null}
+      {copy ? (
+        <span className="board-link__info">Link copied to clipboard.</span>
+      ) : null}
     </div>
   );
 };

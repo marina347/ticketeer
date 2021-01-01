@@ -1,5 +1,11 @@
+import { toast } from "react-toastify";
+import React from "react";
+
 import BoardTypes from "./board.types";
 import EnvVariables from "../../env-variables";
+import CloseButton from "../../components/close-button/close-button.component";
+import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const getBoardsStart = () => ({
   type: BoardTypes.GET_BOARDS_START,
@@ -104,7 +110,7 @@ export const getBoardsAsync = (token) => {
       const responseJson = await response.json();
       dispatch(getBoardsSuccess(responseJson.boards));
     } catch (error) {
-      dispatch(getBoardsFailure(error));
+      dispatch(getBoardsFailure(error.message));
     }
   };
 };
@@ -128,7 +134,11 @@ export const addBoardAsync = (boardItem, token) => {
       const board = await response.json();
       dispatch(addBoardSuccess(board));
     } catch (error) {
-      dispatch(addBoardFailure(error));
+      dispatch(addBoardFailure(error.message));
+      toast.error(ErrorMessages.ADD_BOARD_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -151,8 +161,12 @@ export const generateHashedBoardIdAsync = (boardId, token) => {
       dispatch(
         generateHashedBoardIdSuccess(boardId, jsonResponse.hashedBoardId)
       );
-    } catch (e) {
-      dispatch(generateHashedBoardIdFailure(e));
+    } catch (error) {
+      dispatch(generateHashedBoardIdFailure(error.message));
+      toast.error(ErrorMessages.GENERATE_INVITATION_LINK_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -171,14 +185,14 @@ export const joinBoardAsync = (hashedBoardId, token) => {
         `${EnvVariables.REACT_APP_SERVER_PATH}/boards/join-board/${hashedBoardId}`,
         requestOptions
       );
-      if (response.status !== 200) {
-        dispatch(joinBoardFailure(response.statusText));
-        return;
-      }
       const jsonResponse = await response.json();
       dispatch(joinBoardSuccess(jsonResponse.board));
-    } catch (e) {
-      dispatch(joinBoardFailure(e));
+    } catch (error) {
+      dispatch(joinBoardFailure(error.message));
+      toast.error(ErrorMessages.JOIN_BOARD_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -197,14 +211,10 @@ export const fetchBoardMembersAsync = (boardId, token) => {
         `${EnvVariables.REACT_APP_SERVER_PATH}/boards/${boardId}/members`,
         requestOptions
       );
-      if (response.status !== 200) {
-        dispatch(fetchBoardMembersFailure(response.statusText));
-        return;
-      }
       const jsonResponse = await response.json();
       dispatch(fetchBoardMembersSuccess(boardId, jsonResponse.members));
-    } catch (e) {
-      dispatch(fetchBoardMembersFailure(e));
+    } catch (error) {
+      dispatch(fetchBoardMembersFailure(error.message));
     }
   };
 };

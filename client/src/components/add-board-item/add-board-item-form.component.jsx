@@ -55,6 +55,7 @@ export class AddBoardItemForm extends React.Component {
           placeholder="Board name"
           value={this.state.boardName}
           handleChange={this.handleChange}
+          required
         />
         <FormTextArea
           id="add_board_description"

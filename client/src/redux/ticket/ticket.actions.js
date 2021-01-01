@@ -1,5 +1,11 @@
+import { toast } from "react-toastify";
+import React from "react";
+
 import TicketTypes from "./ticket.types";
 import EnvVariables from "../../env-variables";
+import CloseButton from "../../components/close-button/close-button.component";
+import { removeError } from "../common";
+import ErrorMessages from "../../utils/error-messages";
 
 export const getTicketsStart = () => ({
   type: TicketTypes.GET_TICKETS_START,
@@ -60,7 +66,7 @@ export const getTicketsAsync = (boardId, token) => {
       const tickets = await response.json();
       dispatch(getTicketsSuccess(tickets));
     } catch (error) {
-      dispatch(getTicketsFailure(error));
+      dispatch(getTicketsFailure(error.message));
     }
   };
 };
@@ -90,7 +96,11 @@ export const updateTicketAsync = (ticket, token) => {
       const responseJson = await response.json();
       dispatch(updateTicketSuccess(responseJson.ticket));
     } catch (error) {
-      dispatch(updateTicketFailure(error));
+      dispatch(updateTicketFailure(error.message));
+      toast.error(ErrorMessages.UPDATE_TICKET_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };
@@ -116,13 +126,13 @@ export const addTicketAsync = (ticket, token) => {
         requestOptions
       );
       const responseJson = await response.json();
-      if (response.status !== 200) {
-        dispatch(addTicketFailure(response.error));
-        return;
-      }
       dispatch(addTicketSuccess(responseJson.ticket));
     } catch (error) {
-      dispatch(addTicketFailure(error));
+      dispatch(addTicketFailure(error.message));
+      toast.error(ErrorMessages.ADD_TICKET_ERROR_MESSAGE, {
+        autoClose: false,
+        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+      });
     }
   };
 };

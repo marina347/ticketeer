@@ -42,6 +42,7 @@ export const AddTicket = ({ addTicket, _id, token }) => {
         rows={3}
         value={ticketName}
         onChange={handleChange}
+        required
       />
       <FormButton
         className="btn btn-main btn--small u-animation-none"

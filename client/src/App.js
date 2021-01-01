@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Header } from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boudary.component";
@@ -18,15 +20,16 @@ class App extends React.Component {
         <Header />
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
-            <Redirect from="/" to="/home" />
             <Switch>
+              <Redirect exact from="/" to="/home" />
               <Route path="/home" component={HomePage} />
               <Route exact path="/login" component={SignInPage} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>
         </ErrorBoundary>
-        <Footer/>
+        <Footer />
+        <ToastContainer position="bottom-center" hideProgressBar />
       </div>
     );
   }

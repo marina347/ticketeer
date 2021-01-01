@@ -7,14 +7,16 @@ import { removeTokenAsync } from "../../redux/user/user.actions";
 import FormButton from "../form-button/form-button.component";
 import { selectToken } from "../../redux/user/user.selectors";
 
-const SignOut = ({ removeToken, token }) => {
+const SignOut = ({ removeToken, token, history }) => {
   let [, setState] = useState();
 
   const signOut = (response) => {
     if (window.gapi.auth2) {
       const auth2 = window.gapi.auth2.getAuthInstance();
       if (auth2 != null) {
-        auth2.signOut().then(auth2.disconnect().then(removeToken(token)));
+        auth2
+          .signOut()
+          .then(auth2.disconnect().then(removeToken(token, history)));
       }
     }
     setState({});

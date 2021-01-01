@@ -7,7 +7,6 @@ import FormInput from "../form-inputs/form-input/form-input.component";
 import { addLaneAsync } from "../../redux/lane/lane.actions";
 import { selectToken } from "../../redux/user/user.selectors";
 
-
 export class AddLane extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +44,7 @@ export class AddLane extends React.Component {
           placeholder="Lane name"
           value={this.state.laneName}
           handleChange={this.handleChange}
+          required
         />
         <FormButton
           className="btn btn-inverted u-animation-none u-margin-top-medium"
