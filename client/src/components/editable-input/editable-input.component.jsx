@@ -1,5 +1,8 @@
 import React from "react";
+import FormButton from "../form-button/form-button.component";
+import FormInput from "../form-inputs/form-input/form-input.component";
 import FormTextArea from "../form-inputs/form-text-area/form-text-area.component";
+import "../editable-input/editable-input.styles.scss";
 
 class EditableInput extends React.Component {
   state = {
@@ -33,51 +36,61 @@ class EditableInput extends React.Component {
   renderEditView = () => {
     const { fieldType, label, fieldName, editViewClassName } = this.props;
     return (
-      <div>
+      <div className="editable-input-container">
         {fieldType === "textarea" ? (
           <FormTextArea
-            textAreaItemClassName={editViewClassName}
             label={label}
             name={fieldName}
             onChange={this.onChange}
             value={this.state.value}
           ></FormTextArea>
         ) : (
-          <input
+          <FormInput
             label={label}
             type="text"
             value={this.state.value}
             onChange={this.onChange}
             name={fieldName}
-            className={editViewClassName}
           />
         )}
-        <button onClick={this.changeEditMode}>X</button>
-        <button onClick={this.updateComponentValue}>OK</button>
+        <FormButton
+          className="btn btn-main u-animation-none btn--small"
+          onClick={this.changeEditMode}
+        >
+          &times;
+        </FormButton>
+        <FormButton
+          className="btn btn-main u-animation-none btn--small"
+          onClick={this.updateComponentValue}
+        >
+          OK
+        </FormButton>
       </div>
     );
   };
 
   renderDefaultView = () => {
-    const {
-      fieldType,
-      label,
-      defaultViewClassName,
-      defaultViewValueClassName,
-      defaultViewInnerValueClassName,
-    } = this.props;
+    const { label, placeholder, fieldType, fieldName } = this.props;
     return (
-      <div className={defaultViewClassName} onDoubleClick={this.changeEditMode}>
-        {label}
-        <div className={defaultViewValueClassName}>
-          {fieldType === "textarea" ? (
-            <div className={defaultViewInnerValueClassName}>
-              {this.state.value}
-            </div>
-          ) : (
-            this.state.value
-          )}
-        </div>
+      <div onFocus={this.changeEditMode}>
+        {fieldType === "textarea" ? (
+          <FormTextArea
+            label={label}
+            placeholder={placeholder}
+            name={fieldName}
+            onChange={this.onChange}
+            value={this.state.value}
+          ></FormTextArea>
+        ) : (
+          <FormInput
+            label={label}
+            placeholder={placeholder}
+            type="text"
+            value={this.state.value}
+            onChange={this.onChange}
+            name={fieldName}
+          />
+        )}
       </div>
     );
   };

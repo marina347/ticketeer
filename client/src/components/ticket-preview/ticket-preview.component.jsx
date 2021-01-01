@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Select from "react-select";
 import { withRouter } from "react-router-dom";
 
-import "./ticket-preview.styles.css";
+import "./ticket-preview.styles.scss";
 import EditableInput from "../editable-input/editable-input.component";
 import {
   selectTicketAssigners,
@@ -68,40 +68,33 @@ class TicketPreview extends React.Component {
   };
 
   render() {
-    const {
-      updateTicket,
-      ticketItem,
-      token,
-      boardMembers,
-    } = this.props;
+    const { updateTicket, ticketItem, token, boardMembers } = this.props;
     return (
-      <div className="nice-font ticket-preview-container">
+      <div className="ticket-preview-container">
+        <h3 className="ticket-heading">Edit ticket</h3>
         <EditableInput
-          defaultViewClassName="ticket-header"
-          editViewClassName="ticket-header"
           updateTicket={updateTicket}
           ticketItem={ticketItem}
           token={token}
-          label={""}
+          label={"Name"}
+          placeholder={"Name"}
           fieldName={"name"}
           fieldType={"input"}
           defaultName={ticketItem.name}
         />
         <EditableInput
           updateTicket={updateTicket}
+          placeholder={"Description"}
           ticketItem={ticketItem}
           token={token}
-          label={"Description: "}
+          label={"Description"}
           fieldName={"description"}
           fieldType={"textarea"}
-          defaultViewValueClassName="ticket-description-view "
-          editViewClassName="ticket-description ticket-description-edit"
-          defaultViewInnerValueClassName="ticket-description"
           defaultName={ticketItem.description}
         />
-        Assigners:{" "}
         <Select
           isMulti
+          className="select u-border-none"
           value={this.state.selectedOptions}
           onChange={this.handleChange}
           options={boardMembers.map((member) => ({
@@ -109,25 +102,26 @@ class TicketPreview extends React.Component {
             label: member.name,
           }))}
         />
-        <form onSubmit={this.handleTagSubmit}>
+        <p className="ticket-assigners__heading">Assigners</p>
+        <form class="tag-form" onSubmit={this.handleTagSubmit}>
           <FormInput
-            label=""
+            label="Tag"
             type="text"
-            containerClassName="tag-input-container"
-            className="tag-input"
             name="tag"
             placeholder="Tag"
             value={this.state.tag}
             handleChange={this.handleTagAdd}
           />
-          <FormButton className="tag-input-button">Dodaj tag</FormButton>
+          <FormButton className="btn btn-main btn--small u-animation-none">
+            Dodaj tag
+          </FormButton>
         </form>
-        Tags:
+        <p className="ticket-assigners__heading">Tags: </p>
         <div className="tag-list-container">
           {ticketItem.tags.map((item, ind) => (
-            <p class="tag-list-item" key={ind}>
+            <span class="tag-list-item" key={ind}>
               {item.tag}
-            </p>
+            </span>
           ))}
         </div>
       </div>

@@ -10,6 +10,7 @@ const FormTextArea = ({
   value,
   placeholder,
   additionalStylesApplied,
+  ...otherProps
 }) => {
   return (
     <div class="form-input-container">
@@ -22,6 +23,7 @@ const FormTextArea = ({
         value={value}
         placeholder={placeholder ? placeholder : ""}
         additionalStylesApplied={additionalStylesApplied}
+        {...otherProps}
       ></textarea>
       {label ? <label class="form-input-container__label">{label}</label> : null}
     </div>

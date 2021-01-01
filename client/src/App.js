@@ -5,6 +5,7 @@ import { Header } from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boudary.component";
 import NotFound from "./components/not-found/not-found.component";
 import Spinner from "./components/spinner/spinner.component";
+import Footer from "./components/footer/footer.component";
 import "./App.scss";
 
 const HomePage = lazy(() => import("./pages/home/home.component"));
@@ -25,16 +26,7 @@ class App extends React.Component {
             </Switch>
           </Suspense>
         </ErrorBoundary>
-        <div
-          style={{
-            width: "100%",
-            alignSelf: "center",
-            backgroundColor: "#EFF1DB",
-            padding: "2rem",
-          }}
-        >
-          FOOTER
-        </div>
+        <Footer/>
       </div>
     );
   }
