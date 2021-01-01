@@ -1,22 +1,11 @@
 import React from "react";
-import Modal from "react-modal";
 
 import TicketPreview from "../../components/ticket-preview/ticket-preview.component";
-import FormButton from "../form-button/form-button.component";
 import "./ticket.styles.scss";
+import Popup from "../popup/popup.component";
+import Modal from "../modal/Modal";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-Modal.setAppElement(document.getElementById("root"));
+const TicketPopup = Popup(TicketPreview);
 
 class Ticket extends React.Component {
   state = {
@@ -36,25 +25,24 @@ class Ticket extends React.Component {
     const { name, onDragStart, _id, className } = this.props;
 
     return (
-      <div
-        className={className}
-        onDragStart={onDragStart}
-        draggable
-        onClick={this.openModal}
-      >
-        <p>{name}</p>
-
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Modal"
+      <div>
+        <div
+          className={className}
+          onDragStart={onDragStart}
+          draggable
+          onClick={this.openModal}
         >
-          <TicketPreview id={_id} />
-          <br></br>
-          <FormButton onClick={this.closeModal}>close</FormButton>
-        </Modal>
+          <p>{name}</p>
+        </div>
+        {this.state.modalIsOpen ? (
+          <Modal>
+            <TicketPopup
+              id={_id}
+              popupOpened={this.state.modalIsOpen}
+              onPopupClose={this.closeModal}
+            />
+          </Modal>
+        ) : null}
       </div>
     );
   }

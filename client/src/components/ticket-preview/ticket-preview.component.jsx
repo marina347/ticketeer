@@ -69,10 +69,8 @@ class TicketPreview extends React.Component {
 
   render() {
     const {
-      id,
       updateTicket,
       ticketItem,
-      ticketAssigners,
       token,
       boardMembers,
     } = this.props;
