@@ -77,14 +77,12 @@ class TicketPreview extends React.Component {
           ticketItem={ticketItem}
           token={token}
           label={"Name"}
-          placeholder={"Name"}
           fieldName={"name"}
           fieldType={"input"}
           defaultName={ticketItem.name}
         />
         <EditableInput
           updateTicket={updateTicket}
-          placeholder={"Description"}
           ticketItem={ticketItem}
           token={token}
           label={"Description"}
@@ -102,21 +100,18 @@ class TicketPreview extends React.Component {
             label: member.name,
           }))}
         />
-        <p className="ticket-assigners__heading">Assigners</p>
         <form class="tag-form" onSubmit={this.handleTagSubmit}>
           <FormInput
             label="Tag"
             type="text"
             name="tag"
-            placeholder="Tag"
             value={this.state.tag}
             handleChange={this.handleTagAdd}
           />
-          <FormButton className="btn btn-main btn--small u-animation-none">
-            Dodaj tag
+          <FormButton className="btn btn-inverted btn--small u-animation-none">
+            Add tag
           </FormButton>
         </form>
-        <p className="ticket-assigners__heading">Tags: </p>
         <div className="tag-list-container">
           {ticketItem.tags.map((item, ind) => (
             <span class="tag-list-item" key={ind}>

@@ -67,7 +67,7 @@ export class AddBoardItemForm extends React.Component {
           onChange={this.handleChange}
           additionalStylesApplied={true}
         />
-        <FormButton className="btn btn-main u-animation-none" type="submit">
+        <FormButton className="btn btn-inverted u-animation-none" type="submit">
           ADD
         </FormButton>
       </form>

@@ -38,31 +38,35 @@
 }
 
 .tag-list-container {
-  padding: 2rem;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .tag-list-item {
   font-size: 1.5rem;
   font-family: Nunito sans-serif;
   text-decoration: underline;
 
-  &:not(:first-child){
+  &:not(:first-child) {
     &::before {
       content: "|";
       padding: 0 1rem;
     }
   }
-  
 }
 
 .select {
-  margin: 1rem;
-  width: 100%;
+  margin: 1.5rem 1rem;
+  margin-bottom: 2rem;
+  width: 80%;
+
   & > * {
     border: none !important;
     background-color: rgba(white, 0.8) !important;
     box-shadow: 0 0.5rem 1rem rgba(#000, 0.1);
     backdrop-filter: grayscale(20%);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: Nunito sans-serif;
     &:first-child {
       padding-bottom: 0;
@@ -87,10 +91,13 @@
 }
 
 .ticket-assigners {
+  margin-bottom: 2rem;
+  padding: 2rem;
   &__heading {
     font-size: 1.4rem;
     font-weight: 600;
     margin-left: 2rem;
+
     margin-top: 0.7rem;
     display: block;
     font-family: Nunito sans-serif;

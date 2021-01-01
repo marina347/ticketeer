@@ -47,7 +47,7 @@ export class AddLane extends React.Component {
           handleChange={this.handleChange}
         />
         <FormButton
-          className="btn btn-main u-animation-none u-margin-top-medium"
+          className="btn btn-inverted u-animation-none u-margin-top-medium"
           type="submit"
         >
           ADD
