@@ -1,8 +1,24 @@
-.ticket-preview-container {
+.ticket-preview {
   display: flex;
   flex-direction: column;
   padding: 3rem;
   width: 75%;
+
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 }
 
 .ticket-header {
@@ -11,47 +27,22 @@
   border-radius: 3%;
   padding: 1rem;
 }
-.ticket-description {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
-.ticket-description-view {
-  width: 100%;
-  white-space: pre-wrap;
-  border: 1px solid lightgray;
-  border-radius: 3%;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.ticket-description-edit {
-  white-space: pre-wrap;
-  border: 1px solid lightgray;
-  height: 310px;
-  padding: 1rem;
-
-  width: 100%;
-
-  font-size: 1.6rem;
-}
-
-.tag-list-container {
+.tag-list {
   padding: 0 2rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}
-.tag-list-item {
-  font-size: 1.5rem;
-  font-family: Nunito sans-serif;
-  text-decoration: underline;
+  &__item {
+    font-size: 1.5rem;
+    font-family: Nunito sans-serif;
+    text-decoration: underline;
 
-  &:not(:first-child) {
-    &::before {
-      content: "|";
-      padding: 0 1rem;
+    &:not(:first-child) {
+      &::before {
+        content: "|";
+        padding: 0 1rem;
+      }
     }
   }
 }
@@ -71,36 +62,6 @@
     &:first-child {
       padding-bottom: 0;
     }
-  }
-}
-
-.ticket-heading {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  padding: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5rem;
-  text-transform: uppercase;
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary-light),
-    var(--color-primary-dark)
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.ticket-assigners {
-  margin-bottom: 2rem;
-  padding: 2rem;
-  &__heading {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-left: 2rem;
-
-    margin-top: 0.7rem;
-    display: block;
-    font-family: Nunito sans-serif;
   }
 }
 

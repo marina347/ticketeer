@@ -70,8 +70,8 @@ class TicketPreview extends React.Component {
   render() {
     const { updateTicket, ticketItem, token, boardMembers } = this.props;
     return (
-      <div className="ticket-preview-container">
-        <h3 className="ticket-heading">Edit ticket</h3>
+      <div className="ticket-preview">
+        <h3 className="ticket-preview__heading">Edit ticket</h3>
         <EditableInput
           updateTicket={updateTicket}
           ticketItem={ticketItem}
@@ -112,9 +112,9 @@ class TicketPreview extends React.Component {
             Add tag
           </FormButton>
         </form>
-        <div className="tag-list-container">
+        <div className="tag-list">
           {ticketItem.tags.map((item, ind) => (
-            <span class="tag-list-item" key={ind}>
+            <span class="tag-list__item" key={ind}>
               {item.tag}
             </span>
           ))}

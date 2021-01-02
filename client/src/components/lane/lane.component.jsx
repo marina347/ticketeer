@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import "./lane.styles.css";
+import "./lane.styles.scss";
 import TicketList from "../ticket-list/ticket-list.component";
 import AddTicket from "../add-ticket/add-ticket.component";
 import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
@@ -31,10 +31,10 @@ class Lane extends React.Component {
         onDrop={(event) => {
           this.onDrop(event, dropClassName);
         }}
-        className="lane-container"
+        className="lane"
       >
-        <div className="lane-container__group">
-          <h2 className="lane-header">{name}</h2>
+        <div className="lane__header">
+          <h2 className="lane-heading">{name}</h2>
           <button
             className="lane-close"
             isIconStyle={true}
@@ -43,10 +43,8 @@ class Lane extends React.Component {
             &times;
           </button>
         </div>
-        <div class="ticket-list-content">
-          <div class="ticket-list">
-            <TicketList boardId={boardId} laneId={_id} />
-          </div>
+        <div class="lane__main">
+          <TicketList boardId={boardId} laneId={_id} />
           <AddTicket _id={_id} />
         </div>
       </div>

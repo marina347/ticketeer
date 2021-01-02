@@ -14,9 +14,11 @@ const BoardDetails = ({ board }) => {
         </div>
         <MemberList boardId={board._id} />
       </div>
-      {board.description != "" ? (
-        <p className="board-details__description">{board.description}</p>
-      ) : null}
+      <div className="board-details__row">
+        {board.description != "" ? (
+          <p className="board-details__description">{board.description}</p>
+        ) : null}
+      </div>
     </div>
   );
 };

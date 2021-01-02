@@ -34,9 +34,9 @@ class EditableInput extends React.Component {
   };
 
   renderEditView = () => {
-    const { fieldType, label, fieldName, editViewClassName } = this.props;
+    const { fieldType, label, fieldName } = this.props;
     return (
-      <div className="editable-input-container">
+      <div className="editable-input">
         {fieldType === "textarea" ? (
           <FormTextArea
             label={label}
@@ -72,7 +72,7 @@ class EditableInput extends React.Component {
   renderDefaultView = () => {
     const { label, placeholder, fieldType, fieldName } = this.props;
     return (
-      <div onFocus={this.changeEditMode}>
+      <div className="editable-input" onFocus={this.changeEditMode}>
         {fieldType === "textarea" ? (
           <FormTextArea
             label={label}
@@ -97,11 +97,11 @@ class EditableInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.state.isInEditMode
           ? this.renderEditView()
           : this.renderDefaultView()}
-      </div>
+      </>
     );
   }
 }

@@ -8,14 +8,14 @@ const FormInput = ({
   ...otherProps
 }) => {
   return (
-    <div className="form-input-container">
+    <div className="form-input">
       <input
-        className="form-input-container__input"
+        className="form-input__input"
         required
         onChange={handleChange}
         {...otherProps}
       ></input>
-      {label ? <label className="form-input-container__label">{label}</label> : null}
+      {label ? <label className="form-input__label">{label}</label> : null}
     </div>
   );
 };

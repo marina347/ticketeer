@@ -16,9 +16,9 @@ class MemberList extends React.Component {
     const { board, isLoading } = this.props;
     if (!isLoading) {
       return (
-        <div className="member-list-container">
-          <h2 className="member-list-container__heading">Members:</h2>
-          <div className="member-list-container__list">
+        <div className="member-list">
+          <h2 className="member-list__heading">Members:</h2>
+          <div className="member-list__list">
             {board.members.map((member, index) => {
               if (index <= lastIndexOfMemberToBeDisplayed) {
                 return <Member key={member._id} {...member}></Member>;
@@ -33,7 +33,7 @@ class MemberList extends React.Component {
                 } other members`}
                 placement="bottom"
               >
-                <div className="member-list-container__list--dots">
+                <div className="member-list__list--dots">
                   <span>...</span>
                 </div>
               </LightTooltip>

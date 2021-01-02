@@ -18,7 +18,7 @@ export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
   };
   return (
     <div>
-      <div className="icon-cont" onClick={handleClick}>
+      <div className="icon-box" onClick={handleClick}>
         <ShareIcon
           className="icon"
           onClick={() => generateLink(boardId, token)}

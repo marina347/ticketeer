@@ -9,7 +9,7 @@ import "./board.styles.scss";
 const BoardPage = ({ board }) => {
   return (
     <div className="board-page">
-      <div className="board-page__group">
+      <div className="board-page__content">
         <BoardDetails board={board} />
         <LaneList boardId={board._id} />
       </div>

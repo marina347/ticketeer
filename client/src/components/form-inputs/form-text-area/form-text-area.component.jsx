@@ -15,9 +15,9 @@ const FormTextArea = ({
   ...otherProps
 }) => {
   return (
-    <div class="form-input-container">
+    <div class="form-input">
       <textarea
-        className="form-input-container__input"
+        className="form-input__input"
         name={name}
         rows={rows}
         cols={cols}
@@ -29,7 +29,7 @@ const FormTextArea = ({
         {...otherProps}
       ></textarea>
       {label ? (
-        <label class="form-input-container__label">{label}</label>
+        <label class="form-input__label">{label}</label>
       ) : null}
     </div>
   );
