@@ -12,7 +12,7 @@ export const BoardItem = ({ history, match, _id, board }) => {
       className="board-item"
       onClick={() => history.push(`${match.url}/boards/${_id}`)}
     >
-      <p id="board_name_text" className="board-item__name">
+      <p id="board_item_name" className="board-item__name">
         {board.name.length > 20
           ? `${board.name.substring(0, MAX_LENGTH)}...`
           : board.name}

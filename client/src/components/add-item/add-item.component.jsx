@@ -14,7 +14,7 @@ const AddItem = (AddItemPopup) => {
 
     render() {
       return (
-        <div className="add-item-container">
+        <div className="add-item-wrapper">
           <div className="add-item" onClick={this.handleClick}>
             <PlusIcon className="add-item__icon" />
           </div>

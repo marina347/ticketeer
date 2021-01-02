@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "../user-icon.styles.scss";
 import { ReactComponent as UserDefaultImage } from "../../../assets/svg/user.svg";
 import UserView from "../../user-view/user-view.component";

@@ -16,7 +16,7 @@ export class BoardItemList extends React.Component {
     const { history, match, boards, isLoading } = this.props;
     if (!isLoading) {
       return (
-        <div className="board-item-list-container">
+        <div className="board-item-list">
           {boards.map((board) => (
             <BoardItem
               key={board._id}
