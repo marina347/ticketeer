@@ -2,17 +2,17 @@ import React from "react";
 import "./popup.styles.scss";
 
 const Popup = (Content) => {
-  const PopupWithContent = ({ popupOpened, onPopupClose, ...otherProps }) => {
-    return popupOpened ? (
-      <div class="popup">
-        <div class="popup__content">
+  const PopupWithContent = ({ onPopupClose, ...otherProps }) => {
+    return (
+      <div className="popup">
+        <div className="popup__content">
           <button onClick={onPopupClose} class="popup__close">
             &times;
           </button>
           <Content closePopup={onPopupClose} {...otherProps} />
         </div>
       </div>
-    ) : null;
+    );
   };
   return PopupWithContent;
 };

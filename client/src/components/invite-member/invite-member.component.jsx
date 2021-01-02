@@ -8,13 +8,14 @@ import { ReactComponent as ShareIcon } from "../../assets/svg/share.svg";
 import "./invite-member.styles.scss";
 import Popup from "../popup/popup.component";
 import BoardLink from "../board-link/board-link.component";
+import Modal from "../modal/Modal";
 
 const BoardLinkPopup = Popup(BoardLink);
 
 export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
-  const [popupOpened, setPopup] = useState(false);
+  const [modalOpened, setModal] = useState(false);
   const handleClick = () => {
-    setPopup(!popupOpened);
+    setModal(!modalOpened);
   };
   return (
     <div>
@@ -24,11 +25,11 @@ export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
           onClick={() => generateLink(boardId, token)}
         />
       </div>
-      <BoardLinkPopup
-        popupOpened={popupOpened}
-        onPopupClose={handleClick}
-        boardLink={boardLink}
-      />
+      {modalOpened ? (
+        <Modal>
+          <BoardLinkPopup onPopupClose={handleClick} boardLink={boardLink} />
+        </Modal>
+      ) : null}
     </div>
   );
 };

@@ -54,7 +54,7 @@ class EditableInput extends React.Component {
           />
         )}
         <FormButton
-          className="btn btn-inverted u-animation-none btn--small"
+          className="btn btn-inverted u-animation-none btn--small u-margin-right-small"
           onClick={this.changeEditMode}
         >
           &times;

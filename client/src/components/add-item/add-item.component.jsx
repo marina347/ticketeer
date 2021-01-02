@@ -1,15 +1,16 @@
 import React from "react";
 import "./add-item.styles.scss";
 import { ReactComponent as PlusIcon } from "../../assets/svg/plus.svg";
+import Modal from "../modal/Modal";
 
 const AddItem = (AddItemPopup) => {
   class WrappedComponent extends React.Component {
     state = {
-      popupOpened: false,
+      modalOpened: false,
     };
 
     handleClick = () => {
-      this.setState({ popupOpened: !this.state.popupOpened });
+      this.setState({ modalOpened: !this.state.modalOpened });
     };
 
     render() {
@@ -18,11 +19,14 @@ const AddItem = (AddItemPopup) => {
           <div className="add-item" onClick={this.handleClick}>
             <PlusIcon className="add-item__icon" />
           </div>
-          <AddItemPopup
-            popupOpened={this.state.popupOpened}
-            onPopupClose={this.handleClick}
-            {...this.props}
-          />
+          {this.state.modalOpened ? (
+            <Modal>
+              <AddItemPopup
+                onPopupClose={this.handleClick}
+                {...this.props}
+              />
+            </Modal>
+          ) : null}
         </div>
       );
     }
