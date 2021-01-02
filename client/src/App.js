@@ -29,7 +29,12 @@ class App extends React.Component {
           </Suspense>
         </ErrorBoundary>
         <Footer />
-        <ToastContainer position="bottom-center" hideProgressBar />
+        <ToastContainer
+          style={{ fontSize: "1.6rem" }}
+          bodyClassName="toast-body"
+          position="bottom-right"
+          hideProgressBar
+        />
       </div>
     );
   }
