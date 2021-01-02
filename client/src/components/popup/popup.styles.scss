@@ -3,7 +3,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(#000, 0.7);
+  background-color: rgba(var(--rgba-color-black), 0.7);
   z-index: 9999;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -13,7 +13,7 @@
     (backdrop-filter: blur(10px)) {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(#000, 0.3);
+    background-color: rgba(var(--color-black), 0.3);
   }
 
   &__content {
@@ -28,7 +28,7 @@
         rgba(#c26dbc, 0.9) 75%
       ),
       url("https://owsl.ca/media/news/meeting.jpg");
-    box-shadow: 0 2rem 4rem rgba(#000, 0.2);
+    box-shadow: 0 2rem 4rem rgba(var(--rgba-color-black), 0.2);
     background-size: cover;
     border-radius: 3px;
     transform: translate(-50%, -50%);

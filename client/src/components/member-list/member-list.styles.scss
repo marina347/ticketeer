@@ -9,7 +9,7 @@
   &__heading {
     align-self: flex-end;
   }
-  
+
   &__list {
     align-self: flex-end;
     display: flex;
@@ -22,8 +22,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: white;
-      color: black;
+      background-color: var(--color-white);
+      color: var(--color-black);
       margin-left: -1rem;
       z-index: 1;
 

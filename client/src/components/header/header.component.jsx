@@ -21,24 +21,17 @@ class HeaderComponent extends React.Component {
   }
   render() {
     const { history, currentUser } = this.props;
-    if (currentUser) {
-      return (
-        <div className="header-container">
-          <div className="logo-container" onClick={() => history.push("/home")}>
-            <TicketeerLogo className="logo" />
-          </div>
 
+    return (
+      <div className="header">
+        <div className="header__logo-box" onClick={() => history.push("/home")}>
+          <TicketeerLogo className="header__logo" />
+        </div>
+        {currentUser ? (
           <SideMenu currentUser={currentUser} history={history} />
-        </div>
-      );
-    } else
-      return (
-        <div className="header-container">
-          <div className="logo-container">
-            <TicketeerLogo className="logo" />
-          </div>
-        </div>
-      );
+        ) : null}
+      </div>
+    );
   }
 }
 

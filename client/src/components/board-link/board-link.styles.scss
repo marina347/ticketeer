@@ -42,7 +42,7 @@
     display: inline;
 
     &:hover {
-      box-shadow: 0.5rem 0.5rem 0.5rem rgba(#000, 0.15);
+      box-shadow: 0.5rem 0.5rem 0.5rem rgba(var(--rgba-color-black), 0.15);
     }
   }
   display: flex;

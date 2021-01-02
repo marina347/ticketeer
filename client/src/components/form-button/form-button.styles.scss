@@ -15,7 +15,7 @@
 .btn-main {
   padding: 2rem 5rem;
   font-weight: 600;
-  background-color: rgba(white, 0.8);
+  background-color: rgba(var(--rgba-color-white), 0.8);
   border-color: var(--color-grey-light-4);
   border-radius: 50px;
   font-size: 1.8rem;
@@ -69,7 +69,7 @@
     box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.2);
   }
   span {
-    color: white;
+    color: var(--color-white);
   }
   font-weight: 600;
 }

@@ -4,7 +4,7 @@
 
 .add-item {
   cursor: pointer;
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
 
   &:hover {
     transform: translateY(-0.7rem);
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(#000, 0.15);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(var(--rgba-color-black), 0.15);
   }
 }
 

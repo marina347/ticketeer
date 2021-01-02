@@ -1,12 +1,10 @@
-.sign-in-container {
+.sign-in {
   padding: 1rem;
-  margin-bottom: auto;
+  align-self: center;
   flex: 1;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-
-  &__text {
-    text-align: center;
-  }
+  text-align: center;
 }

@@ -13,11 +13,11 @@
     border-bottom: 3px solid transparent;
     width: 100%;
     display: block;
-    box-shadow: 0 0.5rem 1rem rgba(#000, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(var(--rgba-color-black), 0.1);
 
     &:focus {
       outline: none;
-      box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+      box-shadow: 0 1rem 2rem rgba(var(--rgba-color-black), 0.1);
       border-bottom: 3px solid var(--color-primary-light);
     }
 
@@ -38,11 +38,9 @@
     transition: all 0.3s;
   }
 
-  
   &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
   }
-  
 }

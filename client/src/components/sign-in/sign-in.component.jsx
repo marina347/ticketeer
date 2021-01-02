@@ -25,8 +25,7 @@ const SignIn = ({ getToken, history, currentUser }) => {
 
   if (!currentUser) {
     return (
-      <div className="sign-in-container">
-        <div className="sign-in-container__text">
+      <div className="sign-in">
           <PrimaryHeading
             mainText={"Ticketeer"}
             subText={"Login with your google accout"}
@@ -48,7 +47,6 @@ const SignIn = ({ getToken, history, currentUser }) => {
               </FormButton>
             )}
           />
-        </div>
       </div>
     );
   }
