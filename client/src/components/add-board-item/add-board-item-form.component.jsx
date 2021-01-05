@@ -12,7 +12,7 @@ import {
   selectCurrentUserId,
 } from "../../redux/user/user.selectors";
 
-export class AddBoardItemForm extends React.Component {
+export class AddBoardItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,4 +87,4 @@ const mapDispatchToProps = (dispatch) => ({
   addBoard: (boardItem, token) => dispatch(addBoardAsync(boardItem, token)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddBoardItemForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddBoardItem);

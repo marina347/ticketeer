@@ -1,8 +1,8 @@
 import React from "react";
 import "./secondary-heading.styles.scss";
 
-const SecondaryHeading = ({ text }) => {
-  return <h1 className="secondary-heading">{text}</h1>;
+export const SecondaryHeading = ({ text }) => {
+  return <h1 id="secondary_heading" className="secondary-heading">{text}</h1>;
 };
 
 export default SecondaryHeading;

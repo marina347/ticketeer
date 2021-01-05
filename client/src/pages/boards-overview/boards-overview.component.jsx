@@ -7,7 +7,7 @@ import BoardItemList from "../../components/board-item-list/board-item-list.cont
 import AddItem from "../../components/add-item/add-item.component";
 import { selectUserNameAndSurname } from "../../redux/user/user.selectors";
 import "./boards-overview.styles.scss";
-import AddBoardItem from "../../components/add-board-item/add-board-item-form.component";
+import AddBoardItem from "../../components/add-board-item/add-board-item.component";
 import Popup from "../../components/popup/popup.component";
 
 const AddBoard = AddItem(Popup(AddBoardItem));
