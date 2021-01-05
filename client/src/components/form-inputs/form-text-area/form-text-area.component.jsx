@@ -9,7 +9,6 @@ const FormTextArea = ({
   onChange,
   value,
   placeholder,
-  additionalStylesApplied,
   textAreaItemClassName,
   required,
   ...otherProps
@@ -17,6 +16,7 @@ const FormTextArea = ({
   return (
     <div class="form-input">
       <textarea
+        id="form-textarea"
         className="form-input__input"
         name={name}
         rows={rows}
@@ -24,12 +24,11 @@ const FormTextArea = ({
         onChange={onChange}
         value={value}
         placeholder={placeholder ? placeholder : ""}
-        additionalStylesApplied={additionalStylesApplied}
         required={required ? true : false}
         {...otherProps}
       ></textarea>
       {label ? (
-        <label class="form-input__label">{label}</label>
+        <label id="form-textarea-label" className="form-input__label">{label}</label>
       ) : null}
     </div>
   );

@@ -31,33 +31,23 @@ describe("FormTextArea component", () => {
   });
 
   it("Should call onChange method when input changes", () => {
-    wrapper.find("FormTextAreaItem").simulate("change");
+    wrapper.find('[id="form-textarea"]').simulate("change");
     expect(mockOnChange).toHaveBeenCalled();
   });
 
-  it("Should render FormInputLabel if there is label", () => {
-    expect(wrapper.exists("FormTextAreaLabel")).toBe(true);
+  it("Should render form label", () => {
+    expect(wrapper.exists('[id="form-textarea-label"]')).toBe(true);
   });
 
-  it("Should not render FormInputLabel if there is no label", () => {
+  it("Should not render form label", () => {
     const newWrapper = shallow(<FormTextArea {...mockWithAnotherProps} />);
-    expect(newWrapper.exists("FormTextAreaLabel")).toBe(false);
-  });
-
-  it("Should set border to 0 if additionalStylesApplied is true ", () => {
-    expect(wrapper.find("FormTextAreaItem")).toHaveStyleRule("border", "0");
-  });
-
-  it("Should not set border if additionalStylesApplied is false", () => {
-    const newWrapper = shallow(<FormTextArea {...mockWithAnotherProps} />);
-    expect(newWrapper.find("FormTextAreaItem")).not.toHaveStyleRule(
-      "border",
-      "0"
-    );
+    expect(newWrapper.exists('[id="form-textarea-label"]')).toBe(false);
   });
 
   it("Should set placeholder to empty string if not provided", () => {
     const newWrapper = shallow(<FormTextArea {...mockWithAnotherProps} />);
-    expect(newWrapper.find("FormTextAreaItem").prop("placeholder")).toBe("");
+    expect(newWrapper.find('[id="form-textarea"]').prop("placeholder")).toBe(
+      ""
+    );
   });
 });

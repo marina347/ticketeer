@@ -22,15 +22,15 @@ describe("FormInput component", () => {
   });
 
   it("Should call handleChange method when input changes", () => {
-    wrapper.find("FormInputItem").simulate("change");
+    wrapper.find('[id="form-input"]').simulate("change");
     expect(mockHandleChange).toHaveBeenCalled();
   });
 
-  it("Should render FormInputLabel if there is a label", () => {
-    expect(wrapper.exists("FormInputLabel")).toBe(true);
+  it("Should render form label", () => {
+    expect(wrapper.exists('[id="form-input-label"]')).toBe(true);
   });
 
-  it("Should not render FormInputLabel if there is no label", () => {
+  it("Should not render form label", () => {
     const mockNewProps = {
       label: "",
       containerClassName: "class-1",
@@ -38,6 +38,6 @@ describe("FormInput component", () => {
     };
 
     const newWrapper = shallow(<FormInput {...mockNewProps} />);
-    expect(newWrapper.exists("FormInputLabel")).toBe(false);
+    expect(newWrapper.exists('[id="form-input-label"]')).toBe(false);
   });
 });

@@ -19,14 +19,15 @@ export const InviteMember = ({ boardLink, generateLink, boardId, token }) => {
   };
   return (
     <div>
-      <div className="icon-box" onClick={handleClick}>
+      <div id="icon-box" className="icon-box" onClick={handleClick}>
         <ShareIcon
+        id="icon"
           className="icon"
           onClick={() => generateLink(boardId, token)}
         />
       </div>
       {modalOpened ? (
-        <Modal>
+        <Modal id="modal">
           <BoardLinkPopup onPopupClose={handleClick} boardLink={boardLink} />
         </Modal>
       ) : null}

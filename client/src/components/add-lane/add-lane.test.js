@@ -9,9 +9,11 @@ describe("AddLane component", () => {
   let addLane;
   let event;
   let handleSubmitSpy;
+  let closePopup;
 
   beforeEach(() => {
     addLane = jest.fn();
+    closePopup = jest.fn();
     event = {
       preventDefault: jest.fn(),
       target: {
@@ -21,6 +23,7 @@ describe("AddLane component", () => {
     };
     mockProps = {
       addLane,
+      closePopup
     };
 
     //spyes will work if in class declaration you use bind in constructor. on anonymous method spyes cant work
@@ -34,10 +37,7 @@ describe("AddLane component", () => {
   });
 
   it("Should start onSubmit method when form inside is submitted", () => {
-    wrapper
-      .find("AddLaneContainer")
-      .find('[id="add_lane_form"]')
-      .simulate("submit", event);
+    wrapper.find('[id="add_lane_form"]').simulate("submit", event);
     expect(handleSubmitSpy).toHaveBeenCalled();
     expect(addLane).toHaveBeenCalled();
     expect(wrapper.state()).toEqual({ laneName: "" });
@@ -53,7 +53,6 @@ describe("AddLane component", () => {
   it("Form input has a prop handleChange", () => {
     expect(
       wrapper
-        .find("AddLaneContainer")
         .find('[id="add_lane_form"]')
         .find('[id="add_lane_input"]')
         .prop("handleChange")

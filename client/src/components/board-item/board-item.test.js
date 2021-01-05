@@ -28,27 +28,15 @@ describe("BoardItem component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("Should call history.push with the right value when BoardItemContainer clicked", () => {
-    wrapper.find("BoardItemContainer").simulate("click");
+  it("Should call history.push with the right value when board item clicked", () => {
+    wrapper.find('[id="board_item"]').simulate("click");
     expect(mockHistory.push).toHaveBeenCalledWith(
       `${mockMatch.url}/boards/${id}`
     );
   });
 
   it("Should render the board name as the text", () => {
-    const boardNameText = wrapper.find('[id="board_name_text"]').text();
+    const boardNameText = wrapper.find('[id="board_item_name"]').text();
     expect(boardNameText).toBe("Board1");
-  });
-
-  it("Should render the cut board name as the text if name has more than 20 chars", () => {
-    const mockNewProps = {
-      history: mockHistory,
-      match: mockMatch,
-      board: { _id: "1", name: "Board1234567890123456789012345" },
-      _id: id,
-    };
-    const newWrapper = shallow(<BoardItem {...mockNewProps} />);
-    const boardNameText = newWrapper.find('[id="board_name_text"]').text();
-    expect(boardNameText).toBe("Board12345678901234567890123...");
   });
 });

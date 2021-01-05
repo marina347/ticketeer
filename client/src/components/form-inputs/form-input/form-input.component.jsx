@@ -10,12 +10,13 @@ const FormInput = ({
   return (
     <div className="form-input">
       <input
+        id="form-input"
         className="form-input__input"
         required
         onChange={handleChange}
         {...otherProps}
       ></input>
-      {label ? <label className="form-input__label">{label}</label> : null}
+      {label ? <label id="form-input-label" className="form-input__label">{label}</label> : null}
     </div>
   );
 };

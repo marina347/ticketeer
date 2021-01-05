@@ -1,9 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render Member component 1`] = `
-<div>
-  <p>
-    name
-  </p>
-</div>
+<WithStyles(WithStyles(ForwardRef(Tooltip)))
+  placement="bottom"
+  title="name"
+>
+  <div
+    className="member"
+  >
+    <UserIconSmall
+      name="name"
+    />
+  </div>
+</WithStyles(WithStyles(ForwardRef(Tooltip)))>
 `;

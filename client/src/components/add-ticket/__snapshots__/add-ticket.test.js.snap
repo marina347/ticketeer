@@ -9,68 +9,57 @@ exports[`AddTicket component Should render AddTicket component 1`] = `
     }
   }
 >
-  <AddTicketItemContainer>
-    <div
-      className="sc-eCssSg eKEGaK"
+  <form
+    className="add-ticket"
+    id="add_ticket_form"
+    onSubmit={[Function]}
+  >
+    <FormTextArea
+      cols={50}
+      id="add_ticket_input"
+      label="Ticket name"
+      name="ticketName"
+      onChange={[Function]}
+      placeholder="Ticket name"
+      required={true}
+      rows={3}
+      value=""
     >
-      <form
-        id="add_ticket_form"
-        onSubmit={[Function]}
+      <div
+        class="form-input"
       >
-        <FormTextArea
-          cols={20}
+        <textarea
+          className="form-input__input"
+          cols={50}
           id="add_ticket_input"
-          label="Add ticket"
           name="ticketName"
           onChange={[Function]}
-          rows={2}
+          placeholder="Ticket name"
+          required={true}
+          rows={3}
           value=""
+        />
+        <label
+          className="form-input__label"
+          id="form-textarea-label"
         >
-          <div>
-            <FormTextAreaLabel>
-              <label
-                className="sc-gsTCUz bFJjBo"
-              >
-                Add ticket
-              </label>
-            </FormTextAreaLabel>
-            <br />
-            <FormTextAreaItem
-              cols={20}
-              name="ticketName"
-              onChange={[Function]}
-              placeholder=""
-              rows={2}
-              value=""
-            >
-              <textarea
-                className="sc-bdfBwQ cOopSE"
-                cols={20}
-                name="ticketName"
-                onChange={[Function]}
-                placeholder=""
-                rows={2}
-                value=""
-              />
-            </FormTextAreaItem>
-          </div>
-        </FormTextArea>
-        <FormButton
-          type="submit"
-        >
-          <FormButtonContainer
-            type="submit"
-          >
-            <button
-              className="sc-dlfnbm eMRlWG"
-              type="submit"
-            >
-              ADD
-            </button>
-          </FormButtonContainer>
-        </FormButton>
-      </form>
-    </div>
-  </AddTicketItemContainer>
+          Ticket name
+        </label>
+      </div>
+    </FormTextArea>
+    <FormButton
+      className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
+      type="submit"
+    >
+      <button
+        className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
+        type="submit"
+      >
+        <span>
+          ADD
+        </span>
+      </button>
+    </FormButton>
+  </form>
 </AddTicket>
 `;

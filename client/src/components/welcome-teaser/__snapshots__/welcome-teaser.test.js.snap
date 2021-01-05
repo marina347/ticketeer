@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should render WelcomeTeaser component 1`] = `
-<WelcomeTeaserContainer>
-  <h1>
-    Hello 
-    name
-    ! 
-  </h1>
-</WelcomeTeaserContainer>
+<div
+  class="welcome-teaser"
+>
+  <SecondaryHeading
+    text="Hello name!"
+  />
+  ;
+</div>
 `;

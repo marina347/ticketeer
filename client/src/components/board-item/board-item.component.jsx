@@ -6,7 +6,7 @@ import "./board-item.styles.scss";
 
 export const BoardItem = ({ history, match, _id, board }) => {
   return (
-    <div
+    <div id="board_item"
       className="board-item"
       onClick={() => history.push(`${match.url}/boards/${_id}`)}
     >

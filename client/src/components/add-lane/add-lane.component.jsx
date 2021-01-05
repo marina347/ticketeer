@@ -31,7 +31,7 @@ export class AddLane extends React.Component {
   render() {
     return (
       <form
-        id="add-lane-form"
+        id="add_lane_form"
         className="add-form"
         onSubmit={this.handleSubmit}
       >
