@@ -2,7 +2,7 @@
 
 exports[`FormTextArea component Should render FormTextArea component 1`] = `
 <div
-  class="form-input"
+  className="form-input"
 >
   <textarea
     additionalStylesApplied={true}

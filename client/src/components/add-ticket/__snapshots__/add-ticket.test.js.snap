@@ -26,7 +26,7 @@ exports[`AddTicket component Should render AddTicket component 1`] = `
       value=""
     >
       <div
-        class="form-input"
+        className="form-input"
       >
         <textarea
           className="form-input__input"

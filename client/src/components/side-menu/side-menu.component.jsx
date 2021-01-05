@@ -2,9 +2,9 @@ import React from "react";
 import UserIconSmall from "../user-icon/user-icon-small/user-icon-small.component";
 import "./side-menu.styles.scss";
 
-const SideMenu = ({ currentUser }) => {
+export const SideMenu = ({ currentUser }) => {
   return (
-    <div className="side-menu">
+    <div id="side_menu" className="side-menu">
       <UserIconSmall
         url={currentUser.picture}
         name={currentUser.name}

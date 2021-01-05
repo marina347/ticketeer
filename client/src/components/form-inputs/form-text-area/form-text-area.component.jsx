@@ -14,7 +14,7 @@ const FormTextArea = ({
   ...otherProps
 }) => {
   return (
-    <div class="form-input">
+    <div className="form-input">
       <textarea
         id="form-textarea"
         className="form-input__input"
@@ -28,7 +28,9 @@ const FormTextArea = ({
         {...otherProps}
       ></textarea>
       {label ? (
-        <label id="form-textarea-label" className="form-input__label">{label}</label>
+        <label id="form-textarea-label" className="form-input__label">
+          {label}
+        </label>
       ) : null}
     </div>
   );

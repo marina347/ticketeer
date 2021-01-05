@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu component Should render SideMenu component 1`] = `
+<div
+  className="side-menu"
+  id="side_menu"
+>
+  <UserIconSmall
+    email="test@test.com"
+    name="John"
+    url="test/picture"
+  />
+</div>
+`;

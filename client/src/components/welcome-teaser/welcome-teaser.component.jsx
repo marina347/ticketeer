@@ -4,7 +4,7 @@ import "./welcome-teaser.styles.scss";
 
 const WelcomeTeaser = ({ displayName }) => {
   return (
-    <div class="welcome-teaser">
+    <div id="welcome_teaser" class="welcome-teaser">
       <SecondaryHeading text={`Hello ${displayName}!`} />;
     </div>
   );
