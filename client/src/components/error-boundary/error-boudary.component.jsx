@@ -1,7 +1,6 @@
 import React from "react";
 import "./error-boundary.styles.scss";
-
-const backgroundImagePath = "https://i.imgur.com/O0DCcQy.png";
+import EnvVariables from "../../env-variables";
 
 class ErrorBoundary extends React.Component {
   state = {
@@ -18,7 +17,7 @@ class ErrorBoundary extends React.Component {
         <div className="error">
           <img
             className="error__image"
-            src="https://i.imgur.com/O0DCcQy.png"
+            src={`${EnvVariables.REACT_APP_CLIENT_PATH}/broken-page.png`}
             alt="Error"
           ></img>
           <p className="error__text">Sorry, this page is broken!</p>
