@@ -108,7 +108,7 @@ class TicketPreview extends React.Component {
             value={this.state.tag}
             handleChange={this.handleTagAdd}
           />
-          <FormButton className="btn btn-inverted btn--small u-animation-none">
+          <FormButton className="btn btn-main btn-main--gradient btn-main--small u-animation-none">
             Add tag
           </FormButton>
         </form>

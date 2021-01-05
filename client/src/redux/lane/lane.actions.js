@@ -3,9 +3,9 @@ import React from "react";
 
 import LanesTypes from "./lane.types";
 import EnvVariables from "../../env-variables";
-import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
 import ErrorMessages from "../../utils/error-messages";
+import FormButton from "../../components/form-button/form-button.component";
 
 export const getLanesStart = () => ({
   type: LanesTypes.GET_LANES_START,
@@ -94,7 +94,7 @@ export const addLaneAsync = (name, boardId, token) => {
       dispatch(addLaneFailure(error.message));
       toast.error(ErrorMessages.ADD_LANE_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -121,7 +121,7 @@ export const deleteLaneAsync = (laneId, token) => {
       dispatch(deleteLaneError(error.message));
       toast.error(ErrorMessages.DELETE_LANE_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };

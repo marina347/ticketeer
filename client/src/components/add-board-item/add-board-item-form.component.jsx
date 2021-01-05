@@ -70,7 +70,7 @@ export class AddBoardItemForm extends React.Component {
           additionalStylesApplied={true}
           maxlength="300"
         />
-        <FormButton className="btn btn-inverted u-animation-none" type="submit">
+        <FormButton className="btn btn-main btn-main--gradient u-animation-none" type="submit">
           ADD
         </FormButton>
       </form>

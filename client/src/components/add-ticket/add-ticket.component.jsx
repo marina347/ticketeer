@@ -45,7 +45,7 @@ export const AddTicket = ({ addTicket, _id, token }) => {
         required
       />
       <FormButton
-        className="btn btn-main btn--small u-animation-none"
+        className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
         type="submit"
       >
         ADD

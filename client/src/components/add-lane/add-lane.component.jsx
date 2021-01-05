@@ -48,7 +48,7 @@ export class AddLane extends React.Component {
           maxlength="40"
         />
         <FormButton
-          className="btn btn-inverted u-animation-none u-margin-top-medium"
+          className="btn btn-main btn-main--gradient u-animation-none u-margin-top-medium"
           type="submit"
         >
           ADD

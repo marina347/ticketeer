@@ -39,7 +39,7 @@ const SignIn = ({ getToken, history, currentUser }) => {
             isSignedIn={true}
             render={(renderProps) => (
               <FormButton
-                className="btn btn-main"
+                className="btn btn-main btn-main--white"
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >

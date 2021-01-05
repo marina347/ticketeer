@@ -13,7 +13,7 @@ const NotFound = ({ history }) => {
       </p>
       <FormButton
         onClick={() => history.push("/home")}
-        className="btn btn-main u-animation-none"
+        className="btn btn-main btn-main--white u-animation-none"
       >
         GO HOME
       </FormButton>
