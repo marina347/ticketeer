@@ -45,6 +45,7 @@ export class AddLane extends React.Component {
           value={this.state.laneName}
           handleChange={this.handleChange}
           required
+          maxlength="40"
         />
         <FormButton
           className="btn btn-inverted u-animation-none u-margin-top-medium"

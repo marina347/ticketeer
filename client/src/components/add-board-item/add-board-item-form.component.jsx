@@ -56,6 +56,7 @@ export class AddBoardItemForm extends React.Component {
           value={this.state.boardName}
           handleChange={this.handleChange}
           required
+          maxlength="50"
         />
         <FormTextArea
           id="add_board_description"
@@ -67,6 +68,7 @@ export class AddBoardItemForm extends React.Component {
           value={this.state.boardDescription}
           onChange={this.handleChange}
           additionalStylesApplied={true}
+          maxlength="300"
         />
         <FormButton className="btn btn-inverted u-animation-none" type="submit">
           ADD

@@ -3,7 +3,7 @@
   font-weight: bold;
   background-color: rgba(#3cacae, 0.9);
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem 1rem;
   margin: 1rem;
   cursor: pointer;
   backface-visibility: hidden;
@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   width: 26rem;
-  height: 10rem;
+  height: 12rem;
 
   &:hover {
     transform: scale(1.05);

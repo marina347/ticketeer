@@ -7,6 +7,8 @@ import Modal from "../modal/Modal";
 
 const TicketPopup = Popup(TicketPreview);
 
+const MAX_TICKET_DISPLAY_NAME = 85;
+
 class Ticket extends React.Component {
   state = {
     modalIsOpen: false,
@@ -32,7 +34,7 @@ class Ticket extends React.Component {
           draggable
           onClick={this.openModal}
         >
-          <p>{name}</p>
+          <p>{name.length > MAX_TICKET_DISPLAY_NAME ? name.substring(0, 85) + "..." : name}</p>
         </div>
         {this.state.modalIsOpen ? (
           <Modal>
