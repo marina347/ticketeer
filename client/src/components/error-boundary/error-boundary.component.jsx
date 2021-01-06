@@ -14,7 +14,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="error">
+        <div id="error" className="error">
           <img
             className="error__image"
             src={`${EnvVariables.REACT_APP_CLIENT_PATH}/broken-page.png`}

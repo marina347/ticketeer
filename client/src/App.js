@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { Header } from "./components/header/header.component";
-import ErrorBoundary from "./components/error-boundary/error-boudary.component";
+import ErrorBoundary from "./components/error-boundary/error-boundary.component";
 import NotFound from "./components/not-found/not-found.component";
 import Spinner from "./components/spinner/spinner.component";
 import Footer from "./components/footer/footer.component";
