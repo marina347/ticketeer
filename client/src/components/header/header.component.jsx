@@ -12,7 +12,7 @@ import "./header.styles.scss";
 import { closeSocket, createSocket } from "../../utils/client-socket";
 import SideMenu from "../side-menu/side-menu.component";
 
-class HeaderComponent extends React.Component {
+export class HeaderComponent extends React.Component {
   componentDidMount() {
     createSocket(this.props.token);
   }
@@ -23,12 +23,12 @@ class HeaderComponent extends React.Component {
     const { history, currentUser } = this.props;
 
     return (
-      <div className="header">
-        <div className="header__logo-box" onClick={() => history.push("/home")}>
+      <div id="header" className="header">
+        <div id="header_logo_box" className="header__logo-box" onClick={() => history.push("/home")}>
           <TicketeerLogo className="header__logo" />
         </div>
         {currentUser ? (
-          <SideMenu currentUser={currentUser} history={history} />
+          <SideMenu id="side_menu" currentUser={currentUser} history={history} />
         ) : null}
       </div>
     );

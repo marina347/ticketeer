@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Should render Header component 1`] = `
+<div
+  className="header"
+  id="header"
+>
+  <div
+    className="header__logo-box"
+    id="header_logo_box"
+    onClick={[Function]}
+  >
+    <ForwardRef(SvgTicket)
+      className="header__logo"
+    />
+  </div>
+  <SideMenu
+    currentUser={
+      Object {
+        "name": "John",
+      }
+    }
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    id="side_menu"
+  />
+</div>
+`;
