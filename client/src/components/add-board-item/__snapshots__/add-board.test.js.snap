@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddBoard component Should render AddBoard component 1`] = `
+<form
+  class="add-form"
+  id="add_board_form"
+  onSubmit={[Function]}
+>
+  <h3
+    className="add-form__heading"
+  >
+    ADD NEW BOARD
+  </h3>
+  <FormInput
+    handleChange={[Function]}
+    id="add_board_input"
+    label="Board name"
+    maxlength="50"
+    name="boardName"
+    placeholder="Board name"
+    required={true}
+    type="text"
+    value=""
+  />
+  <FormTextArea
+    additionalStylesApplied={true}
+    cols={20}
+    id="add_board_description"
+    label="Board description"
+    maxlength="300"
+    name="boardDescription"
+    onChange={[Function]}
+    placeholder="Board description"
+    rows={3}
+    value=""
+  />
+  <FormButton
+    className="btn btn-main btn-main--gradient u-animation-none"
+    type="submit"
+  >
+    ADD
+  </FormButton>
+</form>
+`;

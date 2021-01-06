@@ -29,7 +29,7 @@ describe("AddTicket component", () => {
       currentUser,
     };
 
-    wrapper = mount(<AddTicket {...mockProps} />);
+    wrapper = shallow(<AddTicket {...mockProps} />);
   });
 
   it("Should render AddTicket component", () => {
@@ -37,7 +37,6 @@ describe("AddTicket component", () => {
   });
 
   it("Should start onSubmit method when form inside is submitted", () => {
-    /*
     //cant save duplicated lines to one variable and reuse it because change of prop is not reflected on that variable
     //like this const form =  wrapper.find("AddTicketItemContainer").find('[id="add_ticket_form"]') wont work below
     wrapper.find('[id="add_ticket_form"]').simulate("submit", event);
@@ -49,17 +48,14 @@ describe("AddTicket component", () => {
         .find('[id="add_ticket_input"]')
         .prop("value")
     ).toBe("");
-    */
   });
 
   it("Form text area has a prop onChange", () => {
-    /*
     expect(
       wrapper
         .find('[id="add_ticket_form"]')
         .find('[id="add_ticket_input"]')
         .prop("onChange")
     ).not.toEqual(undefined);
-    */
   });
 });

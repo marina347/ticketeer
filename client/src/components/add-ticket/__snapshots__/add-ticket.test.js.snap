@@ -1,65 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddTicket component Should render AddTicket component 1`] = `
-<AddTicket
-  addTicket={[MockFunction]}
-  currentUser={
-    Object {
-      "id": "1",
-    }
-  }
+<form
+  className="add-ticket"
+  id="add_ticket_form"
+  onSubmit={[Function]}
 >
-  <form
-    className="add-ticket"
-    id="add_ticket_form"
-    onSubmit={[Function]}
+  <FormTextArea
+    cols={50}
+    id="add_ticket_input"
+    label="Ticket name"
+    name="ticketName"
+    onChange={[Function]}
+    placeholder="Ticket name"
+    required={true}
+    rows={3}
+    value=""
+  />
+  <FormButton
+    className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
+    type="submit"
   >
-    <FormTextArea
-      cols={50}
-      id="add_ticket_input"
-      label="Ticket name"
-      name="ticketName"
-      onChange={[Function]}
-      placeholder="Ticket name"
-      required={true}
-      rows={3}
-      value=""
-    >
-      <div
-        className="form-input"
-      >
-        <textarea
-          className="form-input__input"
-          cols={50}
-          id="add_ticket_input"
-          name="ticketName"
-          onChange={[Function]}
-          placeholder="Ticket name"
-          required={true}
-          rows={3}
-          value=""
-        />
-        <label
-          className="form-input__label"
-          id="form-textarea-label"
-        >
-          Ticket name
-        </label>
-      </div>
-    </FormTextArea>
-    <FormButton
-      className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
-      type="submit"
-    >
-      <button
-        className="btn btn btn-main btn-main--white btn-main--small u-animation-none"
-        type="submit"
-      >
-        <span>
-          ADD
-        </span>
-      </button>
-    </FormButton>
-  </form>
-</AddTicket>
+    ADD
+  </FormButton>
+</form>
 `;
