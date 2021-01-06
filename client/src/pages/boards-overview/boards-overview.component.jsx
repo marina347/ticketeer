@@ -7,12 +7,12 @@ import BoardItemList from "../../components/board-item-list/board-item-list.cont
 import AddItem from "../../components/add-item/add-item.component";
 import { selectUserNameAndSurname } from "../../redux/user/user.selectors";
 import "./boards-overview.styles.scss";
-import AddBoardItem from "../../components/add-board-item/add-board-item.component";
+import AddBoardItem from "../../components/add-board-item/add-board-item-form.component";
 import Popup from "../../components/popup/popup.component";
 
 const AddBoard = AddItem(Popup(AddBoardItem));
 
-const BoardsOverviewPage = ({ name }) => {
+export const BoardsOverviewPage = ({ name }) => {
   return (
     <div className="boards-overview">
       <WelcomeTeaser displayName={name} />

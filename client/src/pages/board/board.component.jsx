@@ -6,7 +6,7 @@ import LaneList from "../../components/lane-list/lane-list.component";
 import BoardDetails from "../../components/board-details/board-details.component";
 import "./board.styles.scss";
 
-const BoardPage = ({ board }) => {
+export const BoardPage = ({ board }) => {
   return (
     <div className="board-page">
       <div className="board-page__content">

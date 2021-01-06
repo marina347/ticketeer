@@ -15,7 +15,7 @@ const BoardLink = ({ boardLink }) => {
         it, they will automatically become members of the board.
       </p>
       <span className="board-link__path">
-        {boardLink !== "" ? boardUrl : boardLink}
+        {boardLink !== "" ? boardUrl : ""}
       </span>
       <CopyToClipboard text={boardUrl} onCopy={() => setCopy(true)}>
         <ClipBoardIcon className="board-link__clipboard"></ClipBoardIcon>

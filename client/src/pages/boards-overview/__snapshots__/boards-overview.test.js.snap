@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Boards overview page Should render Board overview page 1`] = `
+<div
+  className="boards-overview"
+>
+  <WelcomeTeaser
+    displayName="John"
+  />
+  <WrappedComponent />
+  <withRouter(Connect(Connect(BoardItemList))) />
+</div>
+`;
