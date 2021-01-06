@@ -9,7 +9,9 @@ exports[`Should render Member component 1`] = `
     className="member"
   >
     <UserIconSmall
+      email="email"
       name="name"
+      url="picture"
     />
   </div>
 </WithStyles(WithStyles(ForwardRef(Tooltip)))>
