@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup component Should render Popup component 1`] = `
+<div
+  className="popup"
+  id="popup"
+>
+  <div
+    className="popup__content"
+    id="popup_content"
+  >
+    <button
+      class="popup__close"
+      onClick={[MockFunction]}
+    >
+      ×
+    </button>
+    <Content
+      closePopup={[MockFunction]}
+      id="content"
+    />
+  </div>
+</div>
+`;
