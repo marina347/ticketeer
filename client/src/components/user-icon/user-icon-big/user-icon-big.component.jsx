@@ -5,13 +5,13 @@ import { ReactComponent as UserDefaultImage } from "../../../assets/svg/user.svg
 const UserIconBig = ({ url, name }) => {
   if (url && url !== "") {
     return (
-      <div class="user-icon u-cursor-auto">
-        <img className="user-icon--big" src={url} alt={`Photo of: ${name}`} />
+      <div className="user-icon u-cursor-auto">
+        <img className="user-icon--big" src={url} alt={name} />
       </div>
     );
   }
   return (
-    <div class="user-icon u-cursor-auto">
+    <div className="user-icon u-cursor-auto">
       <UserDefaultImage className="user-icon--big" />
     </div>
   );

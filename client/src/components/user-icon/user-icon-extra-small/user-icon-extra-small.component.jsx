@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../user-icon.styles.scss";
 import { ReactComponent as UserDefaultImage } from "../../../assets/svg/user.svg";
 
@@ -10,14 +10,14 @@ const UserIconSmall = ({ url, name }) => {
           <img
             className="user-icon--extra-small"
             src={url}
-            alt={`Photo of: ${name}`}
+            alt={name}
           />
         </div>
       </div>
     );
   }
   return (
-    <div class="user-icon">
+    <div className="user-icon">
       <UserDefaultImage className="user-icon--extra-small" />
     </div>
   );

@@ -118,7 +118,7 @@ export const removeTokenAsync = (token, history) => {
         },
         body: JSON.stringify({ token }),
       };
-      const response = await fetch(
+      await fetch(
         `${EnvVariables.REACT_APP_SERVER_PATH}/users/logout`,
         requestOptions
       );

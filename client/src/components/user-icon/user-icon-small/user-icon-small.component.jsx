@@ -32,7 +32,7 @@ const UserIconSmall = ({ url, name, email }) => {
     );
   }
   return (
-    <div class="user-icon" onClick={openView}>
+    <div className="user-icon" onClick={openView}>
       <UserDefaultImage className="user-icon--small" />
     </div>
   );

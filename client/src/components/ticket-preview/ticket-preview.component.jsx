@@ -100,7 +100,7 @@ class TicketPreview extends React.Component {
             label: member.name,
           }))}
         />
-        <form class="tag-form" onSubmit={this.handleTagSubmit}>
+        <form className="tag-form" onSubmit={this.handleTagSubmit}>
           <FormInput
             label="Tag"
             type="text"
@@ -114,7 +114,7 @@ class TicketPreview extends React.Component {
         </form>
         <div className="tag-list">
           {ticketItem.tags.map((item, ind) => (
-            <span class="tag-list__item" key={ind}>
+            <span className="tag-list__item" key={ind}>
               {item.tag}
             </span>
           ))}

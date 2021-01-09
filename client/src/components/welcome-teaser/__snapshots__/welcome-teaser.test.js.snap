@@ -2,7 +2,7 @@
 
 exports[`WelcomeTeaser component Should render WelcomeTeaser component 1`] = `
 <div
-  class="welcome-teaser"
+  className="welcome-teaser"
   id="welcome_teaser"
 >
   <SecondaryHeading

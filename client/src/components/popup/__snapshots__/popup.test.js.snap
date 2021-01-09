@@ -10,7 +10,7 @@ exports[`Popup component Should render Popup component 1`] = `
     id="popup_content"
   >
     <FormButton
-      class="btn btn-close btn-close--position-2"
+      className="btn btn-close btn-close--position-2"
       onClick={[MockFunction]}
     >
       ×

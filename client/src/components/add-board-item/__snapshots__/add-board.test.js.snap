@@ -2,7 +2,7 @@
 
 exports[`AddBoard component Should render AddBoard component 1`] = `
 <form
-  class="add-form"
+  className="add-form"
   id="add_board_form"
   onSubmit={[Function]}
 >

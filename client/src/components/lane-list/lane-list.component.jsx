@@ -41,8 +41,8 @@ class LaneList extends React.Component {
   render() {
     const { lanes, boardId } = this.props;
     return (
-      <div class="lanes">
-        <div class="lanes__list u-margin-bottom-medium ">
+      <div className="lanes">
+        <div className="lanes__list u-margin-bottom-medium ">
           {lanes.map((lane) => (
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}

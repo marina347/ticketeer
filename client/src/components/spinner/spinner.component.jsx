@@ -2,8 +2,8 @@ import React from "react";
 import "./spinner.styles.scss";
 
 const Spinner = () => (
-  <div class="spinner-container">
-    <div class="spinner" />
+  <div className="spinner-container">
+    <div className="spinner" />
   </div>
 );
 

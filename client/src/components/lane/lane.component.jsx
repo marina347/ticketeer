@@ -43,7 +43,7 @@ class Lane extends React.Component {
             &times;
           </FormButton>
         </div>
-        <div class="lane__main">
+        <div className="lane__main">
           <TicketList boardId={boardId} laneId={_id} />
           <AddTicket _id={_id} />
         </div>

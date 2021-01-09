@@ -10,7 +10,7 @@ const UserView = ({ name, url, opened, email, onViewClose }) => {
       <div className="user-view">
         <FormButton
           onClick={onViewClose}
-          class="btn btn-close btn-close--position-1"
+          className="btn btn-close btn-close--position-1"
         >
           &times;
         </FormButton>

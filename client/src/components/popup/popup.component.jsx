@@ -9,7 +9,7 @@ const Popup = (Content) => {
         <div id="popup_content" className="popup__content">
           <FormButton
             onClick={onPopupClose}
-            class="btn btn-close btn-close--position-2"
+            className="btn btn-close btn-close--position-2"
           >
             &times;
           </FormButton>

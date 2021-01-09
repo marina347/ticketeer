@@ -44,7 +44,7 @@ export class AddBoardItem extends React.Component {
       <form
         id="add_board_form"
         onSubmit={this.handleSubmit}
-        class="add-form"
+        className="add-form"
       >
         <h3 className="add-form__heading">ADD NEW BOARD</h3>
         <FormInput

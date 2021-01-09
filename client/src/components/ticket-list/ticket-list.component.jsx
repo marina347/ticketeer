@@ -40,7 +40,7 @@ class TicketList extends React.Component {
   render() {
     const { tickets } = this.props;
     return (
-      <div class="ticket-list">
+      <div className="ticket-list">
         {tickets.map((ticket) => (
           <Ticket
             onDragStart={(event) => this.onDragStart(event, ticket._id)}

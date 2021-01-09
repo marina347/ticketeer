@@ -8,7 +8,7 @@ import "./welcome-teaser.styles.scss";
 
 export const WelcomeTeaser = ({ name }) => {
   return (
-    <div id="welcome_teaser" class="welcome-teaser">
+    <div id="welcome_teaser" className="welcome-teaser">
       <SecondaryHeading text={`Hello ${name}!`} />;
     </div>
   );

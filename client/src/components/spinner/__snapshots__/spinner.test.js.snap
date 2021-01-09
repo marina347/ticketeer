@@ -2,10 +2,10 @@
 
 exports[`Spinner Should render Spinner 1`] = `
 <div
-  class="spinner-container"
+  className="spinner-container"
 >
   <div
-    class="spinner"
+    className="spinner"
   />
 </div>
 `;
