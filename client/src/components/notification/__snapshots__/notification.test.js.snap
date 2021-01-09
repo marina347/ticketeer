@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification component Should render Notification component 1`] = `
+<ToastContainer
+  autoClose={5000}
+  bodyClassName="toast-body"
+  closeButton={[Function]}
+  closeOnClick={true}
+  draggable={true}
+  draggablePercent={80}
+  hideProgressBar={true}
+  newestOnTop={false}
+  pauseOnFocusLoss={true}
+  pauseOnHover={true}
+  position="bottom-right"
+  role="alert"
+  rtl={false}
+  style={
+    Object {
+      "fontSize": "1.6rem",
+    }
+  }
+  transition={[Function]}
+/>
+`;
