@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LightTooltip component Should render LighTooltip component 1`] = `
+<WithStyles(ForwardRef(Tooltip))
+  classes={
+    Object {
+      "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-1",
+    }
+  }
+/>
+`;
