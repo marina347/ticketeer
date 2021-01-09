@@ -99,7 +99,7 @@ export const updateTicketAsync = (ticket, token) => {
       dispatch(updateTicketFailure(error.message));
       toast.error(ErrorMessages.UPDATE_TICKET_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -131,7 +131,7 @@ export const addTicketAsync = (ticket, token) => {
       dispatch(addTicketFailure(error.message));
       toast.error(ErrorMessages.ADD_TICKET_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };

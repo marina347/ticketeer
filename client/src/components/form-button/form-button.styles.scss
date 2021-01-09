@@ -64,9 +64,34 @@
   }
 }
 
-.btn-close {
+.btn-notification {
   font-size: 1rem;
   background-color: var(--color-white);
   padding: 0.5rem;
   align-self: flex-start;
+}
+
+.btn-close {
+  font-size: 3rem;
+  background-color: transparent;
+  transition: all 0.2s;
+  line-height: 1;
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+  &--position-1 {
+    position: absolute;
+    top: 0.7rem;
+    right: 1.2rem;
+  }
+  &--position-2 {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+  }
+  &--position-not-absolute {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    color: white;
+  }
 }

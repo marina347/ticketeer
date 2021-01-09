@@ -9,6 +9,7 @@ import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
 import { selectTicketItems } from "../../redux/ticket/ticket.selectors";
 import { selectToken } from "../../redux/user/user.selectors";
 import { deleteLaneAsync } from "../../redux/lane/lane.actions";
+import FormButton from "../form-button/form-button.component";
 
 class Lane extends React.Component {
   onDragOver = (event) => {
@@ -35,13 +36,12 @@ class Lane extends React.Component {
       >
         <div className="lane__header">
           <h2 className="lane-heading">{name}</h2>
-          <button
-            className="lane-close"
-            isIconStyle={true}
+          <FormButton
+            className="btn btn-close btn-close--position-not-absolute"
             onClick={() => deleteLane(_id, token)}
           >
             &times;
-          </button>
+          </FormButton>
         </div>
         <div class="lane__main">
           <TicketList boardId={boardId} laneId={_id} />

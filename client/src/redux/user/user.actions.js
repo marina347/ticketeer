@@ -95,7 +95,7 @@ export const getTokenAsync = (history, tokenId) => {
         autoClose: false,
         closeButton: (
           <FormButton
-            className="btn btn-close"
+            className="btn btn-notification"
             onClick={() => dispatch(removeError())}
           >
             X
@@ -130,7 +130,7 @@ export const removeTokenAsync = (token, history) => {
         autoClose: false,
         closeButton: (
           <FormButton
-            className="btn btn-close"
+            className="btn btn-notification"
             onClick={() => dispatch(removeError())}
           >
             X

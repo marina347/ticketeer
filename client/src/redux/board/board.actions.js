@@ -137,7 +137,7 @@ export const addBoardAsync = (boardItem, token) => {
       dispatch(addBoardFailure(error.message));
       toast.error(ErrorMessages.ADD_BOARD_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -165,7 +165,7 @@ export const generateHashedBoardIdAsync = (boardId, token) => {
       dispatch(generateHashedBoardIdFailure(error.message));
       toast.error(ErrorMessages.GENERATE_INVITATION_LINK_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -191,7 +191,7 @@ export const joinBoardAsync = (hashedBoardId, token) => {
       dispatch(joinBoardFailure(error.message));
       toast.error(ErrorMessages.JOIN_BOARD_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };

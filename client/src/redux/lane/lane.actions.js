@@ -94,7 +94,7 @@ export const addLaneAsync = (name, boardId, token) => {
       dispatch(addLaneFailure(error.message));
       toast.error(ErrorMessages.ADD_LANE_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -121,7 +121,7 @@ export const deleteLaneAsync = (laneId, token) => {
       dispatch(deleteLaneError(error.message));
       toast.error(ErrorMessages.DELETE_LANE_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <FormButton className="btn btn-close" onClick={() => dispatch(removeError())}>X</FormButton>,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };

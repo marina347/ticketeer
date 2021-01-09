@@ -35,24 +35,4 @@
     transition: all 0.5s 0.2s;
     transform: translate(-50%, -50%);
   }
-
-  &__close {
-    color: var(--color-grey-dark-1);
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    font-size: 3rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
-    line-height: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-
-    &:hover {
-      color: var(--color-primary-dark);
-    }
-  }
 }
