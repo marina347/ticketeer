@@ -1,13 +1,12 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { BoardsOverviewPage } from "./boards-overview.component";
+import BoardsOverviewPage from "./boards-overview.component";
 
 describe("Boards overview page", () => {
   let wrapper;
-  let name = "John";
 
   beforeEach(() => {
-    wrapper = shallow(<BoardsOverviewPage name={name} />);
+    wrapper = shallow(<BoardsOverviewPage />);
   });
 
   it("Should render Board overview page", () => {

@@ -4,9 +4,7 @@ exports[`Boards overview page Should render Board overview page 1`] = `
 <div
   className="boards-overview"
 >
-  <WelcomeTeaser
-    displayName="John"
-  />
+  <Connect(WelcomeTeaser) />
   <WrappedComponent />
   <withRouter(Connect(Connect(BoardItemList))) />
 </div>

@@ -1,14 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
-import WelcomeTeaser from "./welcome-teaser.component";
+import { WelcomeTeaser } from "./welcome-teaser.component";
 
 describe("WelcomeTeaser component", () => {
   let wrapper;
-  let displayName;
+  let name;
 
   beforeEach(() => {
-    displayName = "John";
-    wrapper = shallow(<WelcomeTeaser displayName={displayName} />);
+    name = "John";
+    wrapper = shallow(<WelcomeTeaser name={name} />);
   });
 
   it("Should render WelcomeTeaser component", () => {

@@ -1,13 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectUserNameAndSurname } from "../../redux/user/user.selectors";
 import SecondaryHeading from "../secondary-heading/secondary-heading.component";
 import "./welcome-teaser.styles.scss";
 
-const WelcomeTeaser = ({ displayName }) => {
+export const WelcomeTeaser = ({ name }) => {
   return (
     <div id="welcome_teaser" class="welcome-teaser">
-      <SecondaryHeading text={`Hello ${displayName}!`} />;
+      <SecondaryHeading text={`Hello ${name}!`} />;
     </div>
   );
 };
 
-export default WelcomeTeaser;
+export const mapStateToProps = createStructuredSelector({
+  name: selectUserNameAndSurname,
+});
+
+export default connect(mapStateToProps)(WelcomeTeaser);
