@@ -1,0 +1,10 @@
+.board-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100%;
+  &__content{
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 100%;
+  }
+}

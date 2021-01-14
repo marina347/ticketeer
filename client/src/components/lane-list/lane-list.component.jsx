@@ -3,12 +3,16 @@ import { connect } from "react-redux";
 
 import { getLanesAsync } from "../../redux/lane/lane.actions";
 import { selectLanesByBoardId } from "../../redux/lane/lane.selectors";
-import { LaneListContainer } from "./lane-list.styles";
 import Lane from "../lane/lane.component";
-import AddLane from "../add-lane/add-lane.component";
 import { selectToken } from "../../redux/user/user.selectors";
 import { getSocket } from "../../utils/client-socket";
 import { selectCurrentUserId } from "../../redux/user/user.selectors";
+import "./lane-list.styles.scss";
+import AddItem from "../add-item/add-item.component";
+import Popup from "../popup/popup.component";
+import AddLane from "../add-lane/add-lane.component";
+
+const AddLaneItem = AddItem(Popup(AddLane));
 
 let socket;
 class LaneList extends React.Component {
@@ -37,13 +41,13 @@ class LaneList extends React.Component {
   render() {
     const { lanes, boardId } = this.props;
     return (
-      <div>
-        <LaneListContainer style={{ paddingBottom: "9px" }}>
+      <div className="lanes">
+        <div className="lanes__list u-margin-bottom-medium ">
           {lanes.map((lane) => (
             <Lane key={lane._id} boardId={boardId} {...lane}></Lane>
           ))}
-        </LaneListContainer>
-        <AddLane boardId={boardId} />
+        </div>
+        <AddLaneItem boardId={boardId} />
       </div>
     );
   }

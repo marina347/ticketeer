@@ -1,0 +1,14 @@
+.footer {
+  width: 100%;
+  align-self: center;
+  padding: 2rem;
+  backdrop-filter: grayscale(35%);
+  text-align: center;
+  margin-top: 5rem;
+
+  &__copyright {
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+}

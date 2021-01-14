@@ -23,8 +23,8 @@ const SignOut = ({ removeToken, token, history }) => {
   };
 
   return (
-    <FormButton type="submit" onClick={signOut}>
-      SIGN OUT
+    <FormButton className="btn btn-nav" type="submit" onClick={signOut}>
+      SIGN OUT &rarr;
     </FormButton>
   );
 };

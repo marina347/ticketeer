@@ -4,14 +4,13 @@ import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import "./sign-in.styles.scss";
+
 import { getTokenAsync } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import EnvVariables from "../../env-variables";
-import {
-  SignInContainer,
-  SignInMessage,
-  SignInWelcomeMessage,
-} from "./sign-in.styles";
+import FormButton from "../form-button/form-button.component";
+import PrimaryHeading from "../primary-heading/primary-heading.component";
 
 const SignIn = ({ getToken, history, currentUser }) => {
   const signInSuccess = (response) => {
@@ -26,18 +25,29 @@ const SignIn = ({ getToken, history, currentUser }) => {
 
   if (!currentUser) {
     return (
-      <SignInContainer className="nice-font">
-        <SignInWelcomeMessage>Welcome to Ticketeer!</SignInWelcomeMessage>
-        <SignInMessage>LOGIN WITH YOUR GOOGLE ACCOUNT</SignInMessage>
-        <GoogleLogin
-          clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
-          buttonText="Login"
-          onSuccess={signInSuccess}
-          onFailure={signInFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-        />
-      </SignInContainer>
+      <div className="sign-in">
+          <PrimaryHeading
+            mainText={"Ticketeer"}
+            subText={"Login with your google accout"}
+          />
+          <GoogleLogin
+            clientId={EnvVariables.REACT_APP_GOOGLE_AUDIENCE}
+            buttonText="Login"
+            onSuccess={signInSuccess}
+            onFailure={signInFailure}
+            cookiePolicy={"single_host_origin"}
+            isSignedIn={true}
+            render={(renderProps) => (
+              <FormButton
+                className="btn btn-main btn-main--white"
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                GOOGLE LOGIN
+              </FormButton>
+            )}
+          />
+      </div>
     );
   }
   return <Redirect to="/home" />;

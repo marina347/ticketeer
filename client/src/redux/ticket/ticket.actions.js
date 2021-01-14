@@ -3,9 +3,9 @@ import React from "react";
 
 import TicketTypes from "./ticket.types";
 import EnvVariables from "../../env-variables";
-import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
 import ErrorMessages from "../../utils/error-messages";
+import FormButton from "../../components/form-button/form-button.component";
 
 export const getTicketsStart = () => ({
   type: TicketTypes.GET_TICKETS_START,
@@ -99,7 +99,7 @@ export const updateTicketAsync = (ticket, token) => {
       dispatch(updateTicketFailure(error.message));
       toast.error(ErrorMessages.UPDATE_TICKET_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };
@@ -131,7 +131,7 @@ export const addTicketAsync = (ticket, token) => {
       dispatch(addTicketFailure(error.message));
       toast.error(ErrorMessages.ADD_TICKET_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: <FormButton className="btn btn-notification" onClick={() => dispatch(removeError())}>X</FormButton>,
       });
     }
   };

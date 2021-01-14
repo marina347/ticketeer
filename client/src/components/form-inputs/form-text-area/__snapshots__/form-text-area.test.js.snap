@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTextArea component Should render FormTextArea component 1`] = `
+<div
+  className="form-input"
+>
+  <textarea
+    additionalStylesApplied={true}
+    className="form-input__input"
+    id="form-textarea"
+    onChange={[MockFunction]}
+    placeholder="Board item"
+    required={false}
+    value="text"
+  />
+  <label
+    className="form-input__label"
+    id="form-textarea-label"
+  >
+    label
+  </label>
+</div>
+`;

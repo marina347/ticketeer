@@ -1,18 +1,20 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { AddBoard } from "./add-board-item";
+import { AddBoardItem } from "./add-board-item-form.component";
 
 describe("AddBoard component", () => {
   let wrapper;
   let mockProps;
   let addBoard;
   let event;
+  let closePopup;
   let handleSubmitSpy;
   let handleChangeSpy;
 
   beforeEach(() => {
     addBoard = jest.fn();
+    closePopup = jest.fn();
     event = {
       preventDefault: jest.fn(),
       target: {
@@ -22,23 +24,21 @@ describe("AddBoard component", () => {
     };
     mockProps = {
       addBoard,
+      closePopup,
     };
 
     //spyes will work if in class declaration you use bind in constructor. on anonymous method spyes cant work
-    handleSubmitSpy = jest.spyOn(AddBoard.prototype, "handleSubmit");
-    handleChangeSpy = jest.spyOn(AddBoard.prototype, "handleChange");
+    handleSubmitSpy = jest.spyOn(AddBoardItem.prototype, "handleSubmit");
+    handleChangeSpy = jest.spyOn(AddBoardItem.prototype, "handleChange");
 
-    wrapper = shallow(<AddBoard {...mockProps} />);
+    wrapper = shallow(<AddBoardItem {...mockProps} />);
   });
   it("Should render AddBoard component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it("Should start onSubmit method when form inside is submitted", () => {
-    wrapper
-      .find("AddBoardItemContainer")
-      .find('[id="add_board_form"]')
-      .simulate("submit", event);
+    wrapper.find('[id="add_board_form"]').simulate("submit", event);
     expect(handleSubmitSpy).toHaveBeenCalled();
     expect(addBoard).toHaveBeenCalled();
     expect(wrapper.state()).toEqual({ boardName: "", boardDescription: "" });
@@ -55,7 +55,6 @@ describe("AddBoard component", () => {
   it("Form input has a prop handleChange", () => {
     expect(
       wrapper
-        .find("AddBoardItemContainer")
         .find('[id="add_board_form"]')
         .find('[id="add_board_input"]')
         .prop("handleChange")
@@ -65,7 +64,6 @@ describe("AddBoard component", () => {
   it("Form area has a prop handleChange", () => {
     expect(
       wrapper
-        .find("AddBoardItemContainer")
         .find('[id="add_board_form"]')
         .find('[id="add_board_description"]')
         .prop("onChange")

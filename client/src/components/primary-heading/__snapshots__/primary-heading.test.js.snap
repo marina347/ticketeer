@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryHeading component Should render PrimaryHeading component 1`] = `
+<h1
+  className="primary-heading"
+>
+  <span
+    className="primary-heading__main"
+    id="primary_heading_main"
+  >
+    Main text
+  </span>
+  <span
+    className="primary-heading__sub"
+    id="primary_heading_sub"
+  >
+    Sub text
+  </span>
+</h1>
+`;

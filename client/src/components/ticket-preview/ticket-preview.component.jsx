@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Select from "react-select";
 import { withRouter } from "react-router-dom";
 
-import "./ticket-preview.styles.css";
+import "./ticket-preview.styles.scss";
 import EditableInput from "../editable-input/editable-input.component";
 import {
   selectTicketAssigners,
@@ -11,7 +11,7 @@ import {
 } from "../../redux/ticket/ticket.selectors";
 import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
 import { selectMembersOfBoard } from "../../redux/board/board.selectors";
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../form-inputs/form-input/form-input.component";
 import FormButton from "../form-button/form-button.component";
 
 class TicketPreview extends React.Component {
@@ -68,23 +68,15 @@ class TicketPreview extends React.Component {
   };
 
   render() {
-    const {
-      id,
-      updateTicket,
-      ticketItem,
-      ticketAssigners,
-      token,
-      boardMembers,
-    } = this.props;
+    const { updateTicket, ticketItem, token, boardMembers } = this.props;
     return (
-      <div className="nice-font ticket-preview-container">
+      <div className="ticket-preview">
+        <h3 className="ticket-preview__heading">Edit ticket</h3>
         <EditableInput
-          defaultViewClassName="ticket-header"
-          editViewClassName="ticket-header"
           updateTicket={updateTicket}
           ticketItem={ticketItem}
           token={token}
-          label={""}
+          label={"Name"}
           fieldName={"name"}
           fieldType={"input"}
           defaultName={ticketItem.name}
@@ -93,17 +85,14 @@ class TicketPreview extends React.Component {
           updateTicket={updateTicket}
           ticketItem={ticketItem}
           token={token}
-          label={"Description: "}
+          label={"Description"}
           fieldName={"description"}
           fieldType={"textarea"}
-          defaultViewValueClassName="ticket-description-view "
-          editViewClassName="ticket-description ticket-description-edit"
-          defaultViewInnerValueClassName="ticket-description"
           defaultName={ticketItem.description}
         />
-        Assigners:{" "}
         <Select
           isMulti
+          className="select u-border-none"
           value={this.state.selectedOptions}
           onChange={this.handleChange}
           options={boardMembers.map((member) => ({
@@ -111,25 +100,23 @@ class TicketPreview extends React.Component {
             label: member.name,
           }))}
         />
-        <form onSubmit={this.handleTagSubmit}>
+        <form className="tag-form" onSubmit={this.handleTagSubmit}>
           <FormInput
-            label=""
+            label="Tag"
             type="text"
-            containerClassName="tag-input-container"
-            className="tag-input"
             name="tag"
-            placeholder="Tag"
             value={this.state.tag}
             handleChange={this.handleTagAdd}
           />
-          <FormButton className="tag-input-button">Dodaj tag</FormButton>
+          <FormButton className="btn btn-main btn-main--gradient btn-main--small u-animation-none">
+            Add tag
+          </FormButton>
         </form>
-        Tags:
-        <div className="tag-list-container">
+        <div className="tag-list">
           {ticketItem.tags.map((item, ind) => (
-            <p className="tag-list-item" key={ind}>
+            <span className="tag-list__item" key={ind}>
               {item.tag}
-            </p>
+            </span>
           ))}
         </div>
       </div>

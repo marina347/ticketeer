@@ -3,24 +3,16 @@ import { connect } from "react-redux";
 
 import { selectBoard } from "../../redux/board/board.selectors";
 import LaneList from "../../components/lane-list/lane-list.component";
-import MemberList from "../../components/member-list/member-list.container";
-import InviteMember from "../../components/invite-member/invite-member.component";
+import BoardDetails from "../../components/board-details/board-details.component";
+import "./board.styles.scss";
 
-const BoardPage = ({ board, isLoading }) => {
+export const BoardPage = ({ board }) => {
   return (
-    <div className="nice-font">
-      <h1
-        style={{
-          margin: "30px",
-          marginLeft: "100px",
-          fontFamily: "Nunito",
-        }}
-      >
-        {board ? board.name : ""}
-      </h1>
-      <LaneList boardId={board._id} />
-      <MemberList boardId={board._id} />
-      <InviteMember boardId={board._id} />
+    <div className="board-page">
+      <div className="board-page__content">
+        <BoardDetails board={board} />
+        <LaneList boardId={board._id} />
+      </div>
     </div>
   );
 };

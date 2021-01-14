@@ -2,9 +2,9 @@ import UserTypes from "./user.types";
 import EnvVariables from "../../env-variables";
 import { toast } from "react-toastify";
 import React from "react";
-import CloseButton from "../../components/close-button/close-button.component";
 import { removeError } from "../common";
 import ErrorMessages from "../../utils/error-messages";
+import FormButton from "../../components/form-button/form-button.component";
 
 export const signIn = (currentUser) => ({
   type: UserTypes.SIGN_IN,
@@ -85,6 +85,7 @@ export const getTokenAsync = (history, tokenId) => {
           id: user.sub,
           name: user.name,
           email: user.email,
+          picture: user.picture,
         })
       );
       history.push("/home");
@@ -92,7 +93,14 @@ export const getTokenAsync = (history, tokenId) => {
       dispatch(getTokenFailure(error.message));
       toast.error(ErrorMessages.SIGN_IN_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: (
+          <FormButton
+            className="btn btn-notification"
+            onClick={() => dispatch(removeError())}
+          >
+            X
+          </FormButton>
+        ),
       });
     }
   };
@@ -110,7 +118,7 @@ export const removeTokenAsync = (token, history) => {
         },
         body: JSON.stringify({ token }),
       };
-      const response = await fetch(
+      await fetch(
         `${EnvVariables.REACT_APP_SERVER_PATH}/users/logout`,
         requestOptions
       );
@@ -120,7 +128,14 @@ export const removeTokenAsync = (token, history) => {
       dispatch(removeTokenFailure(error.message));
       toast.error(ErrorMessages.SIGN_OUT_ERROR_MESSAGE, {
         autoClose: false,
-        closeButton: <CloseButton action={() => dispatch(removeError())} />,
+        closeButton: (
+          <FormButton
+            className="btn btn-notification"
+            onClick={() => dispatch(removeError())}
+          >
+            X
+          </FormButton>
+        ),
       });
     }
   };

@@ -6,14 +6,13 @@ import {
   selectCurrentUser,
   selectToken,
 } from "../../redux/user/user.selectors";
+import { ReactComponent as TicketeerLogo } from "../../assets/svg/ticket.svg";
 
-import FormButton from "../form-button/form-button.component";
-import SignOut from "../sign-out/sign-out.component";
-
-import { HeaderContainer } from "./header.styles";
+import "./header.styles.scss";
 import { closeSocket, createSocket } from "../../utils/client-socket";
+import SideMenu from "../side-menu/side-menu.component";
 
-class HeaderComponent extends React.Component {
+export class HeaderComponent extends React.Component {
   componentDidMount() {
     createSocket(this.props.token);
   }
@@ -22,19 +21,17 @@ class HeaderComponent extends React.Component {
   }
   render() {
     const { history, currentUser } = this.props;
-    if (currentUser) {
-      return (
-        <HeaderContainer>
-          <SignOut />
-          <FormButton
-            style={{ marginRight: "10px" }}
-            onClick={() => history.push("/home")}
-          >
-            Home
-          </FormButton>
-        </HeaderContainer>
-      );
-    } else return null;
+
+    return (
+      <div id="header" className="header">
+        <div id="header_logo_box" className="header__logo-box" onClick={() => history.push("/home")}>
+          <TicketeerLogo className="header__logo" />
+        </div>
+        {currentUser ? (
+          <SideMenu id="side_menu" currentUser={currentUser} history={history} />
+        ) : null}
+      </div>
+    );
   }
 }
 

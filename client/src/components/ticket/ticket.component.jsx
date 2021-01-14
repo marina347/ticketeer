@@ -1,22 +1,13 @@
 import React from "react";
-import Modal from "react-modal";
 
 import TicketPreview from "../../components/ticket-preview/ticket-preview.component";
-import { TicketContainer } from "./ticket.styles";
-import FormButton from "../form-button/form-button.component";
+import "./ticket.styles.scss";
+import Popup from "../popup/popup.component";
+import Modal from "../modal/Modal";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+const TicketPopup = Popup(TicketPreview);
 
-Modal.setAppElement(document.getElementById("root"));
+const MAX_TICKET_DISPLAY_NAME = 85;
 
 class Ticket extends React.Component {
   state = {
@@ -33,31 +24,28 @@ class Ticket extends React.Component {
   };
 
   render() {
-    const { name, className, onDragStart, _id } = this.props;
+    const { name, onDragStart, _id, className } = this.props;
 
     return (
-      <TicketContainer
-        className={className}
-        onDragStart={onDragStart}
-        draggable
-        onClick={this.openModal}
-      >
-        <p>{name}</p>
-
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Modal"
+      <div>
+        <div
+          className={className}
+          onDragStart={onDragStart}
+          draggable
+          onClick={this.openModal}
         >
-          <TicketPreview id={_id} />
-          <br></br>
-          <FormButton style={{ fontSize: "18px" }} onClick={this.closeModal}>
-            close
-          </FormButton>
-        </Modal>
-      </TicketContainer>
+          <p>{name.length > MAX_TICKET_DISPLAY_NAME ? name.substring(0, 85) + "..." : name}</p>
+        </div>
+        {this.state.modalIsOpen ? (
+          <Modal>
+            <TicketPopup
+              id={_id}
+              popupOpened={this.state.modalIsOpen}
+              onPopupClose={this.closeModal}
+            />
+          </Modal>
+        ) : null}
+      </div>
     );
   }
 }

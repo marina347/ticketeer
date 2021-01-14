@@ -1,0 +1,41 @@
+.board-item {
+  font-size: 2.5rem;
+  background-color: var(--color-grey-light-1);
+  padding: 3rem;
+
+  // flex: 1 0 30%;
+  flex: 0 0 48%;
+
+  margin-bottom: 2rem;
+
+  transition: all 0.3s;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+  cursor: pointer;
+  color: var(--color-grey-dark-1);
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.15);
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+  }
+}

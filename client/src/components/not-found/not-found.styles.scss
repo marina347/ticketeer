@@ -1,0 +1,19 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  flex: 1 0 100%;
+  color: var(--color-white);
+  padding: 1rem;
+  &__heading {
+    font-size: 20rem;
+    letter-spacing: 0.7rem;
+  }
+  &__details {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 3rem;
+  }
+}

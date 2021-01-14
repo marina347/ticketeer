@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryHeading component Should render SecondaryHeading component 1`] = `
+<h1
+  className="secondary-heading"
+  id="secondary_heading"
+>
+  Text
+</h1>
+`;

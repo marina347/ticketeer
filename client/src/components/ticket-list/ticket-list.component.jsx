@@ -9,6 +9,7 @@ import {
   selectToken,
 } from "../../redux/user/user.selectors";
 import { getSocket } from "../../utils/client-socket";
+import "./ticket-list.styles.scss";
 
 let socket;
 
@@ -38,14 +39,18 @@ class TicketList extends React.Component {
 
   render() {
     const { tickets } = this.props;
-    return tickets.map((ticket) => (
-      <Ticket
-        onDragStart={(event) => this.onDragStart(event, ticket._id)}
-        className="draggable lane-item"
-        key={ticket._id}
-        {...ticket}
-      ></Ticket>
-    ));
+    return (
+      <div className="ticket-list">
+        {tickets.map((ticket) => (
+          <Ticket
+            onDragStart={(event) => this.onDragStart(event, ticket._id)}
+            className="ticket"
+            key={ticket._id}
+            {...ticket}
+          ></Ticket>
+        ))}
+      </div>
+    );
   }
 }
 

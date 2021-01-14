@@ -1,34 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import Tooltip from "@material-ui/core/Tooltip";
 
-import { BoardItemContainer } from "./board-item.styles";
 import { selectBoard } from "../../redux/board/board.selectors";
-
-const MAX_LENGTH = 28;
+import "./board-item.styles.scss";
 
 export const BoardItem = ({ history, match, _id, board }) => {
   return (
-    <Tooltip
-      title={
-        <div style={{ fontSize: "16px" }}>
-          <p>{board.name}</p>
-          <br />
-          <p>{board.description}</p>
-        </div>
-      }
-      placement="top"
+    <div id="board_item"
+      className="board-item"
+      onClick={() => history.push(`${match.url}/boards/${_id}`)}
     >
-      <BoardItemContainer
-        onClick={() => history.push(`${match.url}/boards/${_id}`)}
-      >
-        <p id="board_name_text">
-          {board.name.length > 20
-            ? `${board.name.substring(0, MAX_LENGTH)}...`
-            : board.name}
-        </p>
-      </BoardItemContainer>
-    </Tooltip>
+      <p id="board_item_name" className="board-item__name">
+        {board.name}
+      </p>
+      <p className="board-item__description">{board.description}</p>
+    </div>
   );
 };
 

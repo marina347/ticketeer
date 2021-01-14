@@ -1,0 +1,14 @@
+.board-item-list {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  backface-visibility: hidden;
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+}

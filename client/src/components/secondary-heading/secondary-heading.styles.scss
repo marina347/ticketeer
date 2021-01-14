@@ -1,0 +1,11 @@
+.secondary-heading {
+  text-transform: uppercase;
+  color: var(--color-white);
+  display: block;
+  font-size: 5rem;
+  letter-spacing: 1.5rem;
+  transition: all 0.2s ease-out;
+  &:hover {
+    transform: skew(2deg, 1deg);
+  }
+}

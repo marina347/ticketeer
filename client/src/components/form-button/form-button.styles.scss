@@ -1,0 +1,97 @@
+.btn {
+  display: inline-block;
+  color: var(--color-grey-dark-1);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-main {
+  box-shadow: 0 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
+  padding: 2rem 5rem;
+  font-weight: 600;
+  border-color: var(--color-grey-light-4);
+  border-radius: 50px;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  animation: moveInBottom 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.2);
+  }
+
+  &--small {
+    font-size: 1.8rem !important;
+    padding: 1rem 3rem !important;
+  }
+
+  &--white {
+    background-color: rgba(var(--rgba-color-white), 0.8);
+    span {
+      background-image: linear-gradient(
+        to right,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+
+  &--gradient {
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+    span {
+      color: var(--color-white);
+    }
+  }
+}
+
+.btn-nav {
+  margin-bottom: 0;
+  transition: all 0.2s;
+  background-color: transparent;
+  color: var(--color-grey-dark-2);
+  border-bottom: 1px solid var(--color-grey-dark-3);
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+  &:hover {
+    letter-spacing: 0.3rem;
+  }
+}
+
+.btn-notification {
+  font-size: 1rem;
+  background-color: var(--color-white);
+  padding: 0.5rem;
+  align-self: flex-start;
+}
+
+.btn-close {
+  font-size: 3rem;
+  background-color: transparent;
+  transition: all 0.2s;
+  line-height: 1;
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+  &--position-1 {
+    position: absolute;
+    top: 0.7rem;
+    right: 1.2rem;
+  }
+  &--position-2 {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+  }
+  &--position-not-absolute {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    color: white;
+  }
+}

@@ -2,14 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import "./lane.styles.css";
+import "./lane.styles.scss";
 import TicketList from "../ticket-list/ticket-list.component";
 import AddTicket from "../add-ticket/add-ticket.component";
 import { updateTicketAsync } from "../../redux/ticket/ticket.actions";
 import { selectTicketItems } from "../../redux/ticket/ticket.selectors";
 import { selectToken } from "../../redux/user/user.selectors";
-import FormButton from "../form-button/form-button.component";
 import { deleteLaneAsync } from "../../redux/lane/lane.actions";
+import FormButton from "../form-button/form-button.component";
 
 class Lane extends React.Component {
   onDragOver = (event) => {
@@ -32,16 +32,21 @@ class Lane extends React.Component {
         onDrop={(event) => {
           this.onDrop(event, dropClassName);
         }}
-        className="drag-container lane-container"
+        className="lane"
       >
-        <div className="title-button-group">
-          <h2 className="nice-font lane-header">{name}</h2>
+        <div className="lane__header">
+          <h2 className="lane-heading">{name}</h2>
+          <FormButton
+            className="btn btn-close btn-close--position-not-absolute"
+            onClick={() => deleteLane(_id, token)}
+          >
+            &times;
+          </FormButton>
         </div>
-        <TicketList boardId={boardId} laneId={_id} />
-        <AddTicket _id={_id} />
-        <FormButton isIconStyle={true} onClick={() => deleteLane(_id, token)}>
-          X
-        </FormButton>
+        <div className="lane__main">
+          <TicketList boardId={boardId} laneId={_id} />
+          <AddTicket _id={_id} />
+        </div>
       </div>
     );
   }

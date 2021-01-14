@@ -141,6 +141,7 @@ router.get("/boards/:boardId/members", auth, async (req, res) => {
           _id: memberObj._id,
           name: memberObj.name,
           email: memberObj.email,
+          picture: memberObj.picture,
         });
       })
     );

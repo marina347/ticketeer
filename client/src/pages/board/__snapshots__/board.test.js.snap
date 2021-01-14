@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board page Should render Board page 1`] = `
+<div
+  className="board-page"
+>
+  <div
+    className="board-page__content"
+  >
+    <BoardDetails
+      board={
+        Object {
+          "_id": "1",
+        }
+      }
+    />
+    <Connect(LaneList)
+      boardId="1"
+    />
+  </div>
+</div>
+`;

@@ -25,7 +25,7 @@ describe("BoardItemList component", () => {
     expect(wrapper.exists(Spinner)).toBe(true);
   });
 
-  it("Should render BoardItemList if isLoading is false", () => {
+  it("Should render board item list if isLoading is false", () => {
     const newWrapper = shallow(
       <BoardItemList
         {...{
@@ -38,7 +38,7 @@ describe("BoardItemList component", () => {
         }}
       />
     );
-    expect(newWrapper.find("BoardItemListContainer")).not.toBeNull();
+    expect(newWrapper.find('[id="board_item_list"]')).not.toBeNull();
   });
 
   test("Should fire getBoards in componentDidMount", () => {
