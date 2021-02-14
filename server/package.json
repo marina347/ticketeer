@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watchAll --runInBand --verbose --coverage",
     "development": "nodemon src/index.js",
-    "production": "node src/index.js"
+    "production": "node src/index.js",
+    "start": "node src/index.js"
   },
   "jest": {
     "testEnvironment": "node"
